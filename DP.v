@@ -18,15 +18,15 @@ module DATAPATH (opcode,op1,op2,status,result);
   //result= operand1 "operation" operand2
   always @(opcode or op1 or op2)begin
     case (opcode[3:0])
-      4'b0000: result = op1;
-      4'b0001: result = op1 + op2;
-      4'b0010: result = op1 - op2;
-      4'b0011: result = op1 * op2;
-      4'b0100: result = op1 / op2;
-      4'b0101: result = op1 % op2;
-      4'b0110: result = op1 | op2;
-      4'b0111: result = op1 & op2;
-      4'b1000: result = op1 ^ op2;
+      4'd0: result = op1;
+      4'd1: result = op1 + op2;
+      4'd2: result = op1 - op2;
+      4'd3: result = op1 * op2;
+      4'd4: result = op1 / op2;
+      4'd5: result = op1 % op2;
+      4'd6: result = op1 | op2;
+      4'd7: result = op1 & op2;
+      4'd8: result = op1 ^ op2;
     endcase
   end
 
