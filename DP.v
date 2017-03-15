@@ -7,12 +7,11 @@
 //pcControl = o que fazer com o PC
 //PC = valor do pc
 //writecode = de onde pegar o valor para escrever?
-module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC);
+module DATAPATH (clock,alucode,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC);
 
   input clock;
   input imControl;
   input [2:0] pcControl;
-  input [5:0] opcode;
   input [4:0] alucode;
   input [4:0] op1;
   input [4:0] op2;
@@ -117,12 +116,11 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
   always @(*) begin
     //Ram enable
     if(ramenable)
-
       memaddr=op2;
     //Load in Regs
     case(writecode)
       2'd0:   towrite = result;
-      2'd1:   towrite = op2;
+      2'd1:   towrite = num2;
       default: towrite = 32'hffffffff;
     endcase
   end
