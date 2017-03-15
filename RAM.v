@@ -21,7 +21,6 @@ module RAM (clock,addr,write,value,result);
 
   always @ (posedge clock)
   begin
-
     if (write) begin
       RAM[addr] = value;
     end

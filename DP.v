@@ -12,7 +12,8 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
   input clock;
   input imControl;
   input [1:0] pcControl;
-  input [3:0] opcode;
+  input [5:0] opcode;
+  input [4:0] alucode;
   input [4:0] op1;
   input [4:0] op2;
 
@@ -41,12 +42,11 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
   //opcode= the operation
   //op1= operand 1
   //op2= operand 2
-  //status= what ALU is doing
   //result= operand1 "operation" operand2
   assign num1 = regs[op1];
-  assign num2 = (imControl) ? op2 : regs[op2];
-  always @(opcode or num1 or num2)begin
-    case (opcode[3:0])
+  assign num2 = (imControl) ? op2 : regs[op2[14:19]];
+  always @(alucode or num1 or num2)begin
+    case (alucode)
       4'd0: result = op1;
       4'd1: result = op1 + op2;
       4'd2: result = op1 - op2;
@@ -71,6 +71,10 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
     //PC
     case(pcControl)
       2'd0: PC=PC+32'd1;
+      2'd1:begin
+        if(num1==num2)
+          PC=PC+op2[14:0];
+        end
     endcase
   end
 
