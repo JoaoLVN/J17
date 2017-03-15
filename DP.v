@@ -13,8 +13,8 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
   input imControl;
   input [1:0] pcControl;
   input [3:0] opcode;
-  input [31:0] op1;
-  input [31:0] op2;
+  input [4:0] op1;
+  input [4:0] op2;
 
 	output reg [31:0] PC;
 
