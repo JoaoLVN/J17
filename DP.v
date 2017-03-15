@@ -11,11 +11,13 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
 
   input clock;
   input imControl;
-  input [1:0] pcControl;
+  input [2:0] pcControl;
   input [5:0] opcode;
   input [4:0] alucode;
   input [4:0] op1;
   input [4:0] op2;
+  input regenable;
+  input [1:0] ramenable;
 
 	output reg [31:0] PC;
 
@@ -44,7 +46,8 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
   //op2= operand 2
   //result= operand1 "operation" operand2
   assign num1 = regs[op1];
-  assign num2 = (imControl) ? op2 : regs[op2[14:19]];
+  assign num2 = (imControl) ? op2 : regs[op2[20:15]];
+  assign num3 = regs[15:0];
   always @(alucode or num1 or num2)begin
     case (alucode)
       4'd0: result = op1;
@@ -70,19 +73,52 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,wr
 
     //PC
     case(pcControl)
-      2'd0: PC=PC+32'd1;
-      2'd1:begin
+      3'd0: PC=PC+32'd1;
+      3'd1:begin
         if(num1==num2)
-          PC=PC+op2[14:0];
-        end
+          PC=PC+num3;
+        else
+          PC=PC+32'd1;
+      end
+      3'd2:begin
+        if(num1<num2)
+          PC=PC+num3;
+        else
+          PC=PC+32'd1;
+      end
+      3'd3:begin
+        if(num1>num2)
+          PC=PC+num3;
+        else
+          PC=PC+32'd1;
+      end
+      3'd4:begin
+        if(num1!=num2)
+          PC=PC+num3;
+        else
+          PC=PC+32'd1;
+      end
+      3'd5:begin
+        if(num1<=num2)
+          PC=PC+num3;
+        else
+          PC=PC+32'd1;
+      end
+      3'd6:begin
+        if(num1>=num2)
+          PC=PC+num3;
+        else
+          PC=PC+32'd1;
+      end
+      3'd7:PC=PC+num3;
     endcase
   end
 
   always @(*) begin
     //Ram enable
-    if(ramenable)begin
+    if(ramenable)
+
       memaddr=op2;
-    end
     //Load in Regs
     case(writecode)
       2'd0:   towrite = result;
