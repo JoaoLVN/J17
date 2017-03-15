@@ -3,10 +3,11 @@
 //op1,op2 = operandos da instrução
 //imControl = é imediato? 1 = sim 0 = nao
 //regenable = habilitar os registradores? 1= sim 0 = nao
+//ramenable = habilitar a ram?  1= sim 0 = nao
 //pcControl = o que fazer com o PC
 //PC = valor do pc
 //writecode = de onde pegar o valor para escrever?
-module DATAPATH (clock,opcode,op1,op2,imControl,regenable,pcControl,writecode,PC);
+module DATAPATH (clock,opcode,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC);
 
   input clock;
   input imControl;
@@ -61,20 +62,28 @@ module DATAPATH (clock,opcode,op1,op2,imControl,regenable,pcControl,writecode,PC
       default: result = 32'hffffffff;
     endcase
   end
-  //PC
+
   always @(posedge clock) begin
+    //Regs
+    if(regenable)
+      regs[op1]= towrite;
+
+    //PC
     case(pcControl)
       2'd0: PC=PC+32'd1;
     endcase
   end
-  //Load in Regs
+
   always @(*) begin
-    case(muxWRITE)
-      2'd0: writecode = dd_mem_addr;
-      2'd1: writecode = Data_mem_out;
-      2'd2: writecode = immediate22;
-      2'd3: writecode = ext_Switches;
-      default: writecode = 32'hffffffff;
+    //Ram enable
+    if(ramenable)begin
+      memaddr=op2;
+    end
+    //Load in Regs
+    case(writecode)
+      2'd0:   towrite = result;
+      2'd1:   towrite = op2;
+      default: towrite = 32'hffffffff;
     endcase
   end
 
