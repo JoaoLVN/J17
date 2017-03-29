@@ -7,14 +7,14 @@
 //pcControl = o que fazer com o PC
 //PC = valor do pc
 //writecode = de onde pegar o valor para escrever?
-module DATAPATH (clock,alucode,op0,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC);
+module DATAPATH (clock,alucode,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC);
 
   input clock;
   input imControl;
   input [2:0] pcControl;
   input [4:0] alucode;
-  input [4:0] op0;
   input [4:0] op1;
+  input flag;
   input [4:0] op2;
   input regenable;
   input [1:0] ramenable;
@@ -41,27 +41,29 @@ module DATAPATH (clock,alucode,op0,op1,op2,imControl,regenable,ramenable,pcContr
 	);
 
   //Simple ALU
-  //opcode= the operation
-  //op1= operand 1
-  //op2= operand 2
+  //alucode= the operation
+  //num1= operand 1
+  //num2= operand 2
   //result= operand1 "operation" operand2
   assign num1 = regs[op1];
-  assign num2 = (imControl) ? op2 : regs[op2[20:15]];
-  assign num3 = regs[15:0];
+  reg im2 = (flag) ? memresult : op2;
+  assign num2 = (imControl) ? im2 : regs[op2[19:15]];
+  assign num3 = regs[op2[14:10]];
+  
   always @(alucode or num1 or num2)begin
     case (alucode)
-      4'd0: result = op1;
-      4'd1: result = op1 + op2;
-      4'd2: result = op1 - op2;
-      4'd3: result = op1 * op2;
-      4'd4: result = op1 / op2;
-      4'd5: result = op1 % op2;
-      4'd6: result = op1 | op2;
-      4'd7: result = op1 & op2;
-      4'd8: result = op1 ^ op2;
-      4'd9: result = ~op1;
-      4'd10:result = op1 >> 1;
-      4'd11:result = op1 << 1;
+      4'd0: result = num1;
+      4'd1: result = num1 + num2;
+      4'd2: result = num1 - num2;
+      4'd3: result = num1 * num2;
+      4'd4: result = num1 / num2;
+      4'd5: result = num1 % num2;
+      4'd6: result = num1 | num2;
+      4'd7: result = num1 & num2;
+      4'd8: result = num1 ^ num2;
+      4'd9: result = ~num1;
+      4'd10:result = num1 >> 1;
+      4'd11:result = num1 << 1;
       default: result = 32'hffffffff;
     endcase
   end
@@ -69,7 +71,7 @@ module DATAPATH (clock,alucode,op0,op1,op2,imControl,regenable,ramenable,pcContr
   always @(posedge clock) begin
     //Regs
     if(regenable)
-      regs[op0]= towrite;
+      regs[op1]= towrite;
 
     //PC
     case(pcControl)
