@@ -7,6 +7,7 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,regenable,ramena
   output [4:0] op1;
   output [24:0] op2;
   output flag;
+  output flag1;
   output reg [5:0] alucode;
   output reg imControl;
   output reg regenable;
@@ -14,7 +15,7 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,regenable,ramena
   output reg [2:0] pcControl;
 
 
-  output reg [1:0] stackSelect; // 0= nop 1= push 2=pop
+  output reg stackSelect;
 
   localparam [5:0] ADD = 6'd0,SUB=6'd1,MUL=6'd2,DIV=6'd3,
   ADDI=6'd4,SUBI=6'd5,MULI=6'd6,DIVI=6'd7,NOT=6'd8,AND=6'd9,
@@ -22,8 +23,9 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,regenable,ramena
   JE=6'd16,JB=6'd17,JA=6'd18,JNE=6'd19,JBE=6'd20,JAE=6'd21
   JZ=6'd22,JNZ=6'd23,MOV=6'd24,NOP=6'd25,HLT=6'd26;
 
-  assign op1 = instruction[25:21];
-  assign flag = instruction[20];
+  assign op1 = instruction[24:20];
+  assign flag = instruction[25];
+  assign flag1 = instruction[20];
   assign op2 = instruction[19:0];
 
   always @(*) begin
