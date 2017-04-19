@@ -1,5 +1,5 @@
 Analysis & Synthesis report for J17
-Wed Apr 19 17:01:15 2017
+Wed Apr 19 17:17:56 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 
 
@@ -48,7 +48,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Apr 19 17:01:15 2017           ;
+; Analysis & Synthesis Status     ; Successful - Wed Apr 19 17:17:56 2017           ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Standard Edition ;
 ; Revision Name                   ; J17                                             ;
 ; Top-level Entity Name           ; DP                                              ;
@@ -197,14 +197,14 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 1673        ;
+; Estimate of Logic utilization (ALMs needed) ; 1675        ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 2964        ;
-;     -- 7 input functions                    ; 53          ;
-;     -- 6 input functions                    ; 307         ;
-;     -- 5 input functions                    ; 1275        ;
-;     -- 4 input functions                    ; 995         ;
-;     -- <=3 input functions                  ; 334         ;
+; Combinational ALUT usage for logic          ; 2956        ;
+;     -- 7 input functions                    ; 51          ;
+;     -- 6 input functions                    ; 321         ;
+;     -- 5 input functions                    ; 1272        ;
+;     -- 4 input functions                    ; 970         ;
+;     -- <=3 input functions                  ; 342         ;
 ;                                             ;             ;
 ; Dedicated logic registers                   ; 256         ;
 ;                                             ;             ;
@@ -214,8 +214,8 @@ agreement for further details.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
 ; Maximum fan-out                             ; 256         ;
-; Total fan-out                               ; 15355       ;
-; Average fan-out                             ; 4.47        ;
+; Total fan-out                               ; 15338       ;
+; Average fan-out                             ; 4.48        ;
 +---------------------------------------------+-------------+
 
 
@@ -224,15 +224,15 @@ agreement for further details.
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                 ; Entity Name         ; Library Name ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |DP                                    ; 2964 (739)          ; 256 (256)                 ; 0                 ; 2          ; 105  ; 0            ; |DP                                                                                                 ; DP                  ; work         ;
-;    |lpm_divide:Div0|                   ; 1086 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_3dm:auto_generated|  ; 1086 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1086 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;             |alt_u_div_o2f:divider|    ; 1086 (1086)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
-;    |lpm_divide:Mod0|                   ; 1139 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_65m:auto_generated|  ; 1139 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m      ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1139 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;             |alt_u_div_o2f:divider|    ; 1139 (1139)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
+; |DP                                    ; 2956 (735)          ; 256 (256)                 ; 0                 ; 2          ; 105  ; 0            ; |DP                                                                                                 ; DP                  ; work         ;
+;    |lpm_divide:Div0|                   ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_3dm:auto_generated|  ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
+;          |sign_div_unsign_9nh:divider| ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;             |alt_u_div_o2f:divider|    ; 1088 (1088)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
+;    |lpm_divide:Mod0|                   ; 1133 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_65m:auto_generated|  ; 1133 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m      ; work         ;
+;          |sign_div_unsign_9nh:divider| ; 1133 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;             |alt_u_div_o2f:divider|    ; 1133 (1133)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -282,10 +282,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |DP|Selector6              ;
 ; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |DP|num1[1]                ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |DP|num2[28]               ;
-; 9:1                ; 22 bits   ; 132 LEs       ; 132 LEs              ; 0 LEs                  ; No         ; |DP|num2[15]               ;
-; 22:1               ; 30 bits   ; 420 LEs       ; 270 LEs              ; 150 LEs                ; No         ; |DP|Mux46                  ;
-; 14:1               ; 32 bits   ; 288 LEs       ; 192 LEs              ; 96 LEs                 ; No         ; |DP|Mux76                  ;
+; 9:1                ; 32 bits   ; 192 LEs       ; 192 LEs              ; 0 LEs                  ; No         ; |DP|num2[14]               ;
+; 22:1               ; 30 bits   ; 420 LEs       ; 270 LEs              ; 150 LEs                ; No         ; |DP|Mux39                  ;
+; 14:1               ; 32 bits   ; 288 LEs       ; 192 LEs              ; 96 LEs                 ; No         ; |DP|Mux65                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -343,19 +342,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; arriav_ff             ; 256                         ;
 ;     ENA               ; 224                         ;
 ;     plain             ; 32                          ;
-; arriav_lcell_comb     ; 2964                        ;
+; arriav_lcell_comb     ; 2956                        ;
 ;     arith             ; 1281                        ;
 ;         0 data inputs ; 121                         ;
 ;         2 data inputs ; 14                          ;
 ;         5 data inputs ; 1146                        ;
-;     extend            ; 53                          ;
-;         7 data inputs ; 53                          ;
-;     normal            ; 1620                        ;
-;         2 data inputs ; 54                          ;
-;         3 data inputs ; 135                         ;
-;         4 data inputs ; 995                         ;
-;         5 data inputs ; 129                         ;
-;         6 data inputs ; 307                         ;
+;     extend            ; 51                          ;
+;         7 data inputs ; 51                          ;
+;     normal            ; 1614                        ;
+;         2 data inputs ; 50                          ;
+;         3 data inputs ; 147                         ;
+;         4 data inputs ; 970                         ;
+;         5 data inputs ; 126                         ;
+;         6 data inputs ; 321                         ;
 ;     shared            ; 10                          ;
 ;         0 data inputs ; 4                           ;
 ;         3 data inputs ; 6                           ;
@@ -363,7 +362,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; boundary_port         ; 105                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 93.60                       ;
-; Average LUT depth     ; 77.81                       ;
+; Average LUT depth     ; 78.25                       ;
 +-----------------------+-----------------------------+
 
 
@@ -372,7 +371,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:08     ;
+; Top            ; 00:00:06     ;
 +----------------+--------------+
 
 
@@ -382,7 +381,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
-    Info: Processing started: Wed Apr 19 17:00:57 2017
+    Info: Processing started: Wed Apr 19 17:17:32 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off J17 -c J17
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -392,18 +391,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file /home-l
     Info (12023): Found entity 1: RAM File: /home-local/aluno/J17/RAM.v Line: 10
 Info (12127): Elaborating entity "DP" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at DP.v(139): truncated value with size 32 to match size of target (10) File: /home-local/aluno/J17/DP.v Line: 139
-Warning (10230): Verilog HDL assignment warning at DP.v(152): truncated value with size 32 to match size of target (10) File: /home-local/aluno/J17/DP.v Line: 152
+Warning (10230): Verilog HDL assignment warning at DP.v(153): truncated value with size 32 to match size of target (10) File: /home-local/aluno/J17/DP.v Line: 153
 Warning (10240): Verilog HDL Always Construct warning at DP.v(138): inferring latch(es) for variable "memaddr", which holds its previous value in one or more paths through the always construct File: /home-local/aluno/J17/DP.v Line: 138
-Info (10041): Inferred latch for "memaddr[0]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[1]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[2]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[3]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[4]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[5]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[6]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[7]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[8]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
-Info (10041): Inferred latch for "memaddr[9]" at DP.v(151) File: /home-local/aluno/J17/DP.v Line: 151
+Info (10041): Inferred latch for "memaddr[0]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[1]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[2]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[3]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[4]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[5]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[6]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[7]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[8]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
+Info (10041): Inferred latch for "memaddr[9]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
 Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM" File: /home-local/aluno/J17/DP.v Line: 43
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: /home-local/aluno/J17/DP.v Line: 65
@@ -435,15 +434,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "ramenable[0]" File: /home-local/aluno/J17/DP.v Line: 21
     Warning (15610): No output dependent on input pin "ramenable[1]" File: /home-local/aluno/J17/DP.v Line: 21
-Info (21057): Implemented 3295 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3287 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 41 input pins
     Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 3188 logic cells
+    Info (21061): Implemented 3180 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 1084 megabytes
-    Info: Processing ended: Wed Apr 19 17:01:15 2017
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:30
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 1083 megabytes
+    Info: Processing ended: Wed Apr 19 17:17:56 2017
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:33
 
 

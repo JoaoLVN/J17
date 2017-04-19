@@ -324,6 +324,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "op2[20]",
+					"strict" : false
+				},
+				{
 					"name" : "op2[2]",
 					"strict" : false
 				},
@@ -361,10 +365,6 @@
 				},
 				{
 					"name" : "op2[11]",
-					"strict" : false
-				},
-				{
-					"name" : "op2[20]",
 					"strict" : false
 				},
 				{

@@ -144,9 +144,9 @@ output reg[31:0] result;
 
     if(imControl) begin
       if(op2[20] == 1'b1)
-        num2= {11'b1, op2};
+        num2= {11'b11111111111, op2};
       else
-        num2= {11'b0, op2};
+        num2= {11'b00000000000, op2};
     end
     else begin
       if(flag1)begin
