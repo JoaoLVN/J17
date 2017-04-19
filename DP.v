@@ -141,12 +141,13 @@ output reg[31:0] result;
     end
     else
       num1=regs[op1];
+
     if(imControl) begin
       if(op2[20] == 1'b1)
         num2= {11'b1, op2};
       else
         num2= {11'b0, op2};
-      end
+    end
     else begin
       if(flag1)begin
         memaddr=regs[op2[20:18]];
@@ -155,6 +156,7 @@ output reg[31:0] result;
       else
         num2=regs[op2[19:15]];
     end
+
     //Load in Regs
     case(writecode)
       2'd0:   towrite = result;
