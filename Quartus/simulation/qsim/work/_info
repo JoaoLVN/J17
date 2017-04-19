@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 d/home-local/aluno/J17/Quartus/simulation/qsim
 vDP
-Z1 !s110 1492628499
+Z1 !s110 1492630415
 !i10b 1
-!s100 i=Wbf^2hLjG[O;?7BPWf40
-I59c7g3;4<Z[21T4cbTb>D2
+!s100 OM@TI4L30bIBmWkG=4:7`3
+IDWGB;6o<fJH6C::OVXn>A3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1492628497
+w1492630411
 8J17.vo
 FJ17.vo
 L0 32
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1492628498.000000
+!s108 1492630414.000000
 !s107 J17.vo|
 !s90 -work|work|J17.vo|
 !i113 1
@@ -37,7 +37,7 @@ R1
 IVQJoBB[N;?9HmlYn>eaD:1
 R2
 R0
-w1492628495
+w1492630409
 8Waveform.vwf.vt
 FWaveform.vwf.vt
 L0 30
@@ -45,7 +45,7 @@ R3
 r1
 !s85 0
 31
-!s108 1492628499.000000
+!s108 1492630415.000000
 !s107 Waveform.vwf.vt|
 !s90 -work|work|Waveform.vwf.vt|
 !i113 1

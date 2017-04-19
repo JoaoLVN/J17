@@ -27,7 +27,7 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,regenable,ramenable,pcCont
   reg [31:0]num1;
   reg [31:0]num2;
   //Registers
-  reg [31:0] regs [31:0];
+  reg [31:0] regs [6:0];
  //RAM
   reg [9:0] memaddr;
   reg writemem;
@@ -51,7 +51,8 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,regenable,ramenable,pcCont
   // assign num1 = (flag)? memresult : regs[op1];
   // reg im2 = (flag1) ? memresult : op2;
   // assign num2 = (imControl) ? im2 : regs[op2[19:15]];
-   assign num3 = regs[op2[18:16]];
+   wire[31:0] num3;
+   assign  num3 = regs[op2[18:16]];
 
 
 output reg[31:0] result;
@@ -142,9 +143,9 @@ output reg[31:0] result;
       num1=regs[op1];
     if(imControl) begin
       if(op2[20] == 1'b1)
-        num2= {10'b0, op2};
+        num2= {11'b1, op2};
       else
-        num2= {10'b1, op2};
+        num2= {11'b0, op2};
       end
     else begin
       if(flag1)begin
@@ -157,7 +158,7 @@ output reg[31:0] result;
     //Load in Regs
     case(writecode)
       2'd0:   towrite = result;
-      2'd1:   towrite = num2;
+      2'd1:   towrite=num2;
       default: towrite = 32'hffffffff;
     endcase
   end

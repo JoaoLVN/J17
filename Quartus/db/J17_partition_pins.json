@@ -284,15 +284,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "op2[17]",
+					"strict" : false
+				},
+				{
 					"name" : "imControl",
 					"strict" : false
 				},
 				{
 					"name" : "flag1",
-					"strict" : false
-				},
-				{
-					"name" : "op2[0]",
 					"strict" : false
 				},
 				{
@@ -304,15 +304,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "op2[17]",
-					"strict" : false
-				},
-				{
-					"name" : "op2[18]",
-					"strict" : false
-				},
-				{
-					"name" : "op2[19]",
+					"name" : "op2[0]",
 					"strict" : false
 				},
 				{
@@ -372,11 +364,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "op2[12]",
+					"name" : "op2[20]",
 					"strict" : false
 				},
 				{
-					"name" : "op2[20]",
+					"name" : "op2[12]",
 					"strict" : false
 				},
 				{
@@ -384,7 +376,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "op2[19]",
+					"strict" : false
+				},
+				{
 					"name" : "op2[14]",
+					"strict" : false
+				},
+				{
+					"name" : "op2[18]",
 					"strict" : false
 				},
 				{
@@ -404,7 +404,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "pcControl[0]",
+					"name" : "pcControl[2]",
 					"strict" : false
 				},
 				{
@@ -412,7 +412,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "pcControl[2]",
+					"name" : "pcControl[0]",
 					"strict" : false
 				}
 			]
