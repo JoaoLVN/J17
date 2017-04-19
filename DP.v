@@ -7,18 +7,19 @@
 //pcControl = o que fazer com o PC
 //PC = valor do pc
 //writecode = de onde pegar o valor para escrever?
-module DATAPATH (clock,alucode,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC);
+module DP (clock,alucode,flag,flag1,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC,result);
 
   input clock;
   input imControl;
   input [2:0] pcControl;
   input [4:0] alucode;
-  input [4:0] op1;
+  input [2:0] op1;
   input flag;
   input flag1;
-  input [4:0] op2;
+  input [20:0] op2;
   input regenable;
   input [1:0] ramenable;
+  input [1:0]writecode;
 
 	output reg [31:0] PC;
 
@@ -31,7 +32,7 @@ module DATAPATH (clock,alucode,op1,op2,imControl,regenable,ramenable,pcControl,w
   reg [9:0] memaddr;
   reg writemem;
   reg [31:0] writememdata;
-  reg [31:0] memresult;
+  wire [31:0] memresult;
 
   RAM RAM(
     .clock(clock),
@@ -46,11 +47,14 @@ module DATAPATH (clock,alucode,op1,op2,imControl,regenable,ramenable,pcControl,w
   //num1= operand 1
   //num2= operand 2
   //result= operand1 "operation" operand2
-  assign num1 = regs[op1];
-  reg im2 = (flag1) ? memresult : op2;
-  assign num2 = (imControl) ? im2 : regs[op2[19:15]];
-  assign num3 = regs[op2[14:10]];
 
+  // assign num1 = (flag)? memresult : regs[op1];
+  // reg im2 = (flag1) ? memresult : op2;
+  // assign num2 = (imControl) ? im2 : regs[op2[19:15]];
+   assign num3 = regs[op2[18:16]];
+
+
+output reg[31:0] result;
   always @(alucode or num1 or num2)begin
     case (alucode)
       4'd0: result = num1;
@@ -68,6 +72,7 @@ module DATAPATH (clock,alucode,op1,op2,imControl,regenable,ramenable,pcControl,w
       default: result = 32'hffffffff;
     endcase
   end
+  reg [31:0]towrite;
 
   always @(posedge clock) begin
     //Regs
@@ -125,10 +130,26 @@ module DATAPATH (clock,alucode,op1,op2,imControl,regenable,ramenable,pcControl,w
     PC=PC+pcjump;
   end
 
+
+
   always @(*) begin
     //Ram enable
-    if(ramenable)
-      memaddr=op2;
+    if(flag)begin
+      memaddr=regs[op1];
+      num1=memresult;
+    end
+    else
+      num1=regs[op1];
+    if(imControl)
+      num2= {10'b0, op2};
+    else begin
+      if(flag1)begin
+        memaddr=regs[op2[20:18]];
+        num2=memresult;
+      end
+      else
+        num2=regs[op2[19:15]];
+    end
     //Load in Regs
     case(writecode)
       2'd0:   towrite = result;

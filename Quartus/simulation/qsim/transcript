@@ -1,0 +1,58 @@
+# do J17.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:38 on Apr 19,2017
+# vlog -work work J17.vo 
+# -- Compiling module DP
+# 
+# Top level modules:
+# 	DP
+# End time: 16:01:39 on Apr 19,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:01:39 on Apr 19,2017
+# vlog -work work Waveform.vwf.vt 
+# -- Compiling module DP_vlg_vec_tst
+# 
+# Top level modules:
+# 	DP_vlg_vec_tst
+# End time: 16:01:39 on Apr 19,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.DP_vlg_vec_tst 
+# Start time: 16:01:39 on Apr 19,2017
+# Loading work.DP_vlg_vec_tst
+# Loading work.DP
+# Loading altera_ver.dffeas
+# Loading altera_ver.PRIM_GDFF_LOW
+# ** Warning: (vsim-3015) J17.vo(12029): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~8  File: nofile
+# ** Warning: (vsim-3015) J17.vo(12029): [PCDPC] - Port size (16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~8  File: nofile
+# ** Warning: (vsim-3015) J17.vo(12029): [PCDPC] - Port size (16) does not match connection size (19) for port 'by'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~8  File: nofile
+# ** Warning: (vsim-3015) J17.vo(12029): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~8  File: nofile
+# ** Warning: (vsim-3015) J17.vo(12029): [PCDPC] - Port size (18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~8  File: nofile
+# ** Warning: (vsim-3015) J17.vo(12029): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~8  File: nofile
+# ** Warning: (vsim-3015) <protected>(<protected>): [PCDPC] - Port size (<protected>) does not match connection size (<protected>) for <protected>.<protected>
+#    Time: 0 ps  Iteration: 0  Protected: /DP_vlg_vec_tst/i1/\Mult0~8 /<protected>/<protected> File: nofile
+# ** Warning: (vsim-3015) <protected>(<protected>): [PCDPC] - Port size (<protected>) does not match connection size (<protected>) for <protected>.<protected>
+#    Time: 0 ps  Iteration: 0  Protected: /DP_vlg_vec_tst/i1/\Mult0~8 /<protected>/<protected> File: nofile
+# ** Warning: (vsim-3015) J17.vo(17456): [PCDPC] - Port size (1) does not match connection size (26) for port 'az'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~405  File: nofile
+# ** Warning: (vsim-3015) J17.vo(17456): [PCDPC] - Port size (1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~405  File: nofile
+# ** Warning: (vsim-3015) J17.vo(17456): [PCDPC] - Port size (18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~405  File: nofile
+# ** Warning: (vsim-3015) J17.vo(17456): [PCDPC] - Port size (64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(38).
+#    Time: 0 ps  Iteration: 0  Instance: /DP_vlg_vec_tst/i1/\Mult0~405  File: nofile
+# ** Warning: Design size of 22349 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#25
+# Simulation time: 0 ps
+# ** Note: $finish    : Waveform.vwf.vt(67)
+#    Time: 1 us  Iteration: 0  Instance: /DP_vlg_vec_tst
+# End time: 16:01:45 on Apr 19,2017, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 13
