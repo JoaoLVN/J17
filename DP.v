@@ -140,8 +140,12 @@ output reg[31:0] result;
     end
     else
       num1=regs[op1];
-    if(imControl)
-      num2= {10'b0, op2};
+    if(imControl) begin
+      if(op2[20] == 1'b1)
+        num2= {10'b0, op2};
+      else
+        num2= {10'b1, op2};
+      end
     else begin
       if(flag1)begin
         memaddr=regs[op2[20:18]];
