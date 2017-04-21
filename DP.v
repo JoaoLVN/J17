@@ -10,10 +10,11 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,regenable,ramenable,pcCont
 
   input clock;
   input imControl;
-  input [2:0] pcControl;
+  input [3:0] pcControl;
   input [4:0] alucode;
   input [1:0] stackSelect;
   input [2:0] op1;
+  input flag;
   input flag;
   input flag1;
   input [20:0] op2;
@@ -91,44 +92,57 @@ output reg[31:0] result;
 
     //PC
     case(pcControl)
-      3'd0: pcjump=32'd1;
-      3'd1:begin
+      4'd0: pcjump=32'd1;
+      4'd1:begin
         if(num1==num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      3'd2:begin
+      4'd2:begin
         if(num1<num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      3'd3:begin
+      4'd3:begin
         if(num1>num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      3'd4:begin
+      4'd4:begin
         if(num1!=num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      3'd5:begin
+      4'd5:begin
         if(num1<=num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      3'd6:begin
+      4'd6:begin
         if(num1>=num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      3'd7:pcjump=num3;
+      4'd7:begin
+        if(num1!=0)
+          pcjump=num3;
+        else
+          pcjump=32'd1;
+      end
+      4'd8:begin
+        if(num1==0)
+          pcjump=num3;
+        else
+          pcjump=32'd1;
+      end
+      4'd9:pcjump=num3;
+      4'd10:pcjump=32'd0;
 
     endcase
 
