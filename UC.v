@@ -1,6 +1,6 @@
 // [[Joe - joao.euu@gmail.com]]
 
-module ControlUnit (clock,instruction,alucode,op1,op2,imControl,regenable,pcControl,flag,flag1);
+module ControlUnit (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,flag1);
   input clock;
   input [31:0] instruction;
 
@@ -10,8 +10,7 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,regenable,pcCont
   output flag1;
   output reg [5:0] alucode;
   output reg imControl;
-  output reg regenable;
-  output reg ramenable;
+  output reg writecode;
   output reg [2:0] pcControl;
 
 
@@ -33,17 +32,60 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,regenable,pcCont
       ADD:begin
         alucode=4'd1;
         imControl=1'd0;
-        regenable=1'd0;
+        writecode=1'd0;
         pcControl=1'd0;
         stackSelect=2'd0;
       end
       ADDI:begin
         alucode=4'd1;
         imControl=1'd1;
-        regenable=1'd0;
+        writecode=1'd0;
         pcControl=1'd0;
         stackSelect=2'd0;
       end
+      SUB:begin
+        alucode=4'd2;
+        imControl=1'd0;
+        writecode=1'd0;
+        pcControl=1'd0;
+        stackSelect=2'd0;
+      end
+      SUBI:begin
+        alucode=4'd2;
+        imControl=1'd1;
+        writecode=1'd0;
+        pcControl=1'd0;
+        stackSelect=2'd0;
+      end
+      MUL:begin
+        alucode=4'd3;
+        imControl=1'd0;
+        writecode=1'd0;
+        pcControl=1'd0;
+        stackSelect=2'd0;
+      end
+      MULI:begin
+        alucode=4'd3;
+        imControl=1'd1;
+        writecode=1'd0;
+        pcControl=1'd0;
+        stackSelect=2'd0;
+      end
+      DIV:begin
+        alucode=4'd4;
+        imControl=1'd0;
+        writecode=1'd0;
+        pcControl=1'd0;
+        stackSelect=2'd0;
+      end
+      DIVI:begin
+        alucode=4'd4;
+        imControl=1'd1;
+        writecode=1'd0;
+        pcControl=1'd0;
+        stackSelect=2'd0;
+      end
+
     endcase
   end
 

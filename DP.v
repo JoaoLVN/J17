@@ -2,24 +2,24 @@
 //clock= clock do processador
 //op1,op2 = operandos da instrução
 //imControl = é imediato? 1 = sim 0 = nao
-//regenable = habilitar os registradores? 1= sim 0 = nao
-//ramenable = habilitar a ram?  1= sim 0 = nao
+//writecode = 1-> pega para escrever do num2 0-> pega valor pra escrever da ALU
 //pcControl = o que fazer com o PC
 //PC = valor do pc
 //writecode = de onde pegar o valor para escrever?
-module DP (clock,alucode,flag,flag1,op1,op2,imControl,regenable,ramenable,pcControl,writecode,PC,result);
+module DP (clock,alucode,flag,flag1,op1,op2,imControl,regenable,ramenable,pcControl,writecode,stackSelect,PC,result);
 
   input clock;
   input imControl;
   input [2:0] pcControl;
   input [4:0] alucode;
+  input [1:0] stackSelect;
   input [2:0] op1;
   input flag;
   input flag1;
   input [20:0] op2;
   input regenable;
   input [1:0] ramenable;
-  input [1:0]writecode;
+  input writecode;
 
 	output reg [31:0] PC;
 
@@ -58,32 +58,36 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,regenable,ramenable,pcCont
 output reg[31:0] result;
   always @(alucode or num1 or num2)begin
     case (alucode)
-      4'd0: result = num1;
-      4'd1: result = num1 + num2;
-      4'd2: result = num1 - num2;
-      4'd3: result = num1 * num2;
-      4'd4: result = num1 / num2;
-      4'd5: result = num1 % num2;
-      4'd6: result = num1 | num2;
-      4'd7: result = num1 & num2;
-      4'd8: result = num1 ^ num2;
-      4'd9: result = ~num1;
-      4'd10:result = num1 >> 1;
-      4'd11:result = num1 << 1;
-      default: result = 32'hffffffff;
+      4'd0: result <= num1;
+      4'd1: result <= num1 + num2;
+      4'd2: result <= num1 - num2;
+      4'd3: result <= num1 * num2;
+      4'd4: result <= num1 / num2;
+      4'd5: result <= num1 % num2;
+      4'd6: result <= num1 | num2;
+      4'd7: result <= num1 & num2;
+      4'd8: result <= num1 ^ num2;
+      4'd9: result <= ~num1;
+      4'd10:result <= num1 >> 1;
+      4'd11:result <= num1 << 1;
+      default: result <= 32'hffffffff;
     endcase
   end
   reg [31:0]towrite;
-
-  always @(posedge clock) begin
-    //Regs
-    if(regenable)
-      regs[op1]= towrite;
-  end
-
-
   reg [31:0] pcjump;
+
+
+
   always @(posedge clock) begin
+    //Write on Regs
+    if(flag==0)
+      regs[op1]= towrite;
+    //Write on Ram
+    else if(flag==1)begin
+        memaddr=num1;
+        writememdata=towrite;
+        writemem=1'd1;
+    end
 
     //PC
     case(pcControl)
@@ -144,9 +148,9 @@ output reg[31:0] result;
 
     if(imControl) begin
       if(op2[20] == 1'b1)
-        num2= {11'b11111111111, op2};
+        num2<= {11'b11111111111, op2};
       else
-        num2= {11'b00000000000, op2};
+        num2<= {11'b00000000000, op2};
     end
     else begin
       if(flag1)begin
@@ -159,9 +163,9 @@ output reg[31:0] result;
 
     //Load in Regs
     case(writecode)
-      2'd0:   towrite = result;
-      2'd1:   towrite=num2;
-      default: towrite = 32'hffffffff;
+      1'd0:   towrite <= result;
+      1'd1:   towrite <=num2;
+      default: towrite <= 32'hffffffff;
     endcase
   end
 
