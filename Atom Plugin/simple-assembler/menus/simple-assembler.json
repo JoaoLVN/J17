@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle simple-assembler",
+        "command": "simple-assembler:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "simple-assembler",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "simple-assembler:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
