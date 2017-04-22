@@ -19,293 +19,42 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "04/19/2017 17:20:45"
+// Generated on "04/22/2017 01:57:59"
                                                                                 
-// Verilog Test Bench (with test vectors) for design :                          DP
+// Verilog Test Bench (with test vectors) for design :                          J17
 // 
 // Simulation tool : 3rd Party
 // 
 
 `timescale 1 ps/ 1 ps
-module DP_vlg_vec_tst();
+module J17_vlg_vec_tst();
 // constants                                           
 // general purpose registers
-reg [4:0] alucode;
-reg clock;
-reg flag;
-reg flag1;
-reg imControl;
-reg [2:0] op1;
-reg [20:0] op2;
-reg [2:0] pcControl;
-reg [1:0] ramenable;
-reg regenable;
-reg [1:0] writecode;
+reg clk;
 // wires                                               
-wire [31:0] PC;
+wire [31:0] instruct;
+wire [31:0] progcount;
 wire [31:0] result;
 
 // assign statements (if any)                          
-DP i1 (
+J17 i1 (
 // port map - connection between master ports and signals/registers   
-	.PC(PC),
-	.alucode(alucode),
-	.clock(clock),
-	.flag(flag),
-	.flag1(flag1),
-	.imControl(imControl),
-	.op1(op1),
-	.op2(op2),
-	.pcControl(pcControl),
-	.ramenable(ramenable),
-	.regenable(regenable),
-	.result(result),
-	.writecode(writecode)
+	.clk(clk),
+	.instruct(instruct),
+	.progcount(progcount),
+	.result(result)
 );
 initial 
 begin 
 #1000000 $finish;
 end 
-// alucode[ 4 ]
-initial
-begin
-	alucode[4] = 1'b0;
-end 
-// alucode[ 3 ]
-initial
-begin
-	alucode[3] = 1'b0;
-end 
-// alucode[ 2 ]
-initial
-begin
-	alucode[2] = 1'b0;
-end 
-// alucode[ 1 ]
-initial
-begin
-	alucode[1] = 1'b0;
-end 
-// alucode[ 0 ]
-initial
-begin
-	alucode[0] = 1'b0;
-	alucode[0] = #280000 1'b1;
-	alucode[0] = #180000 1'b0;
-end 
 
-// clock
+// clk
 always
 begin
-	clock = 1'b0;
-	clock = #100000 1'b1;
-	#100000;
-end 
-
-// flag
-initial
-begin
-	flag = 1'b0;
-end 
-
-// flag1
-initial
-begin
-	flag1 = 1'b0;
-end 
-
-// imControl
-initial
-begin
-	imControl = 1'b1;
-	imControl = #460000 1'b0;
-end 
-// op1[ 2 ]
-initial
-begin
-	op1[2] = 1'b0;
-end 
-// op1[ 1 ]
-initial
-begin
-	op1[1] = 1'b0;
-end 
-// op1[ 0 ]
-initial
-begin
-	op1[0] = 1'b1;
-	op1[0] = #240000 1'b0;
-	op1[0] = #40000 1'b1;
-	op1[0] = #180000 1'b0;
-end 
-// op2[ 20 ]
-initial
-begin
-	op2[20] = 1'b1;
-	op2[20] = #240000 1'b0;
-end 
-// op2[ 19 ]
-initial
-begin
-	op2[19] = 1'b1;
-	op2[19] = #240000 1'b0;
-end 
-// op2[ 18 ]
-initial
-begin
-	op2[18] = 1'b1;
-	op2[18] = #240000 1'b0;
-end 
-// op2[ 17 ]
-initial
-begin
-	op2[17] = 1'b1;
-	op2[17] = #240000 1'b0;
-end 
-// op2[ 16 ]
-initial
-begin
-	op2[16] = 1'b1;
-	op2[16] = #240000 1'b0;
-end 
-// op2[ 15 ]
-initial
-begin
-	op2[15] = 1'b1;
-	op2[15] = #240000 1'b0;
-end 
-// op2[ 14 ]
-initial
-begin
-	op2[14] = 1'b1;
-	op2[14] = #240000 1'b0;
-end 
-// op2[ 13 ]
-initial
-begin
-	op2[13] = 1'b1;
-	op2[13] = #240000 1'b0;
-end 
-// op2[ 12 ]
-initial
-begin
-	op2[12] = 1'b1;
-	op2[12] = #240000 1'b0;
-end 
-// op2[ 11 ]
-initial
-begin
-	op2[11] = 1'b1;
-	op2[11] = #240000 1'b0;
-end 
-// op2[ 10 ]
-initial
-begin
-	op2[10] = 1'b1;
-	op2[10] = #240000 1'b0;
-end 
-// op2[ 9 ]
-initial
-begin
-	op2[9] = 1'b1;
-	op2[9] = #240000 1'b0;
-end 
-// op2[ 8 ]
-initial
-begin
-	op2[8] = 1'b1;
-	op2[8] = #240000 1'b0;
-end 
-// op2[ 7 ]
-initial
-begin
-	op2[7] = 1'b1;
-	op2[7] = #240000 1'b0;
-end 
-// op2[ 6 ]
-initial
-begin
-	op2[6] = 1'b1;
-	op2[6] = #240000 1'b0;
-end 
-// op2[ 5 ]
-initial
-begin
-	op2[5] = 1'b1;
-	op2[5] = #240000 1'b0;
-end 
-// op2[ 4 ]
-initial
-begin
-	op2[4] = 1'b1;
-	op2[4] = #240000 1'b0;
-end 
-// op2[ 3 ]
-initial
-begin
-	op2[3] = 1'b1;
-	op2[3] = #240000 1'b0;
-end 
-// op2[ 2 ]
-initial
-begin
-	op2[2] = 1'b0;
-end 
-// op2[ 1 ]
-initial
-begin
-	op2[1] = 1'b0;
-	op2[1] = #280000 1'b1;
-	op2[1] = #180000 1'b0;
-end 
-// op2[ 0 ]
-initial
-begin
-	op2[0] = 1'b1;
-	op2[0] = #240000 1'b0;
-end 
-// pcControl[ 2 ]
-initial
-begin
-	pcControl[2] = 1'b0;
-end 
-// pcControl[ 1 ]
-initial
-begin
-	pcControl[1] = 1'b0;
-end 
-// pcControl[ 0 ]
-initial
-begin
-	pcControl[0] = 1'b0;
-end 
-// ramenable[ 1 ]
-initial
-begin
-	ramenable[1] = 1'b0;
-end 
-// ramenable[ 0 ]
-initial
-begin
-	ramenable[0] = 1'b0;
-end 
-
-// regenable
-initial
-begin
-	regenable = 1'b1;
-	regenable = #240000 1'b0;
-end 
-// writecode[ 1 ]
-initial
-begin
-	writecode[1] = 1'b0;
-end 
-// writecode[ 0 ]
-initial
-begin
-	writecode[0] = 1'b1;
-	writecode[0] = #240000 1'b0;
+	clk = 1'b0;
+	clk = #50000 1'b1;
+	#50000;
 end 
 endmodule
 

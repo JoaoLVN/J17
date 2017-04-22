@@ -1,6 +1,6 @@
 Analysis & Synthesis report for J17
-Wed Apr 19 17:17:56 2017
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+Sat Apr 22 13:18:14 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
 ---------------------
@@ -14,14 +14,24 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated
+ 16. Parameter Settings for Inferred Entity Instance: DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0
+ 17. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_mult:Mult0
+ 19. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Mod0
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. lpm_mult Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "DP:DataPath"
+ 23. Port Connectivity Checks: "UC:ControlUnit"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
 
 
 
@@ -45,114 +55,110 @@ agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Apr 19 17:17:56 2017           ;
-; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Standard Edition ;
-; Revision Name                   ; J17                                             ;
-; Top-level Entity Name           ; DP                                              ;
-; Family                          ; Cyclone V                                       ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 256                                             ;
-; Total pins                      ; 105                                             ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0                                               ;
-; Total DSP Blocks                ; 2                                               ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 0                                               ;
-; Total DLLs                      ; 0                                               ;
-+---------------------------------+-------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Apr 22 13:18:14 2017       ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; J17                                         ;
+; Top-level Entity Name              ; J17                                         ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 2,748                                       ;
+;     Total combinational functions  ; 2,748                                       ;
+;     Dedicated logic registers      ; 160                                         ;
+; Total registers                    ; 160                                         ;
+; Total pins                         ; 126                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 6                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                          ; Setting            ; Default Value      ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; DP                 ; J17                ;
-; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
-; Use smart compilation                                                           ; Off                ; Off                ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
-; Enable compact report table                                                     ; Off                ; Off                ;
-; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
-; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
-; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
-; Preserve fewer node names                                                       ; On                 ; On                 ;
-; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
-; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                        ; Auto               ; Auto               ;
-; Safe State Machine                                                              ; Off                ; Off                ;
-; Extract Verilog State Machines                                                  ; On                 ; On                 ;
-; Extract VHDL State Machines                                                     ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
-; Parallel Synthesis                                                              ; On                 ; On                 ;
-; DSP Block Balancing                                                             ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                              ; On                 ; On                 ;
-; Power-Up Don't Care                                                             ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
-; Remove Duplicate Registers                                                      ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
-; Optimization Technique                                                          ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                              ; 70                 ; 70                 ;
-; Auto Carry Chains                                                               ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
-; Auto ROM Replacement                                                            ; On                 ; On                 ;
-; Auto RAM Replacement                                                            ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
-; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
-; Strict RAM Replacement                                                          ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                           ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
-; Report Parameter Settings                                                       ; On                 ; On                 ;
-; Report Source Assignments                                                       ; On                 ; On                 ;
-; Report Connectivity Checks                                                      ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
-; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
-; HDL message level                                                               ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
-; Clock MUX Protection                                                            ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
-; Block Design Naming                                                             ; Auto               ; Auto               ;
-; SDC constraint protection                                                       ; Off                ; Off                ;
-; Synthesis Effort                                                                ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
-; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
-; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; J17                ; J17                ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
 
 
 +------------------------------------------+
@@ -161,103 +167,359 @@ agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; ../DP.v                          ; yes             ; User Verilog HDL File        ; /home-local/aluno/J17/DP.v                                              ;         ;
-; ../RAM.v                         ; yes             ; User Verilog HDL File        ; /home-local/aluno/J17/RAM.v                                             ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA/16.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; /opt/intelFPGA/16.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /opt/intelFPGA/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
-; aglobal161.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA/16.1/quartus/libraries/megafunctions/aglobal161.inc      ;         ;
-; db/lpm_divide_3dm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/J17/Quartus/db/lpm_divide_3dm.tdf                     ;         ;
-; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/J17/Quartus/db/sign_div_unsign_9nh.tdf                ;         ;
-; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/J17/Quartus/db/alt_u_div_o2f.tdf                      ;         ;
-; db/lpm_divide_65m.tdf            ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/J17/Quartus/db/lpm_divide_65m.tdf                     ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
+; ../program.mif                   ; yes             ; User Memory Initialization File  ; D:/Processor/J17/program.mif                                                 ;         ;
+; ../UC.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/UC.v                                                        ;         ;
+; ../J17.v                         ; yes             ; User Verilog HDL File            ; D:/Processor/J17/J17.v                                                       ;         ;
+; ../IF.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/IF.v                                                        ;         ;
+; ../DP.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/DP.v                                                        ;         ;
+; ../RAM.v                         ; yes             ; User Verilog HDL File            ; D:/Processor/J17/RAM.v                                                       ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_4e31.tdf           ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf                              ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_hkm.tdf            ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/lpm_divide_hkm.tdf                               ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/sign_div_unsign_9nh.tdf                          ;         ;
+; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/alt_u_div_6af.tdf                                ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/add_sub_7pc.tdf                                  ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/add_sub_8pc.tdf                                  ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
+; multcore.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.inc          ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/bypassff.inc          ;         ;
+; altshift.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.inc          ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/mult_7dt.tdf                                     ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/lpm_divide_kcm.tdf                               ;         ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 1675        ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 2956        ;
-;     -- 7 input functions                    ; 51          ;
-;     -- 6 input functions                    ; 321         ;
-;     -- 5 input functions                    ; 1272        ;
-;     -- 4 input functions                    ; 970         ;
-;     -- <=3 input functions                  ; 342         ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 256         ;
-;                                             ;             ;
-; I/O pins                                    ; 105         ;
-;                                             ;             ;
-; Total DSP Blocks                            ; 2           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 256         ;
-; Total fan-out                               ; 15338       ;
-; Average fan-out                             ; 4.48        ;
-+---------------------------------------------+-------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 2,748     ;
+;                                             ;           ;
+; Total combinational functions               ; 2748      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1347      ;
+;     -- 3 input functions                    ; 1294      ;
+;     -- <=2 input functions                  ; 107       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1609      ;
+;     -- arithmetic mode                      ; 1139      ;
+;                                             ;           ;
+; Total registers                             ; 160       ;
+;     -- Dedicated logic registers            ; 160       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 126       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 6         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 160       ;
+; Total fan-out                               ; 10032     ;
+; Average fan-out                             ; 3.17      ;
++---------------------------------------------+-----------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
-+----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                 ; Entity Name         ; Library Name ;
-+----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |DP                                    ; 2956 (735)          ; 256 (256)                 ; 0                 ; 2          ; 105  ; 0            ; |DP                                                                                                 ; DP                  ; work         ;
-;    |lpm_divide:Div0|                   ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_3dm:auto_generated|  ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;             |alt_u_div_o2f:divider|    ; 1088 (1088)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
-;    |lpm_divide:Mod0|                   ; 1133 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_65m:auto_generated|  ; 1133 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m      ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1133 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;             |alt_u_div_o2f:divider|    ; 1133 (1133)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DP|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
-+----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                          ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |J17                                      ; 2748 (0)            ; 160 (0)                   ; 0           ; 6            ; 0       ; 3         ; 126  ; 0            ; |J17                                                                                                             ; J17                 ; work         ;
+;    |DP:DataPath|                          ; 2737 (550)          ; 160 (160)                 ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |J17|DP:DataPath                                                                                                 ; DP                  ; work         ;
+;       |lpm_divide:Div0|                   ; 1048 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_hkm:auto_generated|  ; 1048 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                   ; lpm_divide_hkm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1048 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|    ; 1048 (1048)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
+;       |lpm_divide:Mod0|                   ; 1111 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|  ; 1111 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1111 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|    ; 1111 (1111)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
+;       |lpm_mult:Mult0|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |J17|DP:DataPath|lpm_mult:Mult0                                                                                  ; lpm_mult            ; work         ;
+;          |mult_7dt:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |J17|DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated                                                          ; mult_7dt            ; work         ;
+;    |IF:InstructionFetch|                  ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|IF:InstructionFetch                                                                                         ; IF                  ; work         ;
+;    |UC:ControlUnit|                       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|UC:ControlUnit                                                                                              ; UC                  ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary  ;
-+---------------------------------+-------------+
-; Statistic                       ; Number Used ;
-+---------------------------------+-------------+
-; Two Independent 18x18           ; 1           ;
-; Sum of two 18x18                ; 1           ;
-; Total number of DSP blocks      ; 2           ;
-;                                 ;             ;
-; Fixed Point Unsigned Multiplier ; 3           ;
-+---------------------------------+-------------+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 3           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 6           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 3           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; RAM:RAM|lastaddr[0..4]                ; Lost fanout        ;
-; Total Number of Removed Registers = 5 ;                    ;
-+---------------------------------------+--------------------+
++-------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                   ;
++-----------------------------------------------------+------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal    ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------+------------------------+
+; UC:ControlUnit|alucode[0]                           ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|alucode[1]                           ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|alucode[2]                           ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|alucode[3]                           ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|imControl                            ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|writecode                            ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|pcControl[0]                         ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|pcControl[1]                         ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|pcControl[2]                         ; UC:ControlUnit|WideOr1 ; yes                    ;
+; UC:ControlUnit|pcControl[3]                         ; UC:ControlUnit|WideOr1 ; yes                    ;
+; Number of user-specified and inferred latches = 10  ;                        ;                        ;
++-----------------------------------------------------+------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; DP:DataPath|writememdata[0..31]         ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|writemem                    ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][0]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][0]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][0]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][0]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][1]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][1]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][1]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][1]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][2]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][2]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][2]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][2]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][3]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][3]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][3]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][3]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][4]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][4]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][4]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][4]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][5]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][5]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][5]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][5]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][6]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][6]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][6]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][6]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][7]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][7]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][7]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][7]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][8]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][8]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][8]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][8]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][9]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[5][9]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[4][9]                  ; Lost fanout                                 ;
+; DP:DataPath|regs[3][9]                  ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][10]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][10]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][10]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][10]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][11]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][11]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][11]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][11]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][12]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][12]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][12]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][12]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][13]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][13]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][13]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][13]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][14]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][14]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][14]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][14]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][15]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][15]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][15]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][15]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][16]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][16]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][16]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][16]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][17]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][17]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][17]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][17]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][18]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][18]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][18]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][18]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][19]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][19]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][19]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][19]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][20]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][20]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][20]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][20]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][21]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][21]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][21]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][21]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][22]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][22]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][22]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][22]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][23]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][23]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][23]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][23]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][24]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][24]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][24]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][24]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][25]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][25]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][25]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][25]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][26]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][26]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][26]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][26]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][27]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][27]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][27]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][27]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][28]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][28]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][28]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][28]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][29]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][29]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][29]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][29]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][30]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][30]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][30]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][30]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][31]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[5][31]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[4][31]                 ; Lost fanout                                 ;
+; DP:DataPath|regs[3][31]                 ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|memaddr[0..4]               ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 166 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                               ;
++------------------------------+--------------------------------+---------------------------------------------------------------------------+
+; Register name                ; Reason for Removal             ; Registers Removed due to This Register                                    ;
++------------------------------+--------------------------------+---------------------------------------------------------------------------+
+; DP:DataPath|writememdata[0]  ; Stuck at GND                   ; DP:DataPath|regs[6][0], DP:DataPath|regs[5][0], DP:DataPath|regs[4][0]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[1]  ; Stuck at GND                   ; DP:DataPath|regs[6][1], DP:DataPath|regs[5][1], DP:DataPath|regs[4][1]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[2]  ; Stuck at GND                   ; DP:DataPath|regs[6][2], DP:DataPath|regs[5][2], DP:DataPath|regs[4][2]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[3]  ; Stuck at GND                   ; DP:DataPath|regs[6][3], DP:DataPath|regs[5][3], DP:DataPath|regs[4][3]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[4]  ; Stuck at GND                   ; DP:DataPath|regs[6][4], DP:DataPath|regs[5][4], DP:DataPath|regs[4][4]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[5]  ; Stuck at GND                   ; DP:DataPath|regs[6][5], DP:DataPath|regs[5][5], DP:DataPath|regs[4][5]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[6]  ; Stuck at GND                   ; DP:DataPath|regs[6][6], DP:DataPath|regs[5][6], DP:DataPath|regs[4][6]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[7]  ; Stuck at GND                   ; DP:DataPath|regs[6][7], DP:DataPath|regs[5][7], DP:DataPath|regs[4][7]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[8]  ; Stuck at GND                   ; DP:DataPath|regs[6][8], DP:DataPath|regs[5][8], DP:DataPath|regs[4][8]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[9]  ; Stuck at GND                   ; DP:DataPath|regs[6][9], DP:DataPath|regs[5][9], DP:DataPath|regs[4][9]    ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[10] ; Stuck at GND                   ; DP:DataPath|regs[6][10], DP:DataPath|regs[5][10], DP:DataPath|regs[4][10] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[11] ; Stuck at GND                   ; DP:DataPath|regs[6][11], DP:DataPath|regs[5][11], DP:DataPath|regs[4][11] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[12] ; Stuck at GND                   ; DP:DataPath|regs[6][12], DP:DataPath|regs[5][12], DP:DataPath|regs[4][12] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[13] ; Stuck at GND                   ; DP:DataPath|regs[6][13], DP:DataPath|regs[5][13], DP:DataPath|regs[4][13] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[14] ; Stuck at GND                   ; DP:DataPath|regs[6][14], DP:DataPath|regs[5][14], DP:DataPath|regs[4][14] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[15] ; Stuck at GND                   ; DP:DataPath|regs[6][15], DP:DataPath|regs[5][15], DP:DataPath|regs[4][15] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[16] ; Stuck at GND                   ; DP:DataPath|regs[6][16], DP:DataPath|regs[5][16], DP:DataPath|regs[4][16] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[17] ; Stuck at GND                   ; DP:DataPath|regs[6][17], DP:DataPath|regs[5][17], DP:DataPath|regs[4][17] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[18] ; Stuck at GND                   ; DP:DataPath|regs[6][18], DP:DataPath|regs[5][18], DP:DataPath|regs[4][18] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[19] ; Stuck at GND                   ; DP:DataPath|regs[6][19], DP:DataPath|regs[5][19], DP:DataPath|regs[4][19] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[20] ; Stuck at GND                   ; DP:DataPath|regs[6][20], DP:DataPath|regs[5][20], DP:DataPath|regs[4][20] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[21] ; Stuck at GND                   ; DP:DataPath|regs[6][21], DP:DataPath|regs[5][21], DP:DataPath|regs[4][21] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[22] ; Stuck at GND                   ; DP:DataPath|regs[6][22], DP:DataPath|regs[5][22], DP:DataPath|regs[4][22] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[23] ; Stuck at GND                   ; DP:DataPath|regs[6][23], DP:DataPath|regs[5][23], DP:DataPath|regs[4][23] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[24] ; Stuck at GND                   ; DP:DataPath|regs[6][24], DP:DataPath|regs[5][24], DP:DataPath|regs[4][24] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[25] ; Stuck at GND                   ; DP:DataPath|regs[6][25], DP:DataPath|regs[5][25], DP:DataPath|regs[4][25] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[26] ; Stuck at GND                   ; DP:DataPath|regs[6][26], DP:DataPath|regs[5][26], DP:DataPath|regs[4][26] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[27] ; Stuck at GND                   ; DP:DataPath|regs[6][27], DP:DataPath|regs[5][27], DP:DataPath|regs[4][27] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[28] ; Stuck at GND                   ; DP:DataPath|regs[6][28], DP:DataPath|regs[5][28], DP:DataPath|regs[4][28] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[29] ; Stuck at GND                   ; DP:DataPath|regs[6][29], DP:DataPath|regs[5][29], DP:DataPath|regs[4][29] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[30] ; Stuck at GND                   ; DP:DataPath|regs[6][30], DP:DataPath|regs[5][30], DP:DataPath|regs[4][30] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
+; DP:DataPath|writememdata[31] ; Stuck at GND                   ; DP:DataPath|regs[6][31], DP:DataPath|regs[5][31], DP:DataPath|regs[4][31] ;
+;                              ; due to stuck port clock_enable ;                                                                           ;
++------------------------------+--------------------------------+---------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -265,14 +527,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 256   ;
+; Total registers                              ; 160   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 224   ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                              ;
++------------------------------------+-------------------------------+------+
+; Register Name                      ; Megafunction                  ; Type ;
++------------------------------------+-------------------------------+------+
+; DP:DataPath|RAM:RAM|lastaddr[0..4] ; DP:DataPath|RAM:RAM|RAM_rtl_0 ; RAM  ;
++------------------------------------+-------------------------------+------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------+
@@ -280,58 +551,220 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |DP|Selector6              ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |DP|num1[1]                ;
-; 9:1                ; 32 bits   ; 192 LEs       ; 192 LEs              ; 0 LEs                  ; No         ; |DP|num2[14]               ;
-; 22:1               ; 30 bits   ; 420 LEs       ; 270 LEs              ; 150 LEs                ; No         ; |DP|Mux39                  ;
-; 14:1               ; 32 bits   ; 288 LEs       ; 192 LEs              ; 96 LEs                 ; No         ; |DP|Mux65                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |J17|DP:DataPath|Mux56     ;
+; 14:1               ; 30 bits   ; 270 LEs       ; 240 LEs              ; 30 LEs                 ; No         ; |J17|DP:DataPath|Mux133    ;
+; 20:1               ; 32 bits   ; 416 LEs       ; 160 LEs              ; 256 LEs                ; No         ; |J17|DP:DataPath|Mux196    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_3dm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++------------------------------------------------------------------------------------------------+
+; Source assignments for DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------+
+; Assignment                      ; Value              ; From ; To                               ;
++---------------------------------+--------------------+------+----------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                ;
++---------------------------------+--------------------+------+----------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0 ;
++------------------------------------+----------------------+-------------------------------+
+; Parameter Name                     ; Value                ; Type                          ;
++------------------------------------+----------------------+-------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                       ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                       ;
+; WIDTH_A                            ; 32                   ; Untyped                       ;
+; WIDTHAD_A                          ; 5                    ; Untyped                       ;
+; NUMWORDS_A                         ; 32                   ; Untyped                       ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WIDTH_B                            ; 1                    ; Untyped                       ;
+; WIDTHAD_B                          ; 1                    ; Untyped                       ;
+; NUMWORDS_B                         ; 1                    ; Untyped                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                       ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; INIT_FILE                          ; UNUSED               ; Untyped                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                       ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                       ;
+; CBXI_PARAMETER                     ; altsyncram_4e31      ; Untyped                       ;
++------------------------------------+----------------------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_65m ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                            ;
+; LPM_WIDTHD             ; 32             ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_mult:Mult0         ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                            ;
+; LPM_WIDTHD             ; 32             ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                     ;
++-------------------------------------------+------------------------------------------+
+; Name                                      ; Value                                    ;
++-------------------------------------------+------------------------------------------+
+; Number of entity instances                ; 1                                        ;
+; Entity Instance                           ; DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                              ;
+;     -- WIDTH_A                            ; 32                                       ;
+;     -- NUMWORDS_A                         ; 32                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                             ;
+;     -- WIDTH_B                            ; 1                                        ;
+;     -- NUMWORDS_B                         ; 1                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                ;
++-------------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                     ;
++---------------------------------------+----------------------------+
+; Name                                  ; Value                      ;
++---------------------------------------+----------------------------+
+; Number of entity instances            ; 1                          ;
+; Entity Instance                       ; DP:DataPath|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                         ;
+;     -- LPM_WIDTHB                     ; 32                         ;
+;     -- LPM_WIDTHP                     ; 64                         ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                         ;
+;     -- USE_EAB                        ; OFF                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                         ;
++---------------------------------------+----------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DP:DataPath"                                                                                                                                      ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                         ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; alucode ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "alucode[4..4]" will be connected to GND. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UC:ControlUnit"                                                                                                                   ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                    ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; alucode     ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (4 bits) it drives; bit(s) "alucode[5..4]" have no fanouts ;
+; stackSelect ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                        ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -339,30 +772,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 256                         ;
-;     ENA               ; 224                         ;
-;     plain             ; 32                          ;
-; arriav_lcell_comb     ; 2956                        ;
-;     arith             ; 1281                        ;
-;         0 data inputs ; 121                         ;
-;         2 data inputs ; 14                          ;
-;         5 data inputs ; 1146                        ;
-;     extend            ; 51                          ;
-;         7 data inputs ; 51                          ;
-;     normal            ; 1614                        ;
-;         2 data inputs ; 50                          ;
-;         3 data inputs ; 147                         ;
-;         4 data inputs ; 970                         ;
-;         5 data inputs ; 126                         ;
-;         6 data inputs ; 321                         ;
-;     shared            ; 10                          ;
-;         0 data inputs ; 4                           ;
-;         3 data inputs ; 6                           ;
-; arriav_mac            ; 2                           ;
-; boundary_port         ; 105                         ;
+; boundary_port         ; 126                         ;
+; cycloneiii_ff         ; 160                         ;
+;     plain             ; 160                         ;
+; cycloneiii_lcell_comb ; 2752                        ;
+;     arith             ; 1139                        ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 1138                        ;
+;     normal            ; 1613                        ;
+;         0 data inputs ; 61                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 46                          ;
+;         3 data inputs ; 156                         ;
+;         4 data inputs ; 1347                        ;
+; cycloneiii_mac_mult   ; 3                           ;
+; cycloneiii_mac_out    ; 3                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 93.60                       ;
-; Average LUT depth     ; 78.25                       ;
+; Max LUT depth         ; 129.50                      ;
+; Average LUT depth     ; 108.69                      ;
 +-----------------------+-----------------------------+
 
 
@@ -371,7 +798,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -380,69 +807,210 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
-    Info: Processing started: Wed Apr 19 17:17:32 2017
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Sat Apr 22 13:17:52 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off J17 -c J17
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /home-local/aluno/J17/DP.v
-    Info (12023): Found entity 1: DP File: /home-local/aluno/J17/DP.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file /home-local/aluno/J17/RAM.v
-    Info (12023): Found entity 1: RAM File: /home-local/aluno/J17/RAM.v Line: 10
-Info (12127): Elaborating entity "DP" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at DP.v(139): truncated value with size 32 to match size of target (10) File: /home-local/aluno/J17/DP.v Line: 139
-Warning (10230): Verilog HDL assignment warning at DP.v(153): truncated value with size 32 to match size of target (10) File: /home-local/aluno/J17/DP.v Line: 153
-Warning (10240): Verilog HDL Always Construct warning at DP.v(138): inferring latch(es) for variable "memaddr", which holds its previous value in one or more paths through the always construct File: /home-local/aluno/J17/DP.v Line: 138
-Info (10041): Inferred latch for "memaddr[0]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[1]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[2]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[3]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[4]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[5]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[6]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[7]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[8]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (10041): Inferred latch for "memaddr[9]" at DP.v(152) File: /home-local/aluno/J17/DP.v Line: 152
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM" File: /home-local/aluno/J17/DP.v Line: 43
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: /home-local/aluno/J17/DP.v Line: 65
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home-local/aluno/J17/DP.v Line: 66
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: /home-local/aluno/J17/DP.v Line: 65
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: /home-local/aluno/J17/DP.v Line: 65
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/uc.v
+    Info (12023): Found entity 1: UC File: D:/Processor/J17/UC.v Line: 3
+Warning (10275): Verilog HDL Module Instantiation warning at J17.v(44): ignored dangling comma in List of Port Connections File: D:/Processor/J17/J17.v Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/j17.v
+    Info (12023): Found entity 1: J17 File: D:/Processor/J17/J17.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/if.v
+    Info (12023): Found entity 1: IF File: D:/Processor/J17/IF.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/dp.v
+    Info (12023): Found entity 1: DP File: D:/Processor/J17/DP.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/ram.v
+    Info (12023): Found entity 1: RAM File: D:/Processor/J17/RAM.v Line: 10
+Info (12127): Elaborating entity "J17" for the top level hierarchy
+Info (12128): Elaborating entity "IF" for hierarchy "IF:InstructionFetch" File: D:/Processor/J17/J17.v Line: 30
+Warning (10030): Net "list.data_a" at IF.v(15) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/IF.v Line: 15
+Warning (10030): Net "list.waddr_a" at IF.v(15) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/IF.v Line: 15
+Warning (10030): Net "list.we_a" at IF.v(15) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/IF.v Line: 15
+Info (12128): Elaborating entity "UC" for hierarchy "UC:ControlUnit" File: D:/Processor/J17/J17.v Line: 44
+Warning (10270): Verilog HDL Case Statement warning at UC.v(31): incomplete case statement has no default case item File: D:/Processor/J17/UC.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at UC.v(31): inferring latch(es) for variable "alucode", which holds its previous value in one or more paths through the always construct File: D:/Processor/J17/UC.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at UC.v(31): inferring latch(es) for variable "imControl", which holds its previous value in one or more paths through the always construct File: D:/Processor/J17/UC.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at UC.v(31): inferring latch(es) for variable "writecode", which holds its previous value in one or more paths through the always construct File: D:/Processor/J17/UC.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at UC.v(31): inferring latch(es) for variable "pcControl", which holds its previous value in one or more paths through the always construct File: D:/Processor/J17/UC.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at UC.v(31): inferring latch(es) for variable "stackSelect", which holds its previous value in one or more paths through the always construct File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "stackSelect[0]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "stackSelect[1]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "pcControl[0]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "pcControl[1]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "pcControl[2]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "pcControl[3]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "writecode" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "imControl" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "alucode[0]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "alucode[1]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "alucode[2]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "alucode[3]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "alucode[4]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (10041): Inferred latch for "alucode[5]" at UC.v(31) File: D:/Processor/J17/UC.v Line: 31
+Info (12128): Elaborating entity "DP" for hierarchy "DP:DataPath" File: D:/Processor/J17/J17.v Line: 58
+Warning (10230): Verilog HDL assignment warning at DP.v(55): truncated value with size 32 to match size of target (10) File: D:/Processor/J17/DP.v Line: 55
+Warning (10230): Verilog HDL assignment warning at DP.v(69): truncated value with size 32 to match size of target (10) File: D:/Processor/J17/DP.v Line: 69
+Warning (10230): Verilog HDL assignment warning at DP.v(99): truncated value with size 32 to match size of target (10) File: D:/Processor/J17/DP.v Line: 99
+Warning (10034): Output port "stackSelect" at DP.v(22) has no driver File: D:/Processor/J17/DP.v Line: 22
+Info (12128): Elaborating entity "RAM" for hierarchy "DP:DataPath|RAM:RAM" File: D:/Processor/J17/DP.v Line: 43
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "IF:InstructionFetch|list" is uninferred due to inappropriate RAM size File: D:/Processor/J17/IF.v Line: 15
+Critical Warning (127005): Memory depth (8) in the design file differs from memory depth (6) in the Memory Initialization File "D:/Processor/J17/Quartus/db/J17.ram0_IF_931.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "DP:DataPath|RAM:RAM|RAM_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DP:DataPath|Div0" File: D:/Processor/J17/DP.v Line: 81
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "DP:DataPath|Mult0" File: D:/Processor/J17/DP.v Line: 80
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DP:DataPath|Mod0" File: D:/Processor/J17/DP.v Line: 82
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0"
+Info (12133): Instantiated megafunction "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4e31.tdf
+    Info (12023): Found entity 1: altsyncram_4e31 File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_divide:Div0" File: D:/Processor/J17/DP.v Line: 81
+Info (12133): Instantiated megafunction "DP:DataPath|lpm_divide:Div0" with the following parameter: File: D:/Processor/J17/DP.v Line: 81
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3dm.tdf
-    Info (12023): Found entity 1: lpm_divide_3dm File: /home-local/aluno/J17/Quartus/db/lpm_divide_3dm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
+    Info (12023): Found entity 1: lpm_divide_hkm File: D:/Processor/J17/Quartus/db/lpm_divide_hkm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: /home-local/aluno/J17/Quartus/db/sign_div_unsign_9nh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
-    Info (12023): Found entity 1: alt_u_div_o2f File: /home-local/aluno/J17/Quartus/db/alt_u_div_o2f.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home-local/aluno/J17/DP.v Line: 66
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home-local/aluno/J17/DP.v Line: 66
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: D:/Processor/J17/Quartus/db/sign_div_unsign_9nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
+    Info (12023): Found entity 1: alt_u_div_6af File: D:/Processor/J17/Quartus/db/alt_u_div_6af.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: D:/Processor/J17/Quartus/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: D:/Processor/J17/Quartus/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_mult:Mult0" File: D:/Processor/J17/DP.v Line: 80
+Info (12133): Instantiated megafunction "DP:DataPath|lpm_mult:Mult0" with the following parameter: File: D:/Processor/J17/DP.v Line: 80
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
+    Info (12023): Found entity 1: mult_7dt File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_divide:Mod0" File: D:/Processor/J17/DP.v Line: 82
+Info (12133): Instantiated megafunction "DP:DataPath|lpm_divide:Mod0" with the following parameter: File: D:/Processor/J17/DP.v Line: 82
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_65m.tdf
-    Info (12023): Found entity 1: lpm_divide_65m File: /home-local/aluno/J17/Quartus/db/lpm_divide_65m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
+    Info (12023): Found entity 1: lpm_divide_kcm File: D:/Processor/J17/Quartus/db/lpm_divide_kcm.tdf Line: 25
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a0" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 36
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a1" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 57
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a2" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 78
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a3" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 99
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a4" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 120
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a5" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 141
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a6" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 162
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a7" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 183
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a8" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 204
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a9" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 225
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a10" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 246
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a11" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 267
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a12" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 288
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a13" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 309
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a14" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 330
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a15" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 351
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a16" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 372
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a17" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 393
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a18" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 414
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a19" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 435
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a20" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 456
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a21" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 477
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a22" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 498
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a23" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 519
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a24" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 540
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a25" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 561
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a26" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 582
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a27" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 603
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a28" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 624
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a29" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 645
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a30" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 666
+        Warning (14320): Synthesized away node "DP:DataPath|RAM:RAM|altsyncram:RAM_rtl_0|altsyncram_4e31:auto_generated|ram_block1a31" File: D:/Processor/J17/Quartus/db/altsyncram_4e31.tdf Line: 687
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 67
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 91
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 84 buffer(s)
+    Info (13019): Ignored 84 SOFT buffer(s)
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "UC:ControlUnit|pcControl[2]" merged with LATCH primitive "UC:ControlUnit|pcControl[1]" File: D:/Processor/J17/UC.v Line: 31
+Warning (13012): Latch UC:ControlUnit|alucode[0] has unsafe behavior File: D:/Processor/J17/UC.v Line: 31
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[1] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|alucode[1] has unsafe behavior File: D:/Processor/J17/UC.v Line: 31
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[1] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|alucode[2] has unsafe behavior File: D:/Processor/J17/UC.v Line: 31
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[0] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|alucode[3] has unsafe behavior File: D:/Processor/J17/UC.v Line: 31
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[1] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|imControl has unsafe behavior File: D:/Processor/J17/UC.v Line: 12
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[1] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|writecode has unsafe behavior File: D:/Processor/J17/UC.v Line: 13
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[1] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|pcControl[0] has unsafe behavior File: D:/Processor/J17/UC.v Line: 31
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[1] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|pcControl[1] has unsafe behavior File: D:/Processor/J17/UC.v Line: 31
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[0] File: D:/Processor/J17/DP.v Line: 51
+Warning (13012): Latch UC:ControlUnit|pcControl[3] has unsafe behavior File: D:/Processor/J17/UC.v Line: 31
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DP:DataPath|PC[1] File: D:/Processor/J17/DP.v Line: 51
+Warning (14026): LATCH primitive "UC:ControlUnit|alucode[0]" is permanently enabled File: D:/Processor/J17/UC.v Line: 31
+Warning (14026): LATCH primitive "UC:ControlUnit|alucode[1]" is permanently enabled File: D:/Processor/J17/UC.v Line: 31
+Warning (14026): LATCH primitive "UC:ControlUnit|alucode[2]" is permanently enabled File: D:/Processor/J17/UC.v Line: 31
+Warning (14026): LATCH primitive "UC:ControlUnit|imControl" is permanently enabled File: D:/Processor/J17/UC.v Line: 12
+Warning (14026): LATCH primitive "UC:ControlUnit|writecode" is permanently enabled File: D:/Processor/J17/UC.v Line: 13
+Warning (14026): LATCH primitive "UC:ControlUnit|pcControl[0]" is permanently enabled File: D:/Processor/J17/UC.v Line: 31
+Warning (14026): LATCH primitive "UC:ControlUnit|pcControl[3]" is permanently enabled File: D:/Processor/J17/UC.v Line: 31
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "instruct[21]" is stuck at GND File: D:/Processor/J17/J17.v Line: 3
+    Warning (13410): Pin "instruct[24]" is stuck at GND File: D:/Processor/J17/J17.v Line: 3
+    Warning (13410): Pin "instruct[25]" is stuck at GND File: D:/Processor/J17/J17.v Line: 3
+    Warning (13410): Pin "instruct[31]" is stuck at GND File: D:/Processor/J17/J17.v Line: 3
+    Warning (13410): Pin "alucd[3]" is stuck at GND File: D:/Processor/J17/J17.v Line: 3
+    Warning (13410): Pin "o1[2]" is stuck at GND File: D:/Processor/J17/J17.v Line: 3
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (17049): 96 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ramenable[0]" File: /home-local/aluno/J17/DP.v Line: 21
-    Warning (15610): No output dependent on input pin "ramenable[1]" File: /home-local/aluno/J17/DP.v Line: 21
-Info (21057): Implemented 3287 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 41 input pins
-    Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 3180 logic cells
-    Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 1083 megabytes
-    Info: Processing ended: Wed Apr 19 17:17:56 2017
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:33
+Info (21057): Implemented 2912 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 125 output pins
+    Info (21061): Implemented 2780 logic cells
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
+    Info: Peak virtual memory: 664 megabytes
+    Info: Processing ended: Sat Apr 22 13:18:14 2017
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:39
 
 

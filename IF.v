@@ -12,7 +12,7 @@ module IF(clock,pc,out);
 		$readmemb("./program.mif", list);
 	end
 
-	reg [31:0] list[131:0];
+	reg [31:0] list[5:0];
 
 	assign out = list[pc];
 

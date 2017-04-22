@@ -1,6 +1,6 @@
 // [[Joe - joao.euu@gmail.com]]
 
-module ControlUnit (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,flag1);
+module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,flag1,stackSelect);
   input clock;
   input [31:0] instruction;
 
@@ -12,9 +12,8 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,writecode,pcCont
   output reg imControl;
   output reg writecode;
   output reg [3:0] pcControl;
+  output reg [1:0] stackSelect;
 
-
-  output reg stackSelect;
 
   localparam [5:0] ADD = 6'd0,SUB=6'd1,MUL=6'd2,DIV=6'd3,
   ADDI=6'd4,SUBI=6'd5,MULI=6'd6,DIVI=6'd7,NOT=6'd8,AND=6'd9,
@@ -29,7 +28,7 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,writecode,pcCont
   assign op2 = instruction[20:0];
 
   always @(*) begin
-    case(instruction[31:25])
+    case(instruction[31:26])
       ADD:begin
         alucode=4'd1;
         imControl=1'd0;
@@ -216,16 +215,18 @@ module ControlUnit (clock,instruction,alucode,op1,op2,imControl,writecode,pcCont
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd1;
-        pcControl=4'd10;
+        pcControl=4'd0;
         stackSelect=2'd0;
       end
       MOVI:begin
         alucode=4'd0;
         imControl=1'd1;
         writecode=1'd1;
-        pcControl=4'd10;
+        pcControl=4'd0;
         stackSelect=2'd0;
       end
+
+
     endcase
   end
 
