@@ -37,49 +37,86 @@ export default {
     };
   },
 
+  parseinstruction(source){
+    var text = source.split('\n');
+    var binary="";
+    for(var i=0;i<text.length;i++){
+      var newline="";
+      var line = text[i];
+      line = line.trim().toUpperCase().split(' ');
+      var hasargs=false;
+      var existe=false;
+      var islabel=false;
+      if(line[0].charAt(0)==='.' || line[0]==""){
+        existe=true;
+        hasargs=false;
+        islabel=true;
+      }else{
+        for(var k=0;k<instructionset.length;k++){
+
+          if(line[0]===instructionset[k].instruction){
+            newline+=instructionset[k].binary ;
+            hasargs = !instructionset[k].noargs;
+            existe=true;
+            break;
+          }
+        }
+      }
+
+      if(!existe){
+        atom.notifications.addWarning("Instrução inválida: "+line[0]+"("+(i+1)+")");
+        return source;
+      }
+      if(hasargs){
+
+        var operands=line[1].split(',');
+        for (var j = 0;j<operands.length;j++){
+          var operand=operands[j];
+          var flag=0;
+          var im=3;
+
+          if(operand.indexOf("%") !== -1){
+            operand=operand.replace('%','');
+            flag = 1;
+          }else if(operand.indexOf("R") !== -1)
+            operand=operand.replace('R','');
+          else
+            im=21;
+
+
+            if(!isNaN(parseFloat(operand)) && isFinite(operand)){
+
+              var bin=(operand >>> 0).toString(2);
+              if(operand<0 && im==21)
+                bin= bin.substr(bin.length-21, bin.length);
+              while(bin.length<im){
+                bin="0"+bin;
+              }
+              newline+= flag+bin ;
+            }else{
+              newline+=operand;
+            }
+
+        }
+      }
+      if(!islabel){
+        while(newline.length<32)
+          newline+="0";
+        binary+=newline+'\n';
+      }
+    }
+    return binary;
+  },
   toggle() {
-    let editor
+    var editor;
       if (editor = atom.workspace.getActiveTextEditor()) {
 
-        let text = editor.getText().split('\n');
-        let binary="";
-
-        for(let i=0;i<text.length;i++){
-          let newline="";
-          let line = text[i];
-          line = line.split(' ');
-          for(let k=0;k<instructionset.length;k++)
-            if(instructionset[k].instruction===line[0]){
-              newline+=instructionset[k].binary ;
-              break;
-            }
-          let operands=line[1].split(',');
-          for (let j = 0;j<operands.length;j++){
-            let operand=operands[j];
-            let old=operand;
-            operand=operand.replace('%','');
-            let flag = (old===operand)? 0 : 1;
-            old=operand;
-            operand=operand.replace('.','');
-            let im = (old===operand)? 3 : 21;
-              if(!isNaN(parseFloat(operand)) && isFinite(operand)){
-
-                let bin=(operand >>> 0).toString(2);
-                bin= bin.substr(bin.length-im, bin.length);
-                while(bin.length<im){
-                  bin="0"+bin;
-                }
-                newline+= flag+bin ;
-              }else{
-                newline+=operand;
-              }
-
-          }
-          while(newline.length<32)
-            newline+="0";
-          binary+=newline+'\n';
+        try {
+          editor.setText(this.parseinstruction(editor.getText()));
+        } catch (e) {
+          atom.notifications.addWarning("Erro de Sintaxe: "+e);
         }
-        editor.setText(binary)
+
       }
     }
 
