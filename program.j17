@@ -1,1 +1,6 @@
-NOP
+.teste:
+mov r1,.teste
+jmp r1
+.oi:
+mov r1,.oi
+jmp r1
