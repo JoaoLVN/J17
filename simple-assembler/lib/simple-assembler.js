@@ -38,22 +38,22 @@ export default {
   },
 
   parseinstruction(source){
-    var text = source.split('\n');
+
+    var text = source.toUpperCase().split('\n');
     var binary="";
     for(var i=0;i<text.length;i++){
       var newline="";
       var line = text[i];
-      line = line.trim().toUpperCase().split(' ');
+      line = line.trim().split(' ');
+
       var hasargs=false;
       var existe=false;
       var islabel=false;
       if(line[0].charAt(0)==='.' || line[0]==""){
-        existe=true;
         hasargs=false;
         islabel=true;
       }else{
         for(var k=0;k<instructionset.length;k++){
-
           if(line[0]===instructionset[k].instruction){
             newline+=instructionset[k].binary ;
             hasargs = !instructionset[k].noargs;
@@ -61,12 +61,12 @@ export default {
             break;
           }
         }
+        if(!existe){
+          atom.notifications.addWarning("Instrução inválida: "+line[0]+"("+(i+1)+")");
+          return false;
+        }
       }
 
-      if(!existe){
-        atom.notifications.addWarning("Instrução inválida: "+line[0]+"("+(i+1)+")");
-        return source;
-      }
       if(hasargs){
 
         var operands=line[1].split(',');
@@ -75,12 +75,22 @@ export default {
           var flag=0;
           var im=3;
 
-          if(operand.indexOf("%") !== -1){
+          if(operand.indexOf(".")!== -1){
+            im=21;
+            for(var ln=0;ln<text.length;ln++){
+              if(i!=ln && text[ln].indexOf(operand)!== -1){
+                operand=ln-i;
+              }
+            }
+          }else if(operand.indexOf("%") !== -1){
             operand=operand.replace('%','');
             flag = 1;
-          }else if(operand.indexOf("R") !== -1)
             operand=operand.replace('R','');
-          else
+
+          }else if(operand.indexOf("R") !== -1){
+            operand=operand.replace('R','');
+            operand=operand.replace('%','');
+          }else
             im=21;
 
 
@@ -112,7 +122,13 @@ export default {
       if (editor = atom.workspace.getActiveTextEditor()) {
 
         try {
-          editor.setText(this.parseinstruction(editor.getText()));
+          var parsed=this.parseinstruction(editor.getText());
+          var newEditor = atom.workspace.buildTextEditor();
+          if(parsed){
+            newEditor.setText(parsed);
+            newEditor.saveAs(editor.getPath().split(".")[0] +".mif");
+            atom.notifications.addSuccess("Código gerado com sucesso");
+          }
         } catch (e) {
           atom.notifications.addWarning("Erro de Sintaxe: "+e);
         }
