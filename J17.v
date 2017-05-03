@@ -1,6 +1,12 @@
 // [[Joe - joao.euu@gmail.com]]
 
-module J17 ( input clk ,output [31:0] result,output [31:0]instruct, output [31:0]progcount,output [3:0]alucd, output [2:0] o1,output [20:0] o2,output im);
+module J17 ( clk ,in, seg, pcc);
+
+input clk,in;
+output wire [6:0] seg;
+output wire [31:0]pcc;
+wire [31:0] result;
+reg  [31:0]progcount;
 
  wire [31:0]PC;
  wire[31:0]instruction;
@@ -15,13 +21,17 @@ module J17 ( input clk ,output [31:0] result,output [31:0]instruct, output [31:0
  wire writecode;
  wire [1:0] stackSelect;
 
- assign instruct=instruction;
- assign progcount=PC;
- assign alucd=alucode;
- assign o1=op1;
- assign o2=op2;
- assign im=imControl;
+ // assign instruct=instruction;
+  assign pcc=PC;
+ // assign alucd=alucode;
+ // assign o1=op1;
+ // assign o2=op2;
+ // assign im=imControl;
 
+ wire [9:0] memaddr;
+ wire writemem;
+ wire [31:0] writememdata;
+ wire [31:0] memresult;
 
  IF InstructionFetch(
  .clock(clk),
@@ -40,7 +50,7 @@ module J17 ( input clk ,output [31:0] result,output [31:0]instruct, output [31:0
  .pcControl(pcControl),
  .flag(flag),
  .flag1(flag1),
- .stackSelect(stackSelect),
+ .stackSelect(stackSelect)
 	);
 DP DataPath(
   .clock(clk),
@@ -54,9 +64,21 @@ DP DataPath(
   .writecode(writecode),
   .stackSelect(stackSelect),
   .PC(PC),
-  .result(result)
+  .result(result),
+  .memaddr(memaddr),
+  .writemem(writemem),
+  .memresult(memresult),
+  .writememdata(writememdata)
   );
 
-
+    RAM RAM(
+      .clock(clk),
+		.in(in),
+      .addr(memaddr),
+      .write(writemem),
+      .value(writememdata),
+      .result(memresult),
+      .seg(seg)
+  	);
 
 endmodule //

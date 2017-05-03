@@ -102,7 +102,10 @@ export default {
               while(bin.length<im){
                 bin="0"+bin;
               }
-              newline+= flag+bin ;
+              if(j<2)
+                newline+= flag+bin ;
+              else
+                newline+= bin ;
             }else{
               newline+=operand;
             }

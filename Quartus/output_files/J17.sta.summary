@@ -3,39 +3,75 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -134.441
-TNS   : -20650.244
+Slack : -127.430
+TNS   : -12949.777
+
+Type  : Slow 1200mV 85C Model Setup 'DP:DataPath|memaddr[0]'
+Slack : -2.544
+TNS   : -496.073
+
+Type  : Slow 1200mV 85C Model Hold 'DP:DataPath|memaddr[0]'
+Slack : -1.176
+TNS   : -167.676
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.384
+Slack : 0.383
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -208.600
+TNS   : -240.725
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DP:DataPath|memaddr[0]'
+Slack : 0.247
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -121.397
-TNS   : -18640.778
+Slack : -114.840
+TNS   : -11679.644
+
+Type  : Slow 1200mV 0C Model Setup 'DP:DataPath|memaddr[0]'
+Slack : -2.287
+TNS   : -514.036
+
+Type  : Slow 1200mV 0C Model Hold 'DP:DataPath|memaddr[0]'
+Slack : -0.971
+TNS   : -99.674
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.338
+Slack : 0.337
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -208.600
+TNS   : -240.725
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DP:DataPath|memaddr[0]'
+Slack : 0.217
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -66.196
-TNS   : -10168.983
+Slack : -63.293
+TNS   : -6449.068
+
+Type  : Fast 1200mV 0C Model Setup 'DP:DataPath|memaddr[0]'
+Slack : -0.943
+TNS   : -63.991
+
+Type  : Fast 1200mV 0C Model Hold 'DP:DataPath|memaddr[0]'
+Slack : -0.620
+TNS   : -143.127
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.168
+Slack : 0.172
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -180.499
+TNS   : -199.619
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DP:DataPath|memaddr[0]'
+Slack : -0.042
+TNS   : -2.076
 
 ------------------------------------------------------------

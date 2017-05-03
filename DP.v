@@ -7,11 +7,11 @@
 //pcControl = o que fazer com o PC
 //PC = valor do pc
 //writecode = de onde pegar o valor para escrever?
-module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writecode,PC,result);
+module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writecode,PC,result,memaddr,writemem,memresult,writememdata);
 
   input clock;
   input imControl;
-  input [3:0] pcControl;
+  input [4:0] pcControl;
   input [4:0] alucode;
   input [2:0] op1;
   input flag;
@@ -29,26 +29,19 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
   //Registers
   reg [31:0] regs [6:0];
  //RAM
-  reg [9:0] memaddr;
-  reg writemem;
-  reg [31:0] writememdata;
-  wire [31:0] memresult;
+  output reg [9:0] memaddr;
+  output reg writemem;
+  output reg [31:0] writememdata;
+  input wire [31:0] memresult;
 
-  RAM RAM(
-    .clock(clock),
-    .addr(memaddr),
-    .write(writemem),
-    .value(writememdata),
-    .result(memresult)
-	);
 
   wire[31:0] num3;
-  assign  num3 = regs[op2[18:16]];
+  assign  num3 = regs[op2[17:15]];
   reg [31:0]towrite;
   output reg[31:0] result;
   reg [31:0] pcjump;
 
-  always @(negedge clock) begin
+  always @(posedge clock) begin
 	 writemem=1'b0;
 	 //Carrega valores de num1 e num2
     if(flag)begin
@@ -70,7 +63,7 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
         num2=memresult;
       end
       else
-        num2=regs[op2[19:15]];
+        num2=regs[op2[20:18]];
     end
     //ALU
     case (alucode)
@@ -89,73 +82,76 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
       default: result = 32'hffffffff;
     endcase
 
-    //Escreve no reg/ram
-      case(writecode)
+    //Escrever da alu ou do num2?
+    case(writecode)
         1'd0:   towrite = result;
         1'd1:   towrite=num2;
         default: towrite = 32'hffffffff;
-      endcase
-	 if(flag)begin
-	   memaddr=regs[op1];
-		writemem=1'b1;
-		writememdata=num2;
+    endcase
+		//Escrever no reg/ram
+	 if(pcControl==5'd0) begin
+		 if(flag)begin
+  			memaddr=regs[op1];
+  			writemem=1'b1;
+  			writememdata=towrite;
+		 end
+		 else
+       regs[op1]= towrite;
 	 end
-	 else
-     regs[op1]= towrite;
 
     //PC
     case(pcControl)
-      4'd0: pcjump=32'd1;
-      4'd1:begin
+      5'd0: pcjump=32'd1;
+      5'd1:begin
         if(num1==num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd2:begin
+      5'd2:begin
         if(num1<num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd3:begin
+      5'd3:begin
         if(num1>num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd4:begin
+      5'd4:begin
         if(num1!=num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd5:begin
+      5'd5:begin
         if(num1<=num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd6:begin
+      5'd6:begin
         if(num1>=num2)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd7:begin
+      5'd7:begin
         if(num1!=0)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd8:begin
+      5'd8:begin
         if(num1==0)
           pcjump=num3;
         else
           pcjump=32'd1;
       end
-      4'd9:pcjump=regs[op1];
-      4'd10:pcjump=32'd0;
+      5'd9:pcjump=regs[op1];
+      5'd10:pcjump=32'd0;
 		default:pcjump=32'd0;
     endcase
 

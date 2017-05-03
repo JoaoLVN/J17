@@ -11,7 +11,7 @@ module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,
   output reg [5:0] alucode;
   output reg imControl;
   output reg writecode;
-  output reg [3:0] pcControl;
+  output reg [4:0] pcControl;
   output reg [1:0] stackSelect;
 
 
@@ -33,196 +33,196 @@ module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,
         alucode=4'd1;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       ADDI:begin
         alucode=4'd1;
         imControl=1'd1;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       SUB:begin
         alucode=4'd2;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       SUBI:begin
         alucode=4'd2;
         imControl=1'd1;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       MUL:begin
         alucode=4'd3;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       MULI:begin
         alucode=4'd3;
         imControl=1'd1;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       DIV:begin
         alucode=4'd4;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       DIVI:begin
         alucode=4'd4;
         imControl=1'd1;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       NOT:begin
         alucode=4'd9;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       AND:begin
         alucode=4'd7;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       OR:begin
         alucode=4'd6;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       XOR:begin
         alucode=4'd11;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       MOD:begin
         alucode=4'd5;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       SL:begin
         alucode=4'd11;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       SR:begin
         alucode=4'd10;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       JMP:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd9;
+        pcControl=5'd9;
         stackSelect=2'd0;
       end
       JE:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd1;
+        pcControl=5'd1;
         stackSelect=2'd0;
       end
       JB:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd2;
+        pcControl=5'd2;
         stackSelect=2'd0;
       end
       JA:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd3;
+        pcControl=5'd3;
         stackSelect=2'd0;
       end
       JNE:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd4;
+        pcControl=5'd4;
         stackSelect=2'd0;
       end
       JBE:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd5;
+        pcControl=5'd5;
         stackSelect=2'd0;
       end
       JAE:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd6;
+        pcControl=5'd6;
         stackSelect=2'd0;
       end
       JNZ:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd7;
+        pcControl=5'd7;
         stackSelect=2'd0;
       end
       JZ:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd8;
+        pcControl=5'd8;
         stackSelect=2'd0;
       end
       NOP:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       HLT:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd0;
-        pcControl=4'd10;
+        pcControl=5'd10;
         stackSelect=2'd0;
       end
       MOV:begin
         alucode=4'd0;
         imControl=1'd0;
         writecode=1'd1;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
       MOVI:begin
         alucode=4'd0;
         imControl=1'd1;
         writecode=1'd1;
-        pcControl=4'd0;
+        pcControl=5'd0;
         stackSelect=2'd0;
       end
 
