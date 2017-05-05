@@ -27,7 +27,7 @@ module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,
   assign flag1 = instruction[21];
   assign op2 = instruction[20:0];
 
-  always @(posedge clock) begin
+  always @(instruction) begin
     case(instruction[31:26])
       ADD:begin
         alucode=4'd1;

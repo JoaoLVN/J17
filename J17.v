@@ -1,16 +1,13 @@
 // [[Joe - joao.euu@gmail.com]]
 
-module J17 ( clk ,in, seg, pcc);
+module J17 ( clk ,in, seg);
 
 input clk,in;
 output wire [6:0] seg;
-output wire [31:0]pcc;
-wire [31:0] result;
-reg  [31:0]progcount;
 
+ wire [31:0] result;
  wire [31:0]PC;
  wire[31:0]instruction;
-
  wire [3:0] alucode;
  wire [2:0] op1;
  wire [20:0] op2;
@@ -20,13 +17,6 @@ reg  [31:0]progcount;
  wire imControl;
  wire writecode;
  wire [1:0] stackSelect;
-
- // assign instruct=instruction;
-  assign pcc=PC;
- // assign alucd=alucode;
- // assign o1=op1;
- // assign o2=op2;
- // assign im=imControl;
 
  wire [9:0] memaddr;
  wire writemem;

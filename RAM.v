@@ -18,8 +18,8 @@ module RAM (clock,in,addr,write,value,result,seg);
   //Data array
   reg [31:0] RAM[31:0];
   wire butval;
-  
-  debounce 
+
+  debounce
 	(
 	 .clk(clock), .n_reset(1'b1), .button_in(in),				// inputs
 	.DB_out(butval)													// output
@@ -29,7 +29,8 @@ module RAM (clock,in,addr,write,value,result,seg);
       .BCD(RAM[0]),
       .clk(clock),
       .segA(seg[6]), .segB(seg[5]), .segC(seg[4]), .segD(seg[3]), .segE(seg[2]), .segF(seg[1]),.segG(seg[0]));
- 
+
+assign result = RAM[addr];
  always @ (*)
   begin
     if (write) begin
@@ -37,8 +38,8 @@ module RAM (clock,in,addr,write,value,result,seg);
     end
 	 RAM[1]=butval;
   end
-	
-  assign result = RAM[addr];
+
+
 
 endmodule
 
