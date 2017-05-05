@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Wed May 03 17:05:40 2017
-Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Fri May  5 10:23:11 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 Revision Name : J17
 Top-level Entity Name : J17
 Family : Cyclone IV E
-Total logic elements : 4,045
-    Total combinational functions : 4,043
-    Dedicated logic registers : 185
-Total registers : 185
+Total logic elements : 2,194
+    Total combinational functions : 2,191
+    Dedicated logic registers : 190
+Total registers : 190
 Total pins : 41
 Total virtual pins : 0
 Total memory bits : 0

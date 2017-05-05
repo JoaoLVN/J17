@@ -129,7 +129,8 @@ export default {
           var newEditor = atom.workspace.buildTextEditor();
           if(parsed){
             newEditor.setText(parsed);
-            newEditor.saveAs(editor.getPath().split(".")[0] +".mif");
+            let path=editor.getPath();
+            newEditor.saveAs(path.substring(0, path.lastIndexOf(".")) +".mif");
             atom.notifications.addSuccess("Código gerado com sucesso");
           }
         } catch (e) {

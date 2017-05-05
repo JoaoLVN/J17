@@ -56,7 +56,7 @@ module LED_7seg(
 );
 
 
-reg [7:0] SevenSeg;
+reg [6:0] SevenSeg;
 always @(*)
 case(BCD)
     4'd0: SevenSeg = 7'b1111110;

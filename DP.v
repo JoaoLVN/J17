@@ -1,12 +1,15 @@
 // [[Joe - joao.euu@gmail.com]]
 //clock= clock do processador
+//alucode=operação a ser realizada
+//flag,flag1= determina se o valor será pego da memória ou do registradores
 //op1,op2 = operandos da instrução
 //imControl = é imediato? 1 = sim 0 = nao
-//regenable = habilitar os registradores? 1= sim 0 = nao
-//ramenable = habilitar a ram?  1= sim 0 = nao
 //pcControl = o que fazer com o PC
+//stackSelect= controle da pilha (operações de empilhar e desempilhar)
+//writeCode= determina se o valor a ser escruto vem vem da alu ou do num2
 //PC = valor do pc
-//writecode = de onde pegar o valor para escrever?
+//result= resultado da alu
+//memaddr,writemem,memresult,writememdata= controles da RAM
 module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writecode,PC,result,memaddr,writemem,memresult,writememdata);
 
   input clock;
@@ -17,35 +20,34 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
   input flag;
   input flag1;
   input [20:0] op2;
-
+  input wire [31:0] memresult;
   input writecode;
+
   output [1:0]stackSelect;
-
 	output reg [31:0] PC;
-
-  //Alu numbers
-  reg [31:0]num1;
-  reg [31:0]num2;
-  //Registers
-  reg [31:0] regs [6:0];
- //RAM
   output reg [9:0] memaddr;
   output reg writemem;
   output reg [31:0] writememdata;
-  input wire [31:0] memresult;
+  output reg[31:0] result;
 
-
+  //Operand numbers
+  reg [31:0]num1;
+  reg [31:0]num2;
   wire[31:0] num3;
   assign  num3 = regs[op2[17:15]];
+
+  //Registers
+  reg [31:0] regs [6:0];
+
+  //Auxs
   reg [31:0]towrite;
-  output reg[31:0] result;
   reg [31:0] pcjump;
 
   always @(posedge clock) begin
 	 writemem=1'b0;
 	 //Carrega valores de num1 e num2
     if(flag)begin
-      memaddr=regs[op1];
+      memaddr=regs[op1][9:0];
       num1=memresult;
     end
     else
@@ -59,7 +61,7 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
     end
     else begin
       if(flag1)begin
-        memaddr=regs[op2[20:18]];
+        memaddr=regs[op2[20:18]][9:0];
         num2=memresult;
       end
       else
@@ -91,7 +93,7 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
 		//Escrever no reg/ram
 	 if(pcControl==5'd0) begin
 		 if(flag)begin
-  			memaddr=regs[op1];
+  			memaddr=regs[op1][9:0];
   			writemem=1'b1;
   			writememdata=towrite;
 		 end
