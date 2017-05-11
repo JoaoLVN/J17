@@ -27,7 +27,7 @@ module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,
   assign flag1 = instruction[21];
   assign op2 = instruction[20:0];
 
-  always @(instruction) begin
+  always @(*) begin
     case(instruction[31:26])
       ADD:begin
         alucode=4'd1;
@@ -135,63 +135,63 @@ module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,
         stackSelect=2'd0;
       end
       JMP:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd9;
         stackSelect=2'd0;
       end
       JE:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd1;
         stackSelect=2'd0;
       end
       JB:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd2;
         stackSelect=2'd0;
       end
       JA:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd3;
         stackSelect=2'd0;
       end
       JNE:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd4;
         stackSelect=2'd0;
       end
       JBE:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd5;
         stackSelect=2'd0;
       end
       JAE:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd6;
         stackSelect=2'd0;
       end
       JNZ:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd7;
         stackSelect=2'd0;
       end
       JZ:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd0;
         pcControl=5'd8;
@@ -212,20 +212,26 @@ module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,
         stackSelect=2'd0;
       end
       MOV:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd0;
         writecode=1'd1;
         pcControl=5'd0;
         stackSelect=2'd0;
       end
       MOVI:begin
-        alucode=4'd0;
+        alucode=4'd14;
         imControl=1'd1;
         writecode=1'd1;
         pcControl=5'd0;
         stackSelect=2'd0;
       end
-
+		default: begin
+		  alucode=4'd0;
+        imControl=1'd0;
+        writecode=1'd0;
+        pcControl=5'd10;
+        stackSelect=2'd0;
+		 end
 
     endcase
   end

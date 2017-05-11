@@ -1,7 +1,9 @@
 MOVI r0,0
 MOVI r1,1
+MOVI r2,1
+MOVI r3,1
 .loop:
-MOVI r2,.loop
-JNE %1,r1,r2
+MOVI r4,.loop
+JNE %3,r2,r4
 MOVI %0,7
 HLT

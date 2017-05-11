@@ -93,9 +93,9 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
 		//Escrever no reg/ram
 	 if(pcControl==5'd0) begin
 		 if(flag)begin
-  			memaddr=regs[op1][9:0];
-  			writemem=1'b1;
-  			writememdata=towrite;
+			memaddr=regs[op1][9:0];
+			writemem=1'b1;
+			writememdata=towrite;
 		 end
 		 else
        regs[op1]= towrite;

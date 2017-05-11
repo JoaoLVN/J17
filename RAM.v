@@ -16,31 +16,33 @@ module RAM (clock,in,addr,write,value,result,seg);
   output [6:0] seg;
 
   //Data array
-  reg [31:0] RAM[31:0];
+  reg [31:0] RAM[4:0];
   wire butval;
 
-  debounce
-	(
-	 .clk(clock), .n_reset(1'b1), .button_in(in),				// inputs
-	.DB_out(butval)													// output
-	);
-//// --
+  debounce(
+	  .clk(clock), .n_reset(1'b1), .button_in(in),
+	 .DB_out(butval));
+
+
   LED_7seg(
       .BCD(RAM[0]),
       .clk(clock),
       .segA(seg[6]), .segB(seg[5]), .segC(seg[4]), .segD(seg[3]), .segE(seg[2]), .segF(seg[1]),.segG(seg[0]));
 
-assign result = RAM[addr];
- always @ (*)
+
+ always @ (negedge clock)
   begin
     if (write) begin
       RAM[addr] = value;
     end
-	 RAM[1]=butval;
+	else begin
+		RAM[10'd1]={31'b0000000000000000000000000000000,butval};
+	end
   end
 
+assign result = RAM[addr];
 
-
+	
 endmodule
 
 
