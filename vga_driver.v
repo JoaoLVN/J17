@@ -1,22 +1,22 @@
-// Copyright 2007 Altera Corporation. All rights reserved.  
-// Altera products are protected under numerous U.S. and foreign patents, 
-// maskwork rights, copyrights and other intellectual property laws.  
+// Copyright 2007 Altera Corporation. All rights reserved.
+// Altera products are protected under numerous U.S. and foreign patents,
+// maskwork rights, copyrights and other intellectual property laws.
 //
 // This reference design file, and your use thereof, is subject to and governed
-// by the terms and conditions of the applicable Altera Reference Design 
+// by the terms and conditions of the applicable Altera Reference Design
 // License Agreement (either as signed by you or found at www.altera.com).  By
 // using this reference design file, you indicate your acceptance of such terms
 // and conditions between you and Altera Corporation.  In the event that you do
-// not agree with such terms and conditions, you may not use the reference 
+// not agree with such terms and conditions, you may not use the reference
 // design file and please promptly destroy any copies you have made.
 //
-// This reference design file is being provided on an "as-is" basis and as an 
-// accommodation and therefore all warranties, representations or guarantees of 
-// any kind (whether express, implied or statutory) including, without 
+// This reference design file is being provided on an "as-is" basis and as an
+// accommodation and therefore all warranties, representations or guarantees of
+// any kind (whether express, implied or statutory) including, without
 // limitation, warranties of merchantability, non-infringement, or fitness for
 // a particular purpose, are specifically disclaimed.  By making this reference
-// design file available, Altera expressly does not recommend, suggest or 
-// require that this reference design file be used in combination with any 
+// design file available, Altera expressly does not recommend, suggest or
+// require that this reference design file be used in combination with any
 // other product not provided by Altera.
 /////////////////////////////////////////////////////////////////////////////
 
@@ -26,7 +26,7 @@ module	vga_driver	(
 		r,g,b,
 		current_x,current_y,request,
 		vga_r,vga_g,vga_b,vga_hs,vga_vs,vga_blank,vga_clock,
-		clk27,rst27);
+		clk50,rst27);
 
 input [9:0]	r,g,b;
 output [9:0] current_x;
@@ -36,8 +36,9 @@ output request;
 output [9:0] vga_r, vga_g, vga_b;
 output vga_hs, vga_vs, vga_blank, vga_clock;
 
-input clk27, rst27;	
-
+input clk50, rst27;
+wire clk27;
+frequency_divider_by2(.clk(clk50) ,.rst(1'b1),.out_clk(clk27) );
 ////////////////////////////////////////////////////////////
 
 //	Horizontal	Timing
@@ -91,14 +92,14 @@ always @(posedge clk27) begin
 			h_active <= 1'b0;
 			current_x <= 0;
 		end
-		
+
 		if(h_cntr == H_FRONT-1) begin
 			vga_hs <= 1'b0;
-		end		
-		
+		end
+
 		if (h_cntr == H_FRONT+H_SYNC-1) begin
 			vga_hs <= 1'b1;
-			
+
 			if(v_cntr != V_TOTAL) begin
 				v_cntr <= v_cntr + 1'b1;
 				if (v_active) current_y <= current_y + 1'b1;
@@ -115,4 +116,17 @@ always @(posedge clk27) begin
 	end
 end
 
+endmodule
+
+module frequency_divider_by2 ( clk ,rst,out_clk );
+output reg out_clk;
+input clk ;
+input rst;
+always @(posedge clk)
+begin
+if (~rst)
+     out_clk <= 1'b0;
+else
+     out_clk <= ~out_clk;
+end
 endmodule

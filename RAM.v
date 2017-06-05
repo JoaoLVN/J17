@@ -16,11 +16,11 @@ module RAM (clock,in,addr,write,value,result,seg);
   output [6:0] seg;
 
   //Data array
-  reg [31:0] RAM[4:0];
+  reg [31:0] RAM[10:0];
   wire butval;
 
   debounce(
-	  .clk(clock), .n_reset(1'b1), .button_in(in),
+	  .clk(clock), .n_reset(1'd1), .button_in(in),
 	 .DB_out(butval));
 
 
@@ -42,7 +42,7 @@ module RAM (clock,in,addr,write,value,result,seg);
 
 assign result = RAM[addr];
 
-	
+
 endmodule
 
 

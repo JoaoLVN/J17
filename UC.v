@@ -225,6 +225,20 @@ module UC (clock,instruction,alucode,op1,op2,imControl,writecode,pcControl,flag,
         pcControl=5'd0;
         stackSelect=2'd0;
       end
+      PUSH:begin
+        alucode=4'd0;
+        imControl=1'd1;
+        writecode=1'd0;
+        pcControl=5'd0;
+        stackSelect=2'd1;
+      end
+      POP:begin
+        alucode=4'd0;
+        imControl=1'd1;
+        writecode=1'd0;
+        pcControl=5'd0;
+        stackSelect=2'd2;
+      end
 		default: begin
 		  alucode=4'd0;
         imControl=1'd0;

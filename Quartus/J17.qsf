@@ -73,6 +73,9 @@ set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
 set_location_assignment PIN_Y2 -to clk
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
+set_location_assignment PIN_M23 -to in
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR simulation/new -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE ../vga_driver.v
 set_global_assignment -name VERILOG_FILE ../debounce.v
 set_global_assignment -name MIF_FILE ../program.mif
 set_global_assignment -name VERILOG_FILE ../UC.v
@@ -80,22 +83,18 @@ set_global_assignment -name VERILOG_FILE ../J17.v
 set_global_assignment -name VERILOG_FILE ../IF.v
 set_global_assignment -name VERILOG_FILE ../DP.v
 set_global_assignment -name VERILOG_FILE ../RAM.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
 set_global_assignment -name CDF_FILE output_files/Chain1.cdf
 set_global_assignment -name CDF_FILE output_files/Chain2.cdf
 set_global_assignment -name CDF_FILE output_files/Chain3.cdf
 set_global_assignment -name CDF_FILE output_files/Chain4.cdf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform1.vwf
 set_global_assignment -name CDF_FILE output_files/Chain12.cdf
-set_location_assignment PIN_R24 -to in
 set_global_assignment -name CDF_FILE output_files/Chain15.cdf
 set_global_assignment -name CDF_FILE output_files/Chain18.cdf
 set_global_assignment -name CDF_FILE output_files/Chain22.cdf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform4.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform5.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform6.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name CDF_FILE output_files/Chain6.cdf
+set_global_assignment -name CDF_FILE output_files/Chain7.cdf
+set_global_assignment -name CDF_FILE output_files/Chain8.cdf
+set_global_assignment -name CDF_FILE output_files/Chain9.cdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

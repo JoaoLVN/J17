@@ -22,8 +22,8 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
   input [20:0] op2;
   input wire [31:0] memresult;
   input writecode;
-
-  output [1:0]stackSelect;
+  input [1:0]stackSelect;
+  
 	output reg [31:0] PC;
   output reg [9:0] memaddr;
   output reg writemem;
@@ -38,10 +38,15 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
 
   //Registers
   reg [31:0] regs [6:0];
+  reg [31:0] stackPointer;
 
   //Auxs
   reg [31:0]towrite;
   reg [31:0] pcjump;
+
+  initial begin
+     stackPointer = 32'd10;
+  end
 
   always @(posedge clock) begin
 	 writemem=1'b0;
@@ -90,15 +95,30 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
         1'd1:   towrite=num2;
         default: towrite = 32'hffffffff;
     endcase
+
+    if (stackSelect == 2'd2)begin /* POP */
+         stackPointer = stackPointer+ 1;
+         memaddr=stackPointer[9:0];
+         towrite= memresult;
+    end
+
 		//Escrever no reg/ram
 	 if(pcControl==5'd0) begin
-		 if(flag)begin
-			memaddr=regs[op1][9:0];
-			writemem=1'b1;
-			writememdata=towrite;
-		 end
-		 else
-       regs[op1]= towrite;
+     if(stackSelect == 2'd1)begin /* PUSH */
+          memaddr=stackPointer[9:0];
+          writemem=1'b1;
+          writememdata=num1;
+          stackPointer = stackPointer- 1;
+     end
+     else begin
+  		 if(flag)begin
+    			memaddr=regs[op1][9:0];
+    			writemem=1'b1;
+    			writememdata=towrite;
+  		 end
+  		 else
+         regs[op1]= towrite;
+      end
 	 end
 
     //PC

@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu May 11 20:11:02 2017
+Fitter Status : Successful - Sun Jun 04 21:24:11 2017
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : J17
 Top-level Entity Name : J17
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 175 / 114,480 ( < 1 % )
-    Total combinational functions : 137 / 114,480 ( < 1 % )
-    Dedicated logic registers : 98 / 114,480 ( < 1 % )
-Total registers : 98
-Total pins : 184 / 529 ( 35 % )
+Total logic elements : 776 / 114,480 ( < 1 % )
+    Total combinational functions : 616 / 114,480 ( < 1 % )
+    Dedicated logic registers : 579 / 114,480 ( < 1 % )
+Total registers : 579
+Total pins : 73 / 529 ( 14 % )
 Total virtual pins : 0
 Total memory bits : 0 / 3,981,312 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )

@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "04/26/2017 16:39:35"
+// Generated on "06/04/2017 21:24:35"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          J17
 // 
@@ -31,26 +31,20 @@ module J17_vlg_vec_tst();
 // constants                                           
 // general purpose registers
 reg clk;
+reg in;
 // wires                                               
-wire [3:0] alucd;
-wire im;
-wire [31:0] instruct;
-wire [2:0] o1;
-wire [20:0] o2;
-wire [31:0] progcount;
+wire [31:0] PC;
 wire [31:0] result;
+wire [6:0] seg;
 
 // assign statements (if any)                          
 J17 i1 (
 // port map - connection between master ports and signals/registers   
-	.alucd(alucd),
+	.PC(PC),
 	.clk(clk),
-	.im(im),
-	.instruct(instruct),
-	.o1(o1),
-	.o2(o2),
-	.progcount(progcount),
-	.result(result)
+	.in(in),
+	.result(result),
+	.seg(seg)
 );
 initial 
 begin 
@@ -61,8 +55,14 @@ end
 always
 begin
 	clk = 1'b0;
-	clk = #50000 1'b1;
-	#50000;
+	clk = #25000 1'b1;
+	#25000;
+end 
+
+// in
+initial
+begin
+	in = 1'b0;
 end 
 endmodule
 

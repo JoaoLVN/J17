@@ -1,5 +1,5 @@
 Analysis & Synthesis report for J17
-Thu May 11 20:10:34 2017
+Sun Jun 04 21:23:46 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -16,15 +16,18 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   8. Registers Removed During Synthesis
   9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: RAM:RAM|debounce:comb_3
- 13. Port Connectivity Checks: "RAM:RAM|LED_7seg:comb_4"
- 14. Port Connectivity Checks: "RAM:RAM|debounce:comb_3"
- 15. Port Connectivity Checks: "DP:DataPath"
- 16. Port Connectivity Checks: "UC:ControlUnit"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: RAM:RAM|debounce:comb_3
+ 14. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_mult:Mult0
+ 15. lpm_mult Parameter Settings by Entity Instance
+ 16. Port Connectivity Checks: "RAM:RAM|LED_7seg:comb_4"
+ 17. Port Connectivity Checks: "RAM:RAM|debounce:comb_3"
+ 18. Port Connectivity Checks: "DP:DataPath"
+ 19. Port Connectivity Checks: "UC:ControlUnit"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -51,16 +54,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 11 20:10:34 2017       ;
+; Analysis & Synthesis Status        ; Successful - Sun Jun 04 21:23:46 2017       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; J17                                         ;
 ; Top-level Entity Name              ; J17                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 175                                         ;
-;     Total combinational functions  ; 137                                         ;
-;     Dedicated logic registers      ; 98                                          ;
-; Total registers                    ; 98                                          ;
-; Total pins                         ; 184                                         ;
+; Total logic elements               ; 1,002                                       ;
+;     Total combinational functions  ; 616                                         ;
+;     Dedicated logic registers      ; 579                                         ;
+; Total registers                    ; 579                                         ;
+; Total pins                         ; 73                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -171,19 +174,26 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                         ;
-+----------------------------------+-----------------+----------------------------------+------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path ; Library ;
-+----------------------------------+-----------------+----------------------------------+------------------------------+---------+
-; ../debounce.v                    ; yes             ; User Verilog HDL File            ; D:/Processor/J17/debounce.v  ;         ;
-; ../program.mif                   ; yes             ; User Memory Initialization File  ; D:/Processor/J17/program.mif ;         ;
-; ../UC.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/UC.v        ;         ;
-; ../J17.v                         ; yes             ; User Verilog HDL File            ; D:/Processor/J17/J17.v       ;         ;
-; ../IF.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/IF.v        ;         ;
-; ../DP.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/DP.v        ;         ;
-; ../RAM.v                         ; yes             ; User Verilog HDL File            ; D:/Processor/J17/RAM.v       ;         ;
-+----------------------------------+-----------------+----------------------------------+------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                           ; Library ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------+---------+
+; ../debounce.v                    ; yes             ; User Verilog HDL File            ; D:/Processor/J17/debounce.v                                            ;         ;
+; ../program.mif                   ; yes             ; User Memory Initialization File  ; D:/Processor/J17/program.mif                                           ;         ;
+; ../UC.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/UC.v                                                  ;         ;
+; ../J17.v                         ; yes             ; User Verilog HDL File            ; D:/Processor/J17/J17.v                                                 ;         ;
+; ../IF.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/IF.v                                                  ;         ;
+; ../DP.v                          ; yes             ; User Verilog HDL File            ; D:/Processor/J17/DP.v                                                  ;         ;
+; ../RAM.v                         ; yes             ; User Verilog HDL File            ; D:/Processor/J17/RAM.v                                                 ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
+; multcore.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/multcore.inc    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/bypassff.inc    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.inc    ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction      ; D:/Processor/J17/Quartus/db/mult_7dt.tdf                               ;         ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -191,30 +201,30 @@ agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 175       ;
+; Estimated Total logic elements              ; 1,002     ;
 ;                                             ;           ;
-; Total combinational functions               ; 137       ;
+; Total combinational functions               ; 616       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 23        ;
-;     -- 3 input functions                    ; 94        ;
-;     -- <=2 input functions                  ; 20        ;
+;     -- 4 input functions                    ; 451       ;
+;     -- 3 input functions                    ; 72        ;
+;     -- <=2 input functions                  ; 93        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 65        ;
-;     -- arithmetic mode                      ; 72        ;
+;     -- normal mode                          ; 525       ;
+;     -- arithmetic mode                      ; 91        ;
 ;                                             ;           ;
-; Total registers                             ; 98        ;
-;     -- Dedicated logic registers            ; 98        ;
+; Total registers                             ; 579       ;
+;     -- Dedicated logic registers            ; 579       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 184       ;
+; I/O pins                                    ; 73        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 98        ;
-; Total fan-out                               ; 1022      ;
-; Average fan-out                             ; 1.69      ;
+; Maximum fan-out                             ; 579       ;
+; Total fan-out                               ; 4026      ;
+; Average fan-out                             ; 3.00      ;
 +---------------------------------------------+-----------+
 
 
@@ -223,465 +233,172 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+-------------+--------------+
-; |J17                       ; 137 (0)             ; 98 (0)                    ; 0           ; 0            ; 0       ; 0         ; 184  ; 0            ; |J17                         ; J17         ; work         ;
-;    |DP:DataPath|           ; 99 (99)             ; 78 (78)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath             ; DP          ; work         ;
-;    |IF:InstructionFetch|   ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|IF:InstructionFetch     ; IF          ; work         ;
-;    |RAM:RAM|               ; 28 (9)              ; 20 (6)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM                 ; RAM         ; work         ;
-;       |LED_7seg:comb_4|    ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM|LED_7seg:comb_4 ; LED_7seg    ; work         ;
+; |J17                       ; 616 (0)             ; 579 (0)                   ; 0           ; 0            ; 0       ; 0         ; 73   ; 0            ; |J17                         ; J17         ; work         ;
+;    |DP:DataPath|           ; 540 (540)           ; 213 (213)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath             ; DP          ; work         ;
+;    |IF:InstructionFetch|   ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|IF:InstructionFetch     ; IF          ; work         ;
+;    |RAM:RAM|               ; 69 (49)             ; 366 (352)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM                 ; RAM         ; work         ;
+;       |LED_7seg:comb_4|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM|LED_7seg:comb_4 ; LED_7seg    ; work         ;
 ;       |debounce:comb_3|    ; 13 (13)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM|debounce:comb_3 ; debounce    ; work         ;
-;    |UC:ControlUnit|        ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|UC:ControlUnit          ; UC          ; work         ;
+;    |UC:ControlUnit|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|UC:ControlUnit          ; UC          ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                            ;
-+-------------------------------------------------+---------------------------------------------+
-; Register name                                   ; Reason for Removal                          ;
-+-------------------------------------------------+---------------------------------------------+
-; DP:DataPath|regs[6][31]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][31]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][30]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][30]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][29]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][29]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][28]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][28]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][27]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][27]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][26]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][26]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][25]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][25]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][24]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][24]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][23]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][23]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][22]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][22]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][21]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][21]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][20]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][20]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][19]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][19]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][18]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][18]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][17]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][17]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][16]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][16]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][15]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][15]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][14]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][14]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][13]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][13]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][12]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][12]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][11]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][11]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][10]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][10]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][9]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][9]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][8]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][8]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][7]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][7]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][6]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][6]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][5]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][5]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][4]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][4]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][3]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][3]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][2]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][2]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][1]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][1]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[6][0]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[5][0]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][31]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[1][8]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][8]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][8]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][8]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][9]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][9]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][9]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][9]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][5]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][5]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][5]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][5]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][1]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][1]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][1]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][1]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][2]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][2]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][2]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][2]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][3]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][3]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][3]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][3]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][4]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][4]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][4]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][4]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][6]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][6]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][6]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][6]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][7]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][7]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][7]                          ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][7]                          ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][14]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][14]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][14]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][14]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][31]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][31]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][31]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][30]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][30]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][30]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][30]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][29]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][29]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][29]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][29]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][28]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][28]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][28]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][28]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][27]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][27]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][27]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][27]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][26]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][26]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][26]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][26]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][25]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][25]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][25]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][25]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][24]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][24]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][24]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][24]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][23]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][23]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][23]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][23]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][22]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][22]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][22]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][22]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][21]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][21]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][21]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][21]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][20]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][20]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][20]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][20]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][19]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][19]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][19]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][19]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][18]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][18]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][18]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][18]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][17]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][17]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][17]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][17]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][16]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][16]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][16]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][16]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][15]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][15]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][15]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][15]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][13]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][13]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][13]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][13]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][12]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][12]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][12]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][12]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][11]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][11]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][11]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][11]                         ; Stuck at VCC due to stuck port data_in      ;
-; DP:DataPath|regs[1][10]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[2][10]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[3][10]                         ; Stuck at GND due to stuck port data_in      ;
-; DP:DataPath|regs[4][10]                         ; Stuck at VCC due to stuck port data_in      ;
-; RAM:RAM|RAM[0][2]                               ; Merged with RAM:RAM|RAM[0][1]               ;
-; RAM:RAM|RAM[0][11]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][12]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][13]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][14]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][15]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][16]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][18]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][20]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][21]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][22]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][23]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][24]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][25]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][26]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][27]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][28]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][29]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][30]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][31]                              ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][3]                               ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][4]                               ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][5]                               ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][6]                               ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][7]                               ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][8]                               ; Merged with RAM:RAM|RAM[0][10]              ;
-; RAM:RAM|RAM[0][9]                               ; Merged with RAM:RAM|RAM[0][10]              ;
-; DP:DataPath|memaddr[2]                          ; Merged with DP:DataPath|memaddr[1]          ;
-; DP:DataPath|memaddr[4..9]                       ; Merged with DP:DataPath|memaddr[3]          ;
-; DP:DataPath|writememdata[2]                     ; Merged with DP:DataPath|writememdata[1]     ;
-; DP:DataPath|writememdata[3..9,11..16,18,20..31] ; Merged with DP:DataPath|writememdata[10]    ;
-; DP:DataPath|writememdata[19]                    ; Merged with DP:DataPath|writememdata[17]    ;
-; RAM:RAM|RAM[1][2]                               ; Merged with RAM:RAM|RAM[1][1]               ;
-; RAM:RAM|RAM[2][2]                               ; Merged with RAM:RAM|RAM[2][1]               ;
-; RAM:RAM|RAM[3][2]                               ; Merged with RAM:RAM|RAM[3][1]               ;
-; RAM:RAM|RAM[4][2]                               ; Merged with RAM:RAM|RAM[4][1]               ;
-; RAM:RAM|RAM[1][11]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][12]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][13]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][14]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][15]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][16]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][18]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][20]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][21]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][22]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][23]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][24]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][25]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][26]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][27]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][28]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][29]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][30]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][31]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][3]                               ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][4]                               ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][5]                               ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][6]                               ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][7]                               ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][8]                               ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[1][9]                               ; Merged with RAM:RAM|RAM[1][10]              ;
-; RAM:RAM|RAM[2][11]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][12]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][13]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][14]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][15]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][16]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][18]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][20]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][21]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][22]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][23]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][24]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][25]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][26]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][27]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][28]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][29]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][30]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][31]                              ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][3]                               ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][4]                               ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][5]                               ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][6]                               ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][7]                               ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][8]                               ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[2][9]                               ; Merged with RAM:RAM|RAM[2][10]              ;
-; RAM:RAM|RAM[3][11]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][12]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][13]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][14]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][15]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][16]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][18]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][20]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][21]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][22]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][23]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][24]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][25]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][26]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][27]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][28]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][29]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][30]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][31]                              ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][3]                               ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][4]                               ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][5]                               ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][6]                               ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][7]                               ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][8]                               ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[3][9]                               ; Merged with RAM:RAM|RAM[3][10]              ;
-; RAM:RAM|RAM[4][11]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][12]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][13]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][14]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][15]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][16]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][18]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][20]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][21]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][22]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][23]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][24]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][25]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][26]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][27]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][28]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][29]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][30]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][31]                              ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][3]                               ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][4]                               ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][5]                               ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][6]                               ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][7]                               ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][8]                               ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[4][9]                               ; Merged with RAM:RAM|RAM[4][10]              ;
-; RAM:RAM|RAM[0][19]                              ; Merged with RAM:RAM|RAM[0][17]              ;
-; RAM:RAM|RAM[1][19]                              ; Merged with RAM:RAM|RAM[1][17]              ;
-; RAM:RAM|RAM[2][19]                              ; Merged with RAM:RAM|RAM[2][17]              ;
-; RAM:RAM|RAM[3][19]                              ; Merged with RAM:RAM|RAM[3][17]              ;
-; RAM:RAM|RAM[4][19]                              ; Merged with RAM:RAM|RAM[4][17]              ;
-; DP:DataPath|regs[0][11]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][12]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][13]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][14]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][15]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][16]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][18]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][20]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][21]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][22]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][23]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][24]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][25]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][26]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][27]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][28]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][29]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][30]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][31]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][3]                          ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][4]                          ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][5]                          ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][6]                          ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][7]                          ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][8]                          ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][9]                          ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|regs[0][19]                         ; Merged with DP:DataPath|regs[0][17]         ;
-; DP:DataPath|regs[0][2]                          ; Merged with DP:DataPath|regs[0][1]          ;
-; RAM:RAM|RAM[2][0]                               ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[3][0]                               ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[4][0]                               ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[2][1]                               ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[3][1]                               ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[4][1]                               ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[2][10]                              ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[3][10]                              ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[4][10]                              ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[2][17]                              ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[3][17]                              ; Stuck at GND due to stuck port clock_enable ;
-; RAM:RAM|RAM[4][17]                              ; Stuck at GND due to stuck port clock_enable ;
-; DP:DataPath|regs[0][17]                         ; Merged with DP:DataPath|regs[0][10]         ;
-; DP:DataPath|writememdata[17]                    ; Merged with DP:DataPath|writememdata[10]    ;
-; RAM:RAM|RAM[0][10]                              ; Merged with RAM:RAM|RAM[0][17]              ;
-; RAM:RAM|RAM[1][17]                              ; Merged with RAM:RAM|RAM[1][10]              ;
-; Total Number of Removed Registers = 407         ;                                             ;
-+-------------------------------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; DP:DataPath|regs[6][0]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][0]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][0]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][0]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][1]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][1]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][1]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][1]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][2]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][2]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][2]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][2]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][3]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][3]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][3]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][3]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][4]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][4]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][4]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][4]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][5]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][5]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][5]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][5]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][6]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][6]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][6]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][6]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][7]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][7]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][7]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][7]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][8]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][8]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][8]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][8]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][9]                  ; Lost fanout                            ;
+; DP:DataPath|regs[5][9]                  ; Lost fanout                            ;
+; DP:DataPath|regs[4][9]                  ; Lost fanout                            ;
+; DP:DataPath|regs[2][9]                  ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][10]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][10]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][10]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][10]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][11]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][11]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][11]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][11]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][12]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][12]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][12]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][12]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][13]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][13]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][13]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][13]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][14]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][14]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][14]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][14]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][15]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][15]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][15]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][15]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][16]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][16]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][16]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][16]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][17]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][17]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][17]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][17]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][18]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][18]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][18]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][18]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][19]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][19]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][19]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][19]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][20]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][20]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][20]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][20]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][21]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][21]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][21]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][21]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][22]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][22]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][22]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][22]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][23]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][23]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][23]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][23]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][24]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][24]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][24]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][24]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][25]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][25]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][25]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][25]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][26]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][26]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][26]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][26]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][27]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][27]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][27]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][27]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][28]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][28]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][28]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][28]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][29]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][29]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][29]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][29]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][30]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][30]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][30]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][30]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|regs[6][31]                 ; Lost fanout                            ;
+; DP:DataPath|regs[5][31]                 ; Lost fanout                            ;
+; DP:DataPath|regs[4][31]                 ; Lost fanout                            ;
+; DP:DataPath|regs[2][31]                 ; Stuck at GND due to stuck port data_in ;
+; DP:DataPath|stackPointer[10..31]        ; Lost fanout                            ;
+; Total Number of Removed Registers = 150 ;                                        ;
++-----------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                      ;
-+-------------------------+---------------------------+----------------------------------------------------------------------------+
-; Register name           ; Reason for Removal        ; Registers Removed due to This Register                                     ;
-+-------------------------+---------------------------+----------------------------------------------------------------------------+
-; DP:DataPath|regs[6][31] ; Stuck at GND              ; DP:DataPath|regs[3][31], DP:DataPath|regs[1][31], DP:DataPath|regs[2][31], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][31], DP:DataPath|regs[1][30], DP:DataPath|regs[2][30], ;
-;                         ;                           ; DP:DataPath|regs[3][30], DP:DataPath|regs[4][30], DP:DataPath|regs[1][29], ;
-;                         ;                           ; DP:DataPath|regs[2][29], DP:DataPath|regs[3][29], DP:DataPath|regs[4][29], ;
-;                         ;                           ; DP:DataPath|regs[1][28], DP:DataPath|regs[2][28], DP:DataPath|regs[3][28], ;
-;                         ;                           ; DP:DataPath|regs[4][28]                                                    ;
-; DP:DataPath|regs[6][24] ; Stuck at GND              ; DP:DataPath|regs[3][24], DP:DataPath|regs[1][23], DP:DataPath|regs[2][23], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][23]                                                    ;
-; DP:DataPath|regs[6][23] ; Stuck at GND              ; DP:DataPath|regs[3][23], DP:DataPath|regs[1][22], DP:DataPath|regs[2][22], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][22]                                                    ;
-; DP:DataPath|regs[6][22] ; Stuck at GND              ; DP:DataPath|regs[3][22], DP:DataPath|regs[1][21], DP:DataPath|regs[2][21], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][21]                                                    ;
-; DP:DataPath|regs[6][21] ; Stuck at GND              ; DP:DataPath|regs[3][21], DP:DataPath|regs[1][20], DP:DataPath|regs[2][20], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][20]                                                    ;
-; DP:DataPath|regs[6][20] ; Stuck at GND              ; DP:DataPath|regs[3][20], DP:DataPath|regs[1][19], DP:DataPath|regs[2][19], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][19]                                                    ;
-; DP:DataPath|regs[6][19] ; Stuck at GND              ; DP:DataPath|regs[3][19], DP:DataPath|regs[1][18], DP:DataPath|regs[2][18], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][18]                                                    ;
-; DP:DataPath|regs[6][18] ; Stuck at GND              ; DP:DataPath|regs[3][18], DP:DataPath|regs[1][17], DP:DataPath|regs[2][17], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][17]                                                    ;
-; DP:DataPath|regs[6][17] ; Stuck at GND              ; DP:DataPath|regs[3][17], DP:DataPath|regs[1][16], DP:DataPath|regs[2][16], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][16]                                                    ;
-; DP:DataPath|regs[6][16] ; Stuck at GND              ; DP:DataPath|regs[3][16], DP:DataPath|regs[1][15], DP:DataPath|regs[2][15], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][15]                                                    ;
-; DP:DataPath|regs[6][15] ; Stuck at GND              ; DP:DataPath|regs[1][14], DP:DataPath|regs[2][14], DP:DataPath|regs[4][14], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][15]                                                    ;
-; DP:DataPath|regs[6][14] ; Stuck at GND              ; DP:DataPath|regs[3][14], DP:DataPath|regs[1][13], DP:DataPath|regs[2][13], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][13]                                                    ;
-; DP:DataPath|regs[6][13] ; Stuck at GND              ; DP:DataPath|regs[3][13], DP:DataPath|regs[1][12], DP:DataPath|regs[2][12], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][12]                                                    ;
-; DP:DataPath|regs[6][12] ; Stuck at GND              ; DP:DataPath|regs[3][12], DP:DataPath|regs[1][11], DP:DataPath|regs[2][11], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][11]                                                    ;
-; DP:DataPath|regs[6][11] ; Stuck at GND              ; DP:DataPath|regs[3][11], DP:DataPath|regs[1][10], DP:DataPath|regs[2][10], ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][10]                                                    ;
-; DP:DataPath|regs[6][10] ; Stuck at GND              ; DP:DataPath|regs[1][9], DP:DataPath|regs[2][9], DP:DataPath|regs[4][9],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][10]                                                    ;
-; DP:DataPath|regs[6][9]  ; Stuck at GND              ; DP:DataPath|regs[1][8], DP:DataPath|regs[2][8], DP:DataPath|regs[4][8],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][9]                                                     ;
-; DP:DataPath|regs[6][8]  ; Stuck at GND              ; DP:DataPath|regs[3][8], DP:DataPath|regs[1][7], DP:DataPath|regs[2][7],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][7]                                                     ;
-; DP:DataPath|regs[6][7]  ; Stuck at GND              ; DP:DataPath|regs[1][6], DP:DataPath|regs[2][6], DP:DataPath|regs[4][6],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][7]                                                     ;
-; DP:DataPath|regs[6][6]  ; Stuck at GND              ; DP:DataPath|regs[1][5], DP:DataPath|regs[2][5], DP:DataPath|regs[4][5],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][6]                                                     ;
-; DP:DataPath|regs[6][5]  ; Stuck at GND              ; DP:DataPath|regs[3][5], DP:DataPath|regs[1][4], DP:DataPath|regs[2][4],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[4][4]                                                     ;
-; DP:DataPath|regs[6][4]  ; Stuck at GND              ; DP:DataPath|regs[1][3], DP:DataPath|regs[2][3], DP:DataPath|regs[4][3],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][4]                                                     ;
-; DP:DataPath|regs[6][3]  ; Stuck at GND              ; DP:DataPath|regs[1][2], DP:DataPath|regs[2][2], DP:DataPath|regs[4][2],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][3]                                                     ;
-; DP:DataPath|regs[6][2]  ; Stuck at GND              ; DP:DataPath|regs[1][1], DP:DataPath|regs[2][1], DP:DataPath|regs[4][1],    ;
-;                         ; due to stuck port data_in ; DP:DataPath|regs[3][2]                                                     ;
-; DP:DataPath|regs[6][25] ; Stuck at GND              ; DP:DataPath|regs[1][24], DP:DataPath|regs[2][24], DP:DataPath|regs[4][24]  ;
-;                         ; due to stuck port data_in ;                                                                            ;
-; DP:DataPath|regs[6][1]  ; Stuck at GND              ; DP:DataPath|regs[3][1]                                                     ;
-;                         ; due to stuck port data_in ;                                                                            ;
-+-------------------------+---------------------------+----------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                     ;
++------------------------------+--------------------+-------------------------------------------------------------+
+; Register name                ; Reason for Removal ; Registers Removed due to This Register                      ;
++------------------------------+--------------------+-------------------------------------------------------------+
+; DP:DataPath|stackPointer[31] ; Lost Fanouts       ; DP:DataPath|stackPointer[30], DP:DataPath|stackPointer[29], ;
+;                              ;                    ; DP:DataPath|stackPointer[28], DP:DataPath|stackPointer[27], ;
+;                              ;                    ; DP:DataPath|stackPointer[26], DP:DataPath|stackPointer[25], ;
+;                              ;                    ; DP:DataPath|stackPointer[24], DP:DataPath|stackPointer[23], ;
+;                              ;                    ; DP:DataPath|stackPointer[22], DP:DataPath|stackPointer[21], ;
+;                              ;                    ; DP:DataPath|stackPointer[20], DP:DataPath|stackPointer[19], ;
+;                              ;                    ; DP:DataPath|stackPointer[18], DP:DataPath|stackPointer[17], ;
+;                              ;                    ; DP:DataPath|stackPointer[16], DP:DataPath|stackPointer[15], ;
+;                              ;                    ; DP:DataPath|stackPointer[14], DP:DataPath|stackPointer[13], ;
+;                              ;                    ; DP:DataPath|stackPointer[12], DP:DataPath|stackPointer[11], ;
+;                              ;                    ; DP:DataPath|stackPointer[10]                                ;
++------------------------------+--------------------+-------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -689,28 +406,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 98    ;
+; Total registers                              ; 579   ;
 ; Number of registers using Synchronous Clear  ; 11    ;
-; Number of registers using Synchronous Load   ; 13    ;
+; Number of registers using Synchronous Load   ; 12    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 14    ;
+; Number of registers using Clock Enable       ; 489   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |J17|RAM:RAM|RAM[1][27]    ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |J17|RAM:RAM|Mux18         ;
-; 7:1                ; 10 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |J17|DP:DataPath|Mux54     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |J17|DP:DataPath|num2      ;
-; 8:1                ; 22 bits   ; 110 LEs       ; 88 LEs               ; 22 LEs                 ; No         ; |J17|DP:DataPath|num1      ;
-; 25:1               ; 32 bits   ; 512 LEs       ; 224 LEs              ; 288 LEs                ; No         ; |J17|DP:DataPath|Mux180    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; DP:DataPath|stackPointer[3]            ; 3       ;
+; DP:DataPath|stackPointer[1]            ; 3       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |J17|RAM:RAM|RAM[1][17]     ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |J17|DP:DataPath|memaddr[4] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |J17|DP:DataPath|Mux63      ;
+; 3:1                ; 27 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |J17|DP:DataPath|num2       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |J17|DP:DataPath|num2       ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; No         ; |J17|DP:DataPath|Mux127     ;
+; 13:1               ; 32 bits   ; 256 LEs       ; 256 LEs              ; 0 LEs                  ; No         ; |J17|DP:DataPath|towrite    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
 
 
 +----------------------------------------------------------------------+
@@ -721,6 +450,61 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; N              ; 11    ; Signed Integer                              ;
 +----------------+-------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_mult:Mult0         ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                     ;
++---------------------------------------+----------------------------+
+; Name                                  ; Value                      ;
++---------------------------------------+----------------------------+
+; Number of entity instances            ; 1                          ;
+; Entity Instance                       ; DP:DataPath|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                         ;
+;     -- LPM_WIDTHB                     ; 32                         ;
+;     -- LPM_WIDTHP                     ; 64                         ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                         ;
+;     -- USE_EAB                        ; OFF                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                         ;
++---------------------------------------+----------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -751,15 +535,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "UC:ControlUnit"                                                                                                                     ;
-+-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                                      ;
-+-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
-; alucode     ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (4 bits) it drives; bit(s) "alucode[5..4]" have no fanouts   ;
-; pcControl   ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "pcControl[4..4]" have no fanouts ;
-; stackSelect ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                          ;
-+-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UC:ControlUnit"                                                                                                                   ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                      ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
+; alucode   ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (4 bits) it drives; bit(s) "alucode[5..4]" have no fanouts   ;
+; pcControl ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "pcControl[4..4]" have no fanouts ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -767,25 +550,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 184                         ;
-; cycloneiii_ff         ; 98                          ;
-;     ENA               ; 14                          ;
+; boundary_port         ; 73                          ;
+; cycloneiii_ff         ; 579                         ;
+;     ENA               ; 489                         ;
 ;     SCLR SLD          ; 11                          ;
-;     SLD               ; 2                           ;
-;     plain             ; 71                          ;
-; cycloneiii_lcell_comb ; 143                         ;
-;     arith             ; 72                          ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 62                          ;
-;     normal            ; 71                          ;
-;         0 data inputs ; 1                           ;
+;     SLD               ; 1                           ;
+;     plain             ; 78                          ;
+; cycloneiii_lcell_comb ; 617                         ;
+;     arith             ; 91                          ;
+;         2 data inputs ; 49                          ;
+;         3 data inputs ; 42                          ;
+;     normal            ; 526                         ;
 ;         1 data inputs ; 6                           ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 32                          ;
-;         4 data inputs ; 23                          ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 30                          ;
+;         4 data inputs ; 451                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 15.20                       ;
-; Average LUT depth     ; 7.80                        ;
+; Max LUT depth         ; 10.10                       ;
+; Average LUT depth     ; 5.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -794,7 +576,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -804,10 +586,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu May 11 20:10:17 2017
+    Info: Processing started: Sun Jun 04 21:23:29 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off J17 -c J17
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 2 entities, in source file /processor/j17/vga_driver.v
+    Info (12023): Found entity 1: vga_driver File: D:/Processor/J17/vga_driver.v Line: 25
+    Info (12023): Found entity 2: frequency_divider_by2 File: D:/Processor/J17/vga_driver.v Line: 121
 Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/debounce.v
     Info (12023): Found entity 1: debounce File: D:/Processor/J17/debounce.v Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/uc.v
@@ -820,9 +605,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file /proces
     Info (12023): Found entity 1: DP File: D:/Processor/J17/DP.v Line: 13
 Info (12021): Found 2 design units, including 2 entities, in source file /processor/j17/ram.v
     Info (12023): Found entity 1: RAM File: D:/Processor/J17/RAM.v Line: 10
-    Info (12023): Found entity 2: LED_7seg File: D:/Processor/J17/RAM.v Line: 57
-Critical Warning (10846): Verilog HDL Instantiation warning at RAM.v(26): instance has no name File: D:/Processor/J17/RAM.v Line: 26
-Critical Warning (10846): Verilog HDL Instantiation warning at RAM.v(32): instance has no name File: D:/Processor/J17/RAM.v Line: 32
+    Info (12023): Found entity 2: LED_7seg File: D:/Processor/J17/RAM.v Line: 55
+Critical Warning (10846): Verilog HDL Instantiation warning at vga_driver.v(41): instance has no name File: D:/Processor/J17/vga_driver.v Line: 41
+Critical Warning (10846): Verilog HDL Instantiation warning at RAM.v(24): instance has no name File: D:/Processor/J17/RAM.v Line: 24
+Critical Warning (10846): Verilog HDL Instantiation warning at RAM.v(30): instance has no name File: D:/Processor/J17/RAM.v Line: 30
 Info (12127): Elaborating entity "J17" for the top level hierarchy
 Info (12128): Elaborating entity "IF" for hierarchy "IF:InstructionFetch" File: D:/Processor/J17/J17.v Line: 30
 Warning (10030): Net "list.data_a" at IF.v(15) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/IF.v Line: 15
@@ -830,29 +616,55 @@ Warning (10030): Net "list.waddr_a" at IF.v(15) has no driver or initial value, 
 Warning (10030): Net "list.we_a" at IF.v(15) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/IF.v Line: 15
 Info (12128): Elaborating entity "UC" for hierarchy "UC:ControlUnit" File: D:/Processor/J17/J17.v Line: 44
 Info (12128): Elaborating entity "DP" for hierarchy "DP:DataPath" File: D:/Processor/J17/J17.v Line: 62
-Warning (10034): Output port "stackSelect" at DP.v(26) has no driver File: D:/Processor/J17/DP.v Line: 26
 Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM" File: D:/Processor/J17/J17.v Line: 72
-Info (12128): Elaborating entity "debounce" for hierarchy "RAM:RAM|debounce:comb_3" File: D:/Processor/J17/RAM.v Line: 26
+Info (12128): Elaborating entity "debounce" for hierarchy "RAM:RAM|debounce:comb_3" File: D:/Processor/J17/RAM.v Line: 24
 Warning (10230): Verilog HDL assignment warning at debounce.v(54): truncated value with size 32 to match size of target (11) File: D:/Processor/J17/debounce.v Line: 54
-Info (12128): Elaborating entity "LED_7seg" for hierarchy "RAM:RAM|LED_7seg:comb_4" File: D:/Processor/J17/RAM.v Line: 32
+Info (12128): Elaborating entity "LED_7seg" for hierarchy "RAM:RAM|LED_7seg:comb_4" File: D:/Processor/J17/RAM.v Line: 30
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276004): RAM logic "IF:InstructionFetch|list" is uninferred due to inappropriate RAM size File: D:/Processor/J17/IF.v Line: 15
+Critical Warning (127005): Memory depth (8) in the design file differs from memory depth (7) in the Memory Initialization File "D:/Processor/J17/Quartus/db/J17.ram0_IF_931.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "DP:DataPath|Mult0" File: D:/Processor/J17/DP.v Line: 80
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_mult:Mult0" File: D:/Processor/J17/DP.v Line: 80
+Info (12133): Instantiated megafunction "DP:DataPath|lpm_mult:Mult0" with the following parameter: File: D:/Processor/J17/DP.v Line: 80
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
+    Info (12023): Found entity 1: mult_7dt File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 31
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 67
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 91
 Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "alucode[0]" is stuck at GND File: D:/Processor/J17/J17.v Line: 11
-    Warning (13410): Pin "pcControl[0]" is stuck at GND File: D:/Processor/J17/J17.v Line: 14
-    Warning (13410): Pin "flag1" is stuck at GND File: D:/Processor/J17/J17.v Line: 16
+Info (13014): Ignored 84 buffer(s)
+    Info (13019): Ignored 84 SOFT buffer(s)
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|w513w[0]" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 76
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult1" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 40
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out4" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 81
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out6" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 86
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult3" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 49
+        Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult5" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 58
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 118 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 369 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1172 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 182 output pins
-    Info (21061): Implemented 185 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 631 megabytes
-    Info: Processing ended: Thu May 11 20:10:34 2017
+    Info (21059): Implemented 71 output pins
+    Info (21061): Implemented 1099 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 644 megabytes
+    Info: Processing ended: Sun Jun 04 21:23:46 2017
     Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:33
 
 
