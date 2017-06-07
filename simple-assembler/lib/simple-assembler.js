@@ -49,9 +49,11 @@ export default {
       var hasargs=false;
       var existe=false;
       var islabel=false;
-      if(line[0].charAt(0)==='.' || line[0]==""){
+      var nlabels=0;
+      if(line[0].charAt(0)==='.' || line[0]===""){
         hasargs=false;
         islabel=true;
+        nlabels++;
       }else{
         for(var k=0;k<instructionset.length;k++){
           if(line[0]===instructionset[k].instruction){
@@ -76,12 +78,22 @@ export default {
           var im=3;
 
           if(operand.indexOf(".")!== -1){
+            var success = false;
             im=21;
-            for(var ln=0;ln<text.length;ln++){
-              if(i!=ln && text[ln].indexOf(operand)!== -1){
-                operand=ln-i;
+            var ln=0;
+            for( ln=0;ln<text.length;ln++){
+              if(i!=ln && text[ln].split(":")[0] ===operand){
+                operand=(ln-nlabels)-(i-nlabels) ;
+                // operand=(ln-nlabels) ;
+                success=true;
+                break;
               }
             }
+            if(!success){
+              atom.notifications.addWarning("Label: "+operand+" não encontrada. ("+(i+1)+")");
+              return false;
+            }
+
           }else if(operand.indexOf("%") !== -1){
             operand=operand.replace('%','');
             flag = 1;
@@ -129,8 +141,7 @@ export default {
           var newEditor = atom.workspace.buildTextEditor();
           if(parsed){
             newEditor.setText(parsed);
-            let path=editor.getPath();
-            newEditor.saveAs(path.substring(0, path.lastIndexOf(".")) +".mif");
+            newEditor.saveAs(editor.getPath().split(".")[0] +".bin");
             atom.notifications.addSuccess("Código gerado com sucesso");
           }
         } catch (e) {
