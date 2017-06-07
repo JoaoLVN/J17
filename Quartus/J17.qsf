@@ -75,9 +75,9 @@ set_location_assignment PIN_Y2 -to clk
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
 set_location_assignment PIN_M23 -to in
 set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR simulation/new -section_id eda_simulation
+set_global_assignment -name BINARY_FILE ../program.bin
 set_global_assignment -name VERILOG_FILE ../vga_driver.v
 set_global_assignment -name VERILOG_FILE ../debounce.v
-set_global_assignment -name MIF_FILE ../program.mif
 set_global_assignment -name VERILOG_FILE ../UC.v
 set_global_assignment -name VERILOG_FILE ../J17.v
 set_global_assignment -name VERILOG_FILE ../IF.v

@@ -6,7 +6,7 @@ input clk,in;
 output wire [6:0] seg;
 
  output wire [31:0] result;
-output  wire [31:0]PC;
+ output  wire [31:0]PC;
  wire[31:0]instruction;
  wire [3:0] alucode;
  wire [2:0] op1;
@@ -23,11 +23,7 @@ output  wire [31:0]PC;
  wire [31:0] writememdata;
  wire [31:0] memresult;
 
- IF InstructionFetch(
- .clock(clk),
- .pc(PC),
- .out(instruction)
- );
+
 
  UC ControlUnit(
  .clock(clk),
@@ -62,15 +58,17 @@ DP DataPath(
   );
 
    RAM RAM(
+     .pc(PC),
       .clock(clk),
-		.in(in),
+		  .in(in),
       .addr(memaddr),
       .write(writemem),
       .value(writememdata),
       .result(memresult),
-      .seg(seg)
+      .seg(seg),
+      .out(instruction)
   	);
 
-	
+
 
 endmodule //

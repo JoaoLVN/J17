@@ -1,5 +1,5 @@
 |J17
-clk => clk.IN4
+clk => clk.IN3
 in => in.IN1
 seg[0] << RAM:RAM.seg
 seg[1] << RAM:RAM.seg
@@ -72,74 +72,6 @@ PC[28] << PC[28].DB_MAX_OUTPUT_PORT_TYPE
 PC[29] << PC[29].DB_MAX_OUTPUT_PORT_TYPE
 PC[30] << PC[30].DB_MAX_OUTPUT_PORT_TYPE
 PC[31] << PC[31].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|J17|IF:InstructionFetch
-clock => ~NO_FANOUT~
-pc[0] => list.RADDR
-pc[1] => list.RADDR1
-pc[2] => list.RADDR2
-pc[3] => ~NO_FANOUT~
-pc[4] => ~NO_FANOUT~
-pc[5] => ~NO_FANOUT~
-pc[6] => ~NO_FANOUT~
-pc[7] => ~NO_FANOUT~
-pc[8] => ~NO_FANOUT~
-pc[9] => ~NO_FANOUT~
-pc[10] => ~NO_FANOUT~
-pc[11] => ~NO_FANOUT~
-pc[12] => ~NO_FANOUT~
-pc[13] => ~NO_FANOUT~
-pc[14] => ~NO_FANOUT~
-pc[15] => ~NO_FANOUT~
-pc[16] => ~NO_FANOUT~
-pc[17] => ~NO_FANOUT~
-pc[18] => ~NO_FANOUT~
-pc[19] => ~NO_FANOUT~
-pc[20] => ~NO_FANOUT~
-pc[21] => ~NO_FANOUT~
-pc[22] => ~NO_FANOUT~
-pc[23] => ~NO_FANOUT~
-pc[24] => ~NO_FANOUT~
-pc[25] => ~NO_FANOUT~
-pc[26] => ~NO_FANOUT~
-pc[27] => ~NO_FANOUT~
-pc[28] => ~NO_FANOUT~
-pc[29] => ~NO_FANOUT~
-pc[30] => ~NO_FANOUT~
-pc[31] => ~NO_FANOUT~
-out[0] <= list.DATAOUT
-out[1] <= list.DATAOUT1
-out[2] <= list.DATAOUT2
-out[3] <= list.DATAOUT3
-out[4] <= list.DATAOUT4
-out[5] <= list.DATAOUT5
-out[6] <= list.DATAOUT6
-out[7] <= list.DATAOUT7
-out[8] <= list.DATAOUT8
-out[9] <= list.DATAOUT9
-out[10] <= list.DATAOUT10
-out[11] <= list.DATAOUT11
-out[12] <= list.DATAOUT12
-out[13] <= list.DATAOUT13
-out[14] <= list.DATAOUT14
-out[15] <= list.DATAOUT15
-out[16] <= list.DATAOUT16
-out[17] <= list.DATAOUT17
-out[18] <= list.DATAOUT18
-out[19] <= list.DATAOUT19
-out[20] <= list.DATAOUT20
-out[21] <= list.DATAOUT21
-out[22] <= list.DATAOUT22
-out[23] <= list.DATAOUT23
-out[24] <= list.DATAOUT24
-out[25] <= list.DATAOUT25
-out[26] <= list.DATAOUT26
-out[27] <= list.DATAOUT27
-out[28] <= list.DATAOUT28
-out[29] <= list.DATAOUT29
-out[30] <= list.DATAOUT30
-out[31] <= list.DATAOUT31
 
 
 |J17|UC:ControlUnit
@@ -1951,6 +1883,38 @@ writememdata[31] <= writememdata[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |J17|RAM:RAM
+pc[0] => list.RADDR
+pc[1] => list.RADDR1
+pc[2] => list.RADDR2
+pc[3] => list.RADDR3
+pc[4] => ~NO_FANOUT~
+pc[5] => ~NO_FANOUT~
+pc[6] => ~NO_FANOUT~
+pc[7] => ~NO_FANOUT~
+pc[8] => ~NO_FANOUT~
+pc[9] => ~NO_FANOUT~
+pc[10] => ~NO_FANOUT~
+pc[11] => ~NO_FANOUT~
+pc[12] => ~NO_FANOUT~
+pc[13] => ~NO_FANOUT~
+pc[14] => ~NO_FANOUT~
+pc[15] => ~NO_FANOUT~
+pc[16] => ~NO_FANOUT~
+pc[17] => ~NO_FANOUT~
+pc[18] => ~NO_FANOUT~
+pc[19] => ~NO_FANOUT~
+pc[20] => ~NO_FANOUT~
+pc[21] => ~NO_FANOUT~
+pc[22] => ~NO_FANOUT~
+pc[23] => ~NO_FANOUT~
+pc[24] => ~NO_FANOUT~
+pc[25] => ~NO_FANOUT~
+pc[26] => ~NO_FANOUT~
+pc[27] => ~NO_FANOUT~
+pc[28] => ~NO_FANOUT~
+pc[29] => ~NO_FANOUT~
+pc[30] => ~NO_FANOUT~
+pc[31] => ~NO_FANOUT~
 clock => clock.IN2
 in => in.IN1
 addr[0] => Decoder0.IN3
@@ -2827,16 +2791,48 @@ result[28] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 result[29] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 result[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
-seg[0] <= LED_7seg:comb_4.segG
-seg[1] <= LED_7seg:comb_4.segF
-seg[2] <= LED_7seg:comb_4.segE
-seg[3] <= LED_7seg:comb_4.segD
-seg[4] <= LED_7seg:comb_4.segC
-seg[5] <= LED_7seg:comb_4.segB
-seg[6] <= LED_7seg:comb_4.segA
+seg[0] <= LED_7seg:comb_5.segG
+seg[1] <= LED_7seg:comb_5.segF
+seg[2] <= LED_7seg:comb_5.segE
+seg[3] <= LED_7seg:comb_5.segD
+seg[4] <= LED_7seg:comb_5.segC
+seg[5] <= LED_7seg:comb_5.segB
+seg[6] <= LED_7seg:comb_5.segA
+out[0] <= list.DATAOUT
+out[1] <= list.DATAOUT1
+out[2] <= list.DATAOUT2
+out[3] <= list.DATAOUT3
+out[4] <= list.DATAOUT4
+out[5] <= list.DATAOUT5
+out[6] <= list.DATAOUT6
+out[7] <= list.DATAOUT7
+out[8] <= list.DATAOUT8
+out[9] <= list.DATAOUT9
+out[10] <= list.DATAOUT10
+out[11] <= list.DATAOUT11
+out[12] <= list.DATAOUT12
+out[13] <= list.DATAOUT13
+out[14] <= list.DATAOUT14
+out[15] <= list.DATAOUT15
+out[16] <= list.DATAOUT16
+out[17] <= list.DATAOUT17
+out[18] <= list.DATAOUT18
+out[19] <= list.DATAOUT19
+out[20] <= list.DATAOUT20
+out[21] <= list.DATAOUT21
+out[22] <= list.DATAOUT22
+out[23] <= list.DATAOUT23
+out[24] <= list.DATAOUT24
+out[25] <= list.DATAOUT25
+out[26] <= list.DATAOUT26
+out[27] <= list.DATAOUT27
+out[28] <= list.DATAOUT28
+out[29] <= list.DATAOUT29
+out[30] <= list.DATAOUT30
+out[31] <= list.DATAOUT31
 
 
-|J17|RAM:RAM|debounce:comb_3
+|J17|RAM:RAM|debounce:comb_4
 clk => DB_out~reg0.CLK
 clk => q_reg[0].CLK
 clk => q_reg[1].CLK
@@ -2868,7 +2864,7 @@ button_in => DFF1.DATAA
 DB_out <= DB_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|J17|RAM:RAM|LED_7seg:comb_4
+|J17|RAM:RAM|LED_7seg:comb_5
 BCD[0] => Decoder0.IN3
 BCD[1] => Decoder0.IN2
 BCD[2] => Decoder0.IN1

@@ -9,7 +9,7 @@ module IF(clock,pc,out);
 	output [31:0] out;
 
 	initial begin
-		$readmemb("./program.mif", list);
+		$readmemb("./program.bin", list);
 	end
 
 	reg [31:0] list[6:0];

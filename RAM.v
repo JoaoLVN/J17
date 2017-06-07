@@ -7,16 +7,18 @@
 //value= value to write
 //result= value on specified address
 
-module RAM (clock,in,addr,write,value,result,seg);
+module RAM (pc,clock,in,addr,write,value,result,seg,out);
+  input [31:0] pc;
   input  [31:0] value;
   input in;
   input [9:0] addr;
   input write, clock;
   output [31:0] result;
   output [6:0] seg;
-
+ output [31:0] out;
   //Data array
-  reg [31:0] RAM[10:0];
+ reg [31:0] RAM[10:0];
+ reg [31:0] list[8:0];
   wire butval;
 
   debounce(
@@ -29,19 +31,25 @@ module RAM (clock,in,addr,write,value,result,seg);
       .clk(clock),
       .segA(seg[6]), .segB(seg[5]), .segC(seg[4]), .segD(seg[3]), .segE(seg[2]), .segF(seg[1]),.segG(seg[0]));
 
+  initial begin
+    $readmemb("./program.bin", list);
 
+  end
+  
+
+  
  always @ (negedge clock)
   begin
     if (write) begin
       RAM[addr] = value;
     end
 	else begin
-		RAM[10'd1]={31'b0000000000000000000000000000000,butval};
+		RAM[1]={31'b0000000000000000000000000000000,butval};
 	end
   end
 
 assign result = RAM[addr];
-
+assign out = list[pc];
 
 endmodule
 
