@@ -2,40 +2,160 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'out_100hz'
+Slack : -132.165
+TNS   : -54235.889
+
+Type  : Slow 1200mV 85C Model Setup 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -5.521
+TNS   : -62.046
+
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -134.134
-TNS   : -26808.541
+Slack : -3.823
+TNS   : -164.614
+
+Type  : Slow 1200mV 85C Model Hold 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -0.112
+TNS   : -0.754
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.383
+Slack : 0.392
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'out_100hz'
+Slack : 0.660
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'clk'
+Slack : -1.057
+TNS   : -11.931
+
+Type  : Slow 1200mV 85C Model Recovery 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : 0.247
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : 0.011
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : 0.832
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -788.135
+TNS   : -99.375
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'out_100hz'
+Slack : -1.285
+TNS   : -557.690
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -1.285
+TNS   : -48.830
+
+Type  : Slow 1200mV 0C Model Setup 'out_100hz'
+Slack : -119.339
+TNS   : -48927.247
+
+Type  : Slow 1200mV 0C Model Setup 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -5.046
+TNS   : -53.354
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -121.069
-TNS   : -24216.056
+Slack : -3.439
+TNS   : -144.056
+
+Type  : Slow 1200mV 0C Model Hold 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -0.145
+TNS   : -1.354
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.336
+Slack : 0.352
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'out_100hz'
+Slack : 0.605
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'clk'
+Slack : -0.857
+TNS   : -8.417
+
+Type  : Slow 1200mV 0C Model Recovery 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -0.059
+TNS   : -0.749
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : 0.766
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -788.135
+TNS   : -99.375
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'out_100hz'
+Slack : -1.285
+TNS   : -557.690
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -1.285
+TNS   : -48.830
+
+Type  : Fast 1200mV 0C Model Setup 'out_100hz'
+Slack : -65.428
+TNS   : -26805.076
+
+Type  : Fast 1200mV 0C Model Setup 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -2.229
+TNS   : -18.261
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -66.356
-TNS   : -13041.525
+Slack : -1.383
+TNS   : -41.610
+
+Type  : Fast 1200mV 0C Model Hold 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -0.062
+TNS   : -0.506
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.172
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'out_100hz'
+Slack : 0.301
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'clk'
+Slack : -0.058
+TNS   : -0.174
+
+Type  : Fast 1200mV 0C Model Recovery 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : 0.472
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -0.007
+TNS   : -0.073
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : 0.387
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -670.129
+TNS   : -83.139
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'out_100hz'
+Slack : -1.000
+TNS   : -434.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|CLK_400HZ'
+Slack : -1.000
+TNS   : -38.000
 
 ------------------------------------------------------------

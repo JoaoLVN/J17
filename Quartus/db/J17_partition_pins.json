@@ -4,287 +4,215 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "seg[0]",
+					"name" : "LEDG[0]",
 					"strict" : false
 				},
 				{
-					"name" : "seg[1]",
+					"name" : "LEDG[1]",
 					"strict" : false
 				},
 				{
-					"name" : "seg[2]",
+					"name" : "LEDG[2]",
 					"strict" : false
 				},
 				{
-					"name" : "seg[3]",
+					"name" : "LEDG[3]",
 					"strict" : false
 				},
 				{
-					"name" : "seg[4]",
+					"name" : "LEDG[4]",
 					"strict" : false
 				},
 				{
-					"name" : "seg[5]",
+					"name" : "LEDG[5]",
 					"strict" : false
 				},
 				{
-					"name" : "seg[6]",
+					"name" : "LEDG[6]",
 					"strict" : false
 				},
 				{
-					"name" : "result[0]",
+					"name" : "LEDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "result[1]",
+					"name" : "LEDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "result[2]",
+					"name" : "LEDR[2]",
 					"strict" : false
 				},
 				{
-					"name" : "result[3]",
+					"name" : "LEDR[3]",
 					"strict" : false
 				},
 				{
-					"name" : "result[4]",
+					"name" : "LEDR[4]",
 					"strict" : false
 				},
 				{
-					"name" : "result[5]",
+					"name" : "LEDR[5]",
 					"strict" : false
 				},
 				{
-					"name" : "result[6]",
+					"name" : "LEDR[6]",
 					"strict" : false
 				},
 				{
-					"name" : "result[7]",
+					"name" : "LEDR[7]",
 					"strict" : false
 				},
 				{
-					"name" : "result[8]",
+					"name" : "LEDR[8]",
 					"strict" : false
 				},
 				{
-					"name" : "result[9]",
+					"name" : "LEDR[9]",
 					"strict" : false
 				},
 				{
-					"name" : "result[10]",
+					"name" : "LEDR[10]",
 					"strict" : false
 				},
 				{
-					"name" : "result[11]",
+					"name" : "LEDR[11]",
 					"strict" : false
 				},
 				{
-					"name" : "result[12]",
+					"name" : "LEDR[12]",
 					"strict" : false
 				},
 				{
-					"name" : "result[13]",
+					"name" : "LEDR[13]",
 					"strict" : false
 				},
 				{
-					"name" : "result[14]",
+					"name" : "LEDR[14]",
 					"strict" : false
 				},
 				{
-					"name" : "result[15]",
+					"name" : "LEDR[15]",
 					"strict" : false
 				},
 				{
-					"name" : "result[16]",
+					"name" : "LEDR[16]",
 					"strict" : false
 				},
 				{
-					"name" : "result[17]",
+					"name" : "LEDR[17]",
 					"strict" : false
 				},
 				{
-					"name" : "result[18]",
+					"name" : "LCD_EN",
 					"strict" : false
 				},
 				{
-					"name" : "result[19]",
+					"name" : "LCD_RS",
 					"strict" : false
 				},
 				{
-					"name" : "result[20]",
+					"name" : "LCD_DATA[0]",
 					"strict" : false
 				},
 				{
-					"name" : "result[21]",
+					"name" : "LCD_DATA[1]",
 					"strict" : false
 				},
 				{
-					"name" : "result[22]",
+					"name" : "LCD_DATA[2]",
 					"strict" : false
 				},
 				{
-					"name" : "result[23]",
+					"name" : "LCD_DATA[3]",
 					"strict" : false
 				},
 				{
-					"name" : "result[24]",
+					"name" : "LCD_DATA[4]",
 					"strict" : false
 				},
 				{
-					"name" : "result[25]",
+					"name" : "LCD_DATA[5]",
 					"strict" : false
 				},
 				{
-					"name" : "result[26]",
+					"name" : "LCD_DATA[6]",
 					"strict" : false
 				},
 				{
-					"name" : "result[27]",
+					"name" : "LCD_DATA[7]",
 					"strict" : false
 				},
 				{
-					"name" : "result[28]",
+					"name" : "Switches[0]",
 					"strict" : false
 				},
 				{
-					"name" : "result[29]",
+					"name" : "Switches[1]",
 					"strict" : false
 				},
 				{
-					"name" : "result[30]",
+					"name" : "Switches[2]",
 					"strict" : false
 				},
 				{
-					"name" : "result[31]",
+					"name" : "Switches[3]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[0]",
+					"name" : "Switches[4]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[1]",
+					"name" : "Switches[5]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[2]",
+					"name" : "Switches[6]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[3]",
+					"name" : "Switches[7]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[4]",
+					"name" : "Switches[8]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[5]",
+					"name" : "Switches[9]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[6]",
+					"name" : "Switches[10]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[7]",
+					"name" : "Switches[11]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[8]",
+					"name" : "Switches[12]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[9]",
+					"name" : "Switches[13]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[10]",
+					"name" : "Switches[14]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[11]",
+					"name" : "Switches[15]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[12]",
+					"name" : "Switches[16]",
 					"strict" : false
 				},
 				{
-					"name" : "PC[13]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[14]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[15]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[16]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[17]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[18]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[19]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[20]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[21]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[22]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[23]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[24]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[25]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[26]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[27]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[28]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[29]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[30]",
-					"strict" : false
-				},
-				{
-					"name" : "PC[31]",
+					"name" : "Switches[17]",
 					"strict" : false
 				},
 				{

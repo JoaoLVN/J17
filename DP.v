@@ -10,8 +10,10 @@
 //PC = valor do pc
 //result= resultado da alu
 //memaddr,writemem,memresult,writememdata= controles da RAM
-module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writecode,PC,result,memaddr,writemem,memresult,writememdata);
+module DP (clock,in,butin,alucode,flag,flag1,op1,op2,imControl,pcControl,writecode,stackSelect,PC,result,display1,display2,display3,out);
 
+  input [17:0] in;
+  input butin;
   input clock;
   input imControl;
   input [4:0] pcControl;
@@ -19,16 +21,16 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
   input [2:0] op1;
   input flag;
   input flag1;
-  input [20:0] op2;
-  input wire [31:0] memresult;
   input writecode;
+  input [20:0] op2;
   input [1:0]stackSelect;
-  
-	output reg [31:0] PC;
-  output reg [9:0] memaddr;
-  output reg writemem;
-  output reg [31:0] writememdata;
+
+  output reg [31:0] PC;
   output reg[31:0] result;
+  output [6:0] display1 ;
+  output [6:0] display2 ;
+  output [6:0] display3 ;
+  output [31:0] out;
 
   //Operand numbers
   reg [31:0]num1;
@@ -40,20 +42,41 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
   reg [31:0] regs [6:0];
   reg [31:0] stackPointer;
 
+
   //Auxs
   reg [31:0]towrite;
   reg [31:0] pcjump;
 
+  //Data array
+  reg [31:0] RAM[10:0];
+  reg [31:0] list[37:0];
+
+
+  reg lastbut;
+
   initial begin
-     stackPointer = 32'd10;
+    $readmemb("./program.bin", list);
+    stackPointer = 32'd10;
   end
 
+  assign display1 = RAM[0][6:0];
+  assign display2 = RAM[1][6:0];
+  assign display3 = RAM[2][6:0];
+  assign out = list[PC];
+
   always @(posedge clock) begin
-	 writemem=1'b0;
+   RAM[3]={25'b0000000000000000000000000,in};
+
+	if(lastbut == 0 && butin== 0)
+		RAM[4]=32'b00000000000000000000000000000001;
+	else
+		RAM[4]={31'b0000000000000000000000000000000,butin};
+
+	lastbut=butin;
+
 	 //Carrega valores de num1 e num2
     if(flag)begin
-      memaddr=regs[op1][9:0];
-      num1=memresult;
+      num1=RAM[regs[op1][9:0]];
     end
     else
       num1=regs[op1];
@@ -66,8 +89,7 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
     end
     else begin
       if(flag1)begin
-        memaddr=regs[op2[20:18]][9:0];
-        num2=memresult;
+        num2=RAM[regs[op2[20:18]][9:0]];
       end
       else
         num2=regs[op2[20:18]];
@@ -98,23 +120,18 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
 
     if (stackSelect == 2'd2)begin /* POP */
          stackPointer = stackPointer+ 1;
-         memaddr=stackPointer[9:0];
-         towrite= memresult;
+         towrite= RAM[stackPointer[9:0]];
     end
 
 		//Escrever no reg/ram
 	 if(pcControl==5'd0) begin
      if(stackSelect == 2'd1)begin /* PUSH */
-          memaddr=stackPointer[9:0];
-          writemem=1'b1;
-          writememdata=num1;
+          RAM[stackPointer[9:0]]=num1;
           stackPointer = stackPointer- 1;
      end
      else begin
   		 if(flag)begin
-    			memaddr=regs[op1][9:0];
-    			writemem=1'b1;
-    			writememdata=towrite;
+          RAM[regs[op1][9:0]]=towrite;
   		 end
   		 else
          regs[op1]= towrite;
@@ -161,18 +178,18 @@ module DP (clock,alucode,flag,flag1,op1,op2,imControl,pcControl,stackSelect,writ
           pcjump=32'd1;
       end
       5'd7:begin
-        if(num1!=0)
-          pcjump=num3;
+        if(num1!=32'd0)
+          pcjump=num2;
         else
           pcjump=32'd1;
       end
       5'd8:begin
-        if(num1==0)
-          pcjump=num3;
+        if(num1==32'd0)
+          pcjump=num2;
         else
           pcjump=32'd1;
       end
-      5'd9:pcjump=regs[op1];
+      5'd9:pcjump=num1;
       5'd10:pcjump=32'd0;
 		default:pcjump=32'd0;
     endcase

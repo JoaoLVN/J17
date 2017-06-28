@@ -1,5 +1,5 @@
 Flow report for J17
-Wed Jun 07 00:04:20 2017
+Wed Jun 28 17:02:07 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun 07 00:04:20 2017       ;
+; Flow Status                        ; Successful - Wed Jun 28 17:02:07 2017       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; J17                                         ;
 ; Top-level Entity Name              ; J17                                         ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,584 / 114,480 ( 3 % )                     ;
-;     Total combinational functions  ; 3,442 / 114,480 ( 3 % )                     ;
-;     Dedicated logic registers      ; 611 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 611                                         ;
-; Total pins                         ; 73 / 529 ( 14 % )                           ;
+; Total logic elements               ; 3,950 / 114,480 ( 3 % )                     ;
+;     Total combinational functions  ; 3,887 / 114,480 ( 3 % )                     ;
+;     Dedicated logic registers      ; 547 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 547                                         ;
+; Total pins                         ; 60 / 529 ( 11 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 6 / 532 ( 1 % )                             ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/07/2017 00:01:38 ;
+; Start date & time ; 06/28/2017 16:57:26 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; J17                 ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 272897466661548.149680449802672        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 272897466661548.149867984622648        ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                     ; --            ; --          ; eda_simulation ;
 ; EDA_NETLIST_WRITER_OUTPUT_DIR       ; simulation/new                         ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --          ; eda_simulation ;
@@ -84,6 +84,7 @@ agreement for further details.
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
+; NUM_PARALLEL_PROCESSORS             ; All                                    ; --            ; --          ; --             ;
 ; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --            ; --          ; --             ;
 ; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --            ; --          ; --             ;
 ; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                             ; --            ; --          ; --             ;
@@ -94,6 +95,7 @@ agreement for further details.
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
+; SMART_RECOMPILE                     ; On                                     ; Off           ; --          ; --             ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -102,14 +104,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:26     ; 1.0                     ; 663 MB              ; 00:00:40                           ;
-; Fitter                    ; 00:01:43     ; 1.0                     ; 1394 MB             ; 00:01:58                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 579 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:12     ; 1.7                     ; 908 MB              ; 00:00:11                           ;
+; Analysis & Synthesis      ; 00:00:33     ; 1.0                     ; 676 MB              ; 00:00:46                           ;
+; Fitter                    ; 00:03:36     ; 1.0                     ; 1410 MB             ; 00:04:03                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 577 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:14     ; 1.5                     ; 862 MB              ; 00:00:12                           ;
 ; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 545 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 533 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 548 MB              ; 00:00:01                           ;
-; Total                     ; 00:02:29     ; --                      ; --                  ; 00:02:57                           ;
+; Total                     ; 00:04:30     ; --                      ; --                  ; 00:05:08                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -123,8 +123,6 @@ agreement for further details.
 ; Assembler                 ; DESKTOP-ADGQUKF  ; Windows 10 ; 10.0       ; x86_64         ;
 ; TimeQuest Timing Analyzer ; DESKTOP-ADGQUKF  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer        ; DESKTOP-ADGQUKF  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-ADGQUKF  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-ADGQUKF  ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 
@@ -136,8 +134,6 @@ quartus_fit --read_settings_files=off --write_settings_files=off J17 -c J17
 quartus_asm --read_settings_files=off --write_settings_files=off J17 -c J17
 quartus_sta J17 -c J17
 quartus_eda --read_settings_files=off --write_settings_files=off J17 -c J17
-quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off J17 -c J17 --vector_source=D:/Processor/J17/Quartus/Waveform1.vwf --testbench_file=D:/Processor/J17/Quartus/simulation/qsim/Waveform1.vwf.vt
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/Processor/J17/Quartus/simulation/qsim/ J17 -c J17
 
 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for J17
-Wed Jun 07 00:02:04 2017
+Wed Jun 28 16:58:01 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -14,23 +14,29 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: RAM:RAM|debounce:comb_4
- 15. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Div0
- 16. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_mult:Mult0
- 17. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Mod0
- 18. lpm_mult Parameter Settings by Entity Instance
- 19. Port Connectivity Checks: "RAM:RAM|LED_7seg:comb_5"
- 20. Port Connectivity Checks: "RAM:RAM|debounce:comb_4"
- 21. Port Connectivity Checks: "DP:DataPath"
- 22. Port Connectivity Checks: "UC:ControlUnit"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+  9. State Machine - |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|next_command
+ 10. State Machine - |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: debounce:comb_73
+ 17. Parameter Settings for User Entity Instance: tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1
+ 18. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Mod0
+ 19. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_mult:Mult0
+ 20. Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Div0
+ 21. lpm_mult Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "tela_LCD:LCD|lcdlab3:lcd"
+ 23. Port Connectivity Checks: "tela_LCD:LCD|BCD:BCD3"
+ 24. Port Connectivity Checks: "tela_LCD:LCD|BCD:BCD2"
+ 25. Port Connectivity Checks: "tela_LCD:LCD|BCD:BCD1"
+ 26. Port Connectivity Checks: "DP:DataPath"
+ 27. Port Connectivity Checks: "UC:ControlUnit"
+ 28. Port Connectivity Checks: "debounce:comb_73"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -57,16 +63,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 07 00:02:03 2017       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 28 16:58:00 2017       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; J17                                         ;
 ; Top-level Entity Name              ; J17                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 3,764                                       ;
-;     Total combinational functions  ; 3,442                                       ;
-;     Dedicated logic registers      ; 611                                         ;
-; Total registers                    ; 611                                         ;
-; Total pins                         ; 73                                          ;
+; Total logic elements               ; 4,243                                       ;
+;     Total combinational functions  ; 3,886                                       ;
+;     Dedicated logic registers      ; 547                                         ;
+; Total registers                    ; 547                                         ;
+; Total pins                         ; 60                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 6                                           ;
@@ -82,7 +88,8 @@ agreement for further details.
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
 ; Top-level entity name                                                      ; J17                ; J17                ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
-; Use smart compilation                                                      ; Off                ; Off                ;
+; Use smart compilation                                                      ; On                 ; Off                ;
+; Maximum processors allowed for parallel compilation                        ; All                ;                    ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                                ; Off                ; Off                ;
 ; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
@@ -173,7 +180,7 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
+;     Processor 2            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -182,17 +189,21 @@ agreement for further details.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; ../Reset_Delay.v                 ; yes             ; User Verilog HDL File        ; D:/Processor/J17/Reset_Delay.v                                             ;         ;
+; ../tela_LCD.v                    ; yes             ; User Verilog HDL File        ; D:/Processor/J17/tela_LCD.v                                                ;         ;
+; ../lcdlab3.v                     ; yes             ; User Verilog HDL File        ; D:/Processor/J17/lcdlab3.v                                                 ;         ;
+; ../LCD_Display.v                 ; yes             ; User Verilog HDL File        ; D:/Processor/J17/LCD_Display.v                                             ;         ;
+; ../BCD.v                         ; yes             ; User Verilog HDL File        ; D:/Processor/J17/BCD.v                                                     ;         ;
 ; ../program.bin                   ; yes             ; User Unspecified File        ; D:/Processor/J17/program.bin                                               ;         ;
 ; ../debounce.v                    ; yes             ; User Verilog HDL File        ; D:/Processor/J17/debounce.v                                                ;         ;
 ; ../UC.v                          ; yes             ; User Verilog HDL File        ; D:/Processor/J17/UC.v                                                      ;         ;
 ; ../J17.v                         ; yes             ; User Verilog HDL File        ; D:/Processor/J17/J17.v                                                     ;         ;
 ; ../DP.v                          ; yes             ; User Verilog HDL File        ; D:/Processor/J17/DP.v                                                      ;         ;
-; ../RAM.v                         ; yes             ; User Verilog HDL File        ; D:/Processor/J17/RAM.v                                                     ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
 ; aglobal161.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc      ;         ;
-; db/lpm_divide_hkm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/lpm_divide_hkm.tdf                             ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/lpm_divide_kcm.tdf                             ;         ;
 ; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/sign_div_unsign_9nh.tdf                        ;         ;
 ; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/alt_u_div_6af.tdf                              ;         ;
 ; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/add_sub_7pc.tdf                                ;         ;
@@ -203,7 +214,7 @@ agreement for further details.
 ; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
 ; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
 ; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/mult_7dt.tdf                                   ;         ;
-; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/lpm_divide_kcm.tdf                             ;         ;
+; db/lpm_divide_hkm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Processor/J17/Quartus/db/lpm_divide_hkm.tdf                             ;         ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 
 
@@ -212,30 +223,30 @@ agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 3,764     ;
+; Estimated Total logic elements              ; 4,243     ;
 ;                                             ;           ;
-; Total combinational functions               ; 3442      ;
+; Total combinational functions               ; 3886      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1885      ;
-;     -- 3 input functions                    ; 1371      ;
-;     -- <=2 input functions                  ; 186       ;
+;     -- 4 input functions                    ; 2240      ;
+;     -- 3 input functions                    ; 1415      ;
+;     -- <=2 input functions                  ; 231       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2244      ;
-;     -- arithmetic mode                      ; 1198      ;
+;     -- normal mode                          ; 2624      ;
+;     -- arithmetic mode                      ; 1262      ;
 ;                                             ;           ;
-; Total registers                             ; 611       ;
-;     -- Dedicated logic registers            ; 611       ;
+; Total registers                             ; 547       ;
+;     -- Dedicated logic registers            ; 547       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 73        ;
+; I/O pins                                    ; 60        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 6         ;
 ;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 611       ;
-; Total fan-out                               ; 13795     ;
-; Average fan-out                             ; 3.28      ;
+; Maximum fan-out node                        ; out_100hz ;
+; Maximum fan-out                             ; 435       ;
+; Total fan-out                               ; 15411     ;
+; Average fan-out                             ; 3.37      ;
 +---------------------------------------------+-----------+
 
 
@@ -244,24 +255,30 @@ agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |J17                                      ; 3442 (0)            ; 611 (0)                   ; 0           ; 6            ; 0       ; 3         ; 73   ; 0            ; |J17                                                                                                                                   ; J17                 ; work         ;
-;    |DP:DataPath|                          ; 3355 (1160)         ; 245 (245)                 ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |J17|DP:DataPath                                                                                                                       ; DP                  ; work         ;
-;       |lpm_divide:Div0|                   ; 1048 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_hkm:auto_generated|  ; 1048 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                         ; lpm_divide_hkm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 1048 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_6af:divider|    ; 1048 (1048)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
-;       |lpm_divide:Mod0|                   ; 1119 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_kcm:auto_generated|  ; 1119 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                         ; lpm_divide_kcm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 1119 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_6af:divider|    ; 1119 (1117)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
+; |J17                                      ; 3886 (25)           ; 547 (19)                  ; 0           ; 6            ; 0       ; 3         ; 60   ; 0            ; |J17                                                                                                                                   ; J17                 ; work         ;
+;    |DP:DataPath|                          ; 3588 (1410)         ; 434 (434)                 ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |J17|DP:DataPath                                                                                                                       ; DP                  ; work         ;
+;       |lpm_divide:Div0|                   ; 1064 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_hkm:auto_generated|  ; 1064 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                         ; lpm_divide_hkm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1064 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|    ; 1064 (1064)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
+;       |lpm_divide:Mod0|                   ; 1086 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|  ; 1086 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                         ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1086 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|    ; 1086 (1084)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
 ;                   |add_sub_7pc:add_sub_0| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_7pc:add_sub_0 ; add_sub_7pc         ; work         ;
 ;                   |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|DP:DataPath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
 ;       |lpm_mult:Mult0|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |J17|DP:DataPath|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
 ;          |mult_7dt:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |J17|DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                ; mult_7dt            ; work         ;
-;    |RAM:RAM|                              ; 75 (55)             ; 366 (352)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM                                                                                                                           ; RAM                 ; work         ;
-;       |LED_7seg:comb_5|                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM|LED_7seg:comb_5                                                                                                           ; LED_7seg            ; work         ;
-;       |debounce:comb_4|                   ; 13 (13)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|RAM:RAM|debounce:comb_4                                                                                                           ; debounce            ; work         ;
-;    |UC:ControlUnit|                       ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|UC:ControlUnit                                                                                                                    ; UC                  ; work         ;
+;    |UC:ControlUnit|                       ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|UC:ControlUnit                                                                                                                    ; UC                  ; work         ;
+;    |debounce:comb_73|                     ; 13 (13)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|debounce:comb_73                                                                                                                  ; debounce            ; work         ;
+;    |tela_LCD:LCD|                         ; 227 (0)             ; 80 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD                                                                                                                      ; tela_LCD            ; work         ;
+;       |BCD:BCD1|                          ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD|BCD:BCD1                                                                                                             ; BCD                 ; work         ;
+;       |BCD:BCD2|                          ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD|BCD:BCD2                                                                                                             ; BCD                 ; work         ;
+;       |BCD:BCD3|                          ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD|BCD:BCD3                                                                                                             ; BCD                 ; work         ;
+;       |lcdlab3:lcd|                       ; 186 (0)             ; 80 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD|lcdlab3:lcd                                                                                                          ; lcdlab3             ; work         ;
+;          |LCD_Display:u1|                 ; 159 (89)            ; 59 (59)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1                                                                                           ; LCD_Display         ; work         ;
+;             |LCD_display_string:u1|       ; 70 (70)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|LCD_display_string:u1                                                                     ; LCD_display_string  ; work         ;
+;          |Reset_Delay:r0|                 ; 27 (27)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |J17|tela_LCD:LCD|lcdlab3:lcd|Reset_Delay:r0                                                                                           ; Reset_Delay         ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -284,110 +301,161 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+-----------------------------------------+----------------------------------------+
-; Register name                           ; Reason for Removal                     ;
-+-----------------------------------------+----------------------------------------+
-; DP:DataPath|regs[6][0]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][0]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][0]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][1]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][1]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][1]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][2]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][2]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][2]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][3]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][3]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][3]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][4]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][4]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][4]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][5]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][5]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][5]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][6]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][6]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][6]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][7]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][7]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][7]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][8]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][8]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][8]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][9]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][9]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][9]                  ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][10]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][10]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][10]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][11]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][11]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][11]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][12]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][12]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][12]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][13]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][13]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][13]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][14]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][14]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][14]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][15]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][15]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][15]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][16]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][16]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][16]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][17]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][17]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][17]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][18]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][18]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][18]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][19]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][19]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][19]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][20]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][20]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][20]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][21]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][21]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][21]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][22]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][22]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][22]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][23]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][23]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][23]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][24]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][24]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][24]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][25]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][25]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][25]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][26]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][26]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][26]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][27]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][27]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][27]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][28]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][28]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][28]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][29]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][29]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][29]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][30]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][30]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][30]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[6][31]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[5][31]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|regs[4][31]                 ; Stuck at GND due to stuck port data_in ;
-; DP:DataPath|stackPointer[10..31]        ; Lost fanout                            ;
-; Total Number of Removed Registers = 118 ;                                        ;
-+-----------------------------------------+----------------------------------------+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|next_command                                                                                                                                                                                                            ;
++----------------------------+----------------------------+--------------------------+---------------------+---------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+
+; Name                       ; next_command.DISPLAY_CLEAR ; next_command.DISPLAY_OFF ; next_command.RESET3 ; next_command.RESET2 ; next_command.RETURN_HOME ; next_command.LINE2 ; next_command.Print_String ; next_command.MODE_SET ; next_command.DISPLAY_ON ; next_command.FUNC_SET ;
++----------------------------+----------------------------+--------------------------+---------------------+---------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+
+; next_command.FUNC_SET      ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ;
+; next_command.DISPLAY_ON    ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 1                       ; 1                     ;
+; next_command.MODE_SET      ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 1                     ; 0                       ; 1                     ;
+; next_command.Print_String  ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 1                         ; 0                     ; 0                       ; 1                     ;
+; next_command.LINE2         ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 1                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.RETURN_HOME   ; 0                          ; 0                        ; 0                   ; 0                   ; 1                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.RESET2        ; 0                          ; 0                        ; 0                   ; 1                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.RESET3        ; 0                          ; 0                        ; 1                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.DISPLAY_OFF   ; 0                          ; 1                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.DISPLAY_CLEAR ; 1                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
++----------------------------+----------------------------+--------------------------+---------------------+---------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|state                                                                                                                                                                                     ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+; Name                ; state.DISPLAY_CLEAR ; state.DISPLAY_OFF ; state.RESET3 ; state.RESET2 ; state.HOLD ; state.DROP_LCD_E ; state.RETURN_HOME ; state.LINE2 ; state.Print_String ; state.MODE_SET ; state.DISPLAY_ON ; state.FUNC_SET ; state.RESET1 ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+; state.RESET1        ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 0            ;
+; state.FUNC_SET      ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 1              ; 1            ;
+; state.DISPLAY_ON    ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 1                ; 0              ; 1            ;
+; state.MODE_SET      ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 1              ; 0                ; 0              ; 1            ;
+; state.Print_String  ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 1                  ; 0              ; 0                ; 0              ; 1            ;
+; state.LINE2         ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 1           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.RETURN_HOME   ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 1                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.DROP_LCD_E    ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 1                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.HOLD          ; 0                   ; 0                 ; 0            ; 0            ; 1          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.RESET2        ; 0                   ; 0                 ; 0            ; 1            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.RESET3        ; 0                   ; 0                 ; 1            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.DISPLAY_OFF   ; 0                   ; 1                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.DISPLAY_CLEAR ; 1                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                   ;
++--------------------------------------------------------+---------------------------------------------+
+; Register name                                          ; Reason for Removal                          ;
++--------------------------------------------------------+---------------------------------------------+
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|LCD_RW_INT     ; Stuck at GND due to stuck port data_in      ;
+; DP:DataPath|regs[6][31]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][31]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][31]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][3]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][3]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][3]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][2]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][2]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][2]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][1]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][1]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][1]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][0]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][0]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][0]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][30]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][30]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][30]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][29]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][29]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][29]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][28]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][28]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][28]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][27]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][27]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][27]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][26]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][26]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][26]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][25]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][25]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][25]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][24]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][24]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][24]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][23]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][23]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][23]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][22]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][22]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][22]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][21]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][21]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][21]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][20]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][20]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][20]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][19]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][19]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][19]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][18]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][18]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][18]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][17]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][17]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][17]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][16]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][16]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][16]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][15]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][15]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][15]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][14]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][14]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][14]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][13]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][13]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][13]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][12]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][12]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][12]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][11]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][11]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][11]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][10]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][10]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][10]                                ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][9]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][9]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][9]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][8]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][8]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][8]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][7]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][7]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][7]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][6]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][6]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][6]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][5]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][5]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][5]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[6][4]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[5][4]                                 ; Stuck at GND due to stuck port clock_enable ;
+; DP:DataPath|regs[4][4]                                 ; Stuck at GND due to stuck port clock_enable ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|next_command~2 ; Lost fanout                                 ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|next_command~3 ; Lost fanout                                 ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|next_command~4 ; Lost fanout                                 ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|next_command~5 ; Lost fanout                                 ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|state~14       ; Lost fanout                                 ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|state~15       ; Lost fanout                                 ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|state~16       ; Lost fanout                                 ;
+; tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|state~17       ; Lost fanout                                 ;
+; DP:DataPath|stackPointer[10..31]                       ; Lost fanout                                 ;
+; DP:DataPath|PC[7..31]                                  ; Lost fanout                                 ;
+; Total Number of Removed Registers = 152                ;                                             ;
++--------------------------------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -414,12 +482,12 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 611   ;
-; Number of registers using Synchronous Clear  ; 11    ;
-; Number of registers using Synchronous Load   ; 12    ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 547   ;
+; Number of registers using Synchronous Clear  ; 49    ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 34    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 393   ;
+; Number of registers using Clock Enable       ; 459   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -429,39 +497,64 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; DP:DataPath|stackPointer[3]            ; 3       ;
-; DP:DataPath|stackPointer[1]            ; 3       ;
+; DP:DataPath|stackPointer[1]            ; 2       ;
+; DP:DataPath|stackPointer[3]            ; 4       ;
 ; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |J17|RAM:RAM|RAM[1][22]     ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |J17|DP:DataPath|memaddr[9] ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |J17|DP:DataPath|Mux57      ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |J17|DP:DataPath|num2       ;
-; 13:1               ; 32 bits   ; 256 LEs       ; 256 LEs              ; 0 LEs                  ; No         ; |J17|DP:DataPath|towrite    ;
-; 14:1               ; 30 bits   ; 270 LEs       ; 240 LEs              ; 30 LEs                 ; No         ; |J17|DP:DataPath|Mux106     ;
-; 21:1               ; 32 bits   ; 448 LEs       ; 192 LEs              ; 256 LEs                ; No         ; |J17|DP:DataPath|Mux183     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS_VALUE[4]          ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |J17|DP:DataPath|Mux94                                                  ;
+; 12:1               ; 9 bits    ; 72 LEs        ; 63 LEs               ; 9 LEs                  ; No         ; |J17|DP:DataPath|num1                                                   ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |J17|DP:DataPath|num2                                                   ;
+; 15:1               ; 14 bits   ; 140 LEs       ; 126 LEs              ; 14 LEs                 ; No         ; |J17|DP:DataPath|num1                                                   ;
+; 15:1               ; 8 bits    ; 80 LEs        ; 72 LEs               ; 8 LEs                  ; No         ; |J17|DP:DataPath|num1                                                   ;
+; 20:1               ; 32 bits   ; 416 LEs       ; 128 LEs              ; 288 LEs                ; No         ; |J17|DP:DataPath|Mux255                                                 ;
+; 26:1               ; 13 bits   ; 221 LEs       ; 195 LEs              ; 26 LEs                 ; No         ; |J17|DP:DataPath|towrite                                                ;
+; 26:1               ; 17 bits   ; 289 LEs       ; 238 LEs              ; 51 LEs                 ; No         ; |J17|DP:DataPath|towrite                                                ;
+; 50:1               ; 3 bits    ; 99 LEs        ; 60 LEs               ; 39 LEs                 ; No         ; |J17|tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|LCD_display_string:u1|Mux0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: RAM:RAM|debounce:comb_4 ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; N              ; 11    ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:comb_73 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; N              ; 11    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; HOLD           ; 0000  ; Unsigned Binary                                             ;
+; FUNC_SET       ; 0001  ; Unsigned Binary                                             ;
+; DISPLAY_ON     ; 0010  ; Unsigned Binary                                             ;
+; MODE_SET       ; 0011  ; Unsigned Binary                                             ;
+; Print_String   ; 0100  ; Unsigned Binary                                             ;
+; LINE2          ; 0101  ; Unsigned Binary                                             ;
+; RETURN_HOME    ; 0110  ; Unsigned Binary                                             ;
+; DROP_LCD_E     ; 0111  ; Unsigned Binary                                             ;
+; RESET1         ; 1000  ; Unsigned Binary                                             ;
+; RESET2         ; 1001  ; Unsigned Binary                                             ;
+; RESET3         ; 1010  ; Unsigned Binary                                             ;
+; DISPLAY_OFF    ; 1011  ; Unsigned Binary                                             ;
+; DISPLAY_CLEAR  ; 1100  ; Unsigned Binary                                             ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Div0 ;
+; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Mod0 ;
 +------------------------+----------------+------------------------------------+
 ; Parameter Name         ; Value          ; Type                               ;
 +------------------------+----------------+------------------------------------+
@@ -472,7 +565,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; LPM_PIPELINE           ; 0              ; Untyped                            ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
-; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                            ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
@@ -519,7 +612,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Mod0 ;
+; Parameter Settings for Inferred Entity Instance: DP:DataPath|lpm_divide:Div0 ;
 +------------------------+----------------+------------------------------------+
 ; Parameter Name         ; Value          ; Type                               ;
 +------------------------+----------------+------------------------------------+
@@ -530,7 +623,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; LPM_PIPELINE           ; 0              ; Untyped                            ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
-; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                            ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
@@ -561,42 +654,76 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+----------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "RAM:RAM|LED_7seg:comb_5"                                                                                                                                                          ;
-+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; BCD  ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tela_LCD:LCD|lcdlab3:lcd"                                                                                                                    ;
++--------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                     ;
++--------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; KEY    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "KEY[3..1]" will be connected to GND. ;
+; KEY    ; Input ; Info     ; Stuck at GND                                                                                                                                ;
+; GPIO_0 ; Bidir ; Warning  ; Output or bidir port (36 bits) is wider than the port expression (1 bits) it drives; bit(s) "GPIO_0[35..1]" have no fanouts                 ;
+; GPIO_0 ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
+; GPIO_1 ; Bidir ; Warning  ; Output or bidir port (36 bits) is wider than the port expression (1 bits) it drives; bit(s) "GPIO_1[35..1]" have no fanouts                 ;
+; GPIO_1 ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
++--------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Port Connectivity Checks: "RAM:RAM|debounce:comb_4" ;
-+---------+-------+----------+------------------------+
-; Port    ; Type  ; Severity ; Details                ;
-+---------+-------+----------+------------------------+
-; n_reset ; Input ; Info     ; Stuck at VCC           ;
-+---------+-------+----------+------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tela_LCD:LCD|BCD:BCD3"                                                                  ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "DP:DataPath"                                                                                                                                          ;
-+-----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                                                                                                                           ;
-+-----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; alucode   ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "alucode[4..4]" will be connected to GND.   ;
-; pcControl ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "pcControl[4..4]" will be connected to GND. ;
-+-----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tela_LCD:LCD|BCD:BCD2"                                                                  ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "UC:ControlUnit"                                                                                                                   ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                                                                      ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
-; alucode   ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (4 bits) it drives; bit(s) "alucode[5..4]" have no fanouts   ;
-; pcControl ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "pcControl[4..4]" have no fanouts ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tela_LCD:LCD|BCD:BCD1"                                                                  ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DP:DataPath"                                                                                ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; alucode[4]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; pcControl[4] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; PC[31..7]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; result       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UC:ControlUnit"                                                                              ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; alucode[5..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pcControl[4]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "debounce:comb_73" ;
++---------+-------+----------+-----------------+
+; Port    ; Type  ; Severity ; Details         ;
++---------+-------+----------+-----------------+
+; n_reset ; Input ; Info     ; Stuck at VCC    ;
++---------+-------+----------+-----------------+
 
 
 +-----------------------------------------------------+
@@ -604,27 +731,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 73                          ;
-; cycloneiii_ff         ; 611                         ;
-;     ENA               ; 393                         ;
+; boundary_port         ; 60                          ;
+; cycloneiii_ff         ; 547                         ;
+;     CLR               ; 14                          ;
+;     CLR SCLR          ; 20                          ;
+;     ENA               ; 454                         ;
+;     ENA SLD           ; 5                           ;
+;     SCLR              ; 18                          ;
 ;     SCLR SLD          ; 11                          ;
-;     SLD               ; 1                           ;
-;     plain             ; 206                         ;
-; cycloneiii_lcell_comb ; 3443                        ;
-;     arith             ; 1198                        ;
-;         2 data inputs ; 19                          ;
-;         3 data inputs ; 1179                        ;
-;     normal            ; 2245                        ;
-;         0 data inputs ; 60                          ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 101                         ;
-;         3 data inputs ; 192                         ;
-;         4 data inputs ; 1885                        ;
+;     plain             ; 25                          ;
+; cycloneiii_io_obuf    ; 8                           ;
+; cycloneiii_lcell_comb ; 3888                        ;
+;     arith             ; 1262                        ;
+;         2 data inputs ; 76                          ;
+;         3 data inputs ; 1186                        ;
+;     normal            ; 2626                        ;
+;         0 data inputs ; 62                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 87                          ;
+;         3 data inputs ; 229                         ;
+;         4 data inputs ; 2240                        ;
 ; cycloneiii_mac_mult   ; 3                           ;
 ; cycloneiii_mac_out    ; 3                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 139.60                      ;
-; Average LUT depth     ; 102.96                      ;
+; Max LUT depth         ; 131.50                      ;
+; Average LUT depth     ; 92.33                       ;
 +-----------------------+-----------------------------+
 
 
@@ -633,7 +764,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:09     ;
+; Top            ; 00:00:15     ;
 +----------------+--------------+
 
 
@@ -643,54 +774,68 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Jun 07 00:01:37 2017
+    Info: Processing started: Wed Jun 28 16:57:26 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off J17 -c J17
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 2 design units, including 2 entities, in source file /processor/j17/vga_driver.v
-    Info (12023): Found entity 1: vga_driver File: D:/Processor/J17/vga_driver.v Line: 25
-    Info (12023): Found entity 2: frequency_divider_by2 File: D:/Processor/J17/vga_driver.v Line: 121
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/reset_delay.v
+    Info (12023): Found entity 1: Reset_Delay File: D:/Processor/J17/Reset_Delay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/tela_lcd.v
+    Info (12023): Found entity 1: tela_LCD File: D:/Processor/J17/tela_LCD.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/lcdlab3.v
+    Info (12023): Found entity 1: lcdlab3 File: D:/Processor/J17/lcdlab3.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file /processor/j17/lcd_display.v
+    Info (12023): Found entity 1: LCD_Display File: D:/Processor/J17/LCD_Display.v Line: 40
+    Info (12023): Found entity 2: LCD_display_string File: D:/Processor/J17/LCD_Display.v Line: 264
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/bcd.v
+    Info (12023): Found entity 1: BCD File: D:/Processor/J17/BCD.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/debounce.v
     Info (12023): Found entity 1: debounce File: D:/Processor/J17/debounce.v Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/uc.v
     Info (12023): Found entity 1: UC File: D:/Processor/J17/UC.v Line: 3
+Warning (10275): Verilog HDL Module Instantiation warning at J17.v(88): ignored dangling comma in List of Port Connections File: D:/Processor/J17/J17.v Line: 88
 Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/j17.v
     Info (12023): Found entity 1: J17 File: D:/Processor/J17/J17.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/if.v
     Info (12023): Found entity 1: IF File: D:/Processor/J17/IF.v Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/dp.v
     Info (12023): Found entity 1: DP File: D:/Processor/J17/DP.v Line: 13
-Info (12021): Found 2 design units, including 2 entities, in source file /processor/j17/ram.v
-    Info (12023): Found entity 1: RAM File: D:/Processor/J17/RAM.v Line: 10
-    Info (12023): Found entity 2: LED_7seg File: D:/Processor/J17/RAM.v Line: 63
-Critical Warning (10846): Verilog HDL Instantiation warning at vga_driver.v(41): instance has no name File: D:/Processor/J17/vga_driver.v Line: 41
-Critical Warning (10846): Verilog HDL Instantiation warning at RAM.v(26): instance has no name File: D:/Processor/J17/RAM.v Line: 26
-Critical Warning (10846): Verilog HDL Instantiation warning at RAM.v(32): instance has no name File: D:/Processor/J17/RAM.v Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file /processor/j17/ram.v
+    Info (12023): Found entity 1: RAM File: D:/Processor/J17/RAM.v Line: 9
+Warning (10236): Verilog HDL Implicit Net warning at tela_LCD.v(35): created implicit net for "GPIO_0" File: D:/Processor/J17/tela_LCD.v Line: 35
+Warning (10236): Verilog HDL Implicit Net warning at tela_LCD.v(35): created implicit net for "GPIO_1" File: D:/Processor/J17/tela_LCD.v Line: 35
+Critical Warning (10846): Verilog HDL Instantiation warning at J17.v(35): instance has no name File: D:/Processor/J17/J17.v Line: 35
 Info (12127): Elaborating entity "J17" for the top level hierarchy
-Info (12128): Elaborating entity "UC" for hierarchy "UC:ControlUnit" File: D:/Processor/J17/J17.v Line: 40
-Info (12128): Elaborating entity "DP" for hierarchy "DP:DataPath" File: D:/Processor/J17/J17.v Line: 58
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM" File: D:/Processor/J17/J17.v Line: 70
-Warning (10030): Net "list.data_a" at RAM.v(21) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/RAM.v Line: 21
-Warning (10030): Net "list.waddr_a" at RAM.v(21) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/RAM.v Line: 21
-Warning (10030): Net "list.we_a" at RAM.v(21) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/RAM.v Line: 21
-Info (12128): Elaborating entity "debounce" for hierarchy "RAM:RAM|debounce:comb_4" File: D:/Processor/J17/RAM.v Line: 26
+Warning (10230): Verilog HDL assignment warning at J17.v(25): truncated value with size 32 to match size of target (18) File: D:/Processor/J17/J17.v Line: 25
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:comb_73" File: D:/Processor/J17/J17.v Line: 35
 Warning (10230): Verilog HDL assignment warning at debounce.v(54): truncated value with size 32 to match size of target (11) File: D:/Processor/J17/debounce.v Line: 54
-Info (12128): Elaborating entity "LED_7seg" for hierarchy "RAM:RAM|LED_7seg:comb_5" File: D:/Processor/J17/RAM.v Line: 32
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "RAM:RAM|list" is uninferred due to inappropriate RAM size File: D:/Processor/J17/RAM.v Line: 21
-Critical Warning (127005): Memory depth (16) in the design file differs from memory depth (9) in the Memory Initialization File "D:/Processor/J17/Quartus/db/J17.ram0_RAM_15119.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (12128): Elaborating entity "UC" for hierarchy "UC:ControlUnit" File: D:/Processor/J17/J17.v Line: 67
+Info (12128): Elaborating entity "DP" for hierarchy "DP:DataPath" File: D:/Processor/J17/J17.v Line: 88
+Warning (10230): Verilog HDL assignment warning at DP.v(68): truncated value with size 43 to match size of target (32) File: D:/Processor/J17/DP.v Line: 68
+Warning (10030): Net "list.data_a" at DP.v(52) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/DP.v Line: 52
+Warning (10030): Net "list.waddr_a" at DP.v(52) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/DP.v Line: 52
+Warning (10030): Net "list.we_a" at DP.v(52) has no driver or initial value, using a default initial value '0' File: D:/Processor/J17/DP.v Line: 52
+Info (12128): Elaborating entity "tela_LCD" for hierarchy "tela_LCD:LCD" File: D:/Processor/J17/J17.v Line: 102
+Info (12128): Elaborating entity "BCD" for hierarchy "tela_LCD:LCD|BCD:BCD1" File: D:/Processor/J17/tela_LCD.v Line: 30
+Warning (10230): Verilog HDL assignment warning at BCD.v(21): truncated value with size 32 to match size of target (4) File: D:/Processor/J17/BCD.v Line: 21
+Warning (10230): Verilog HDL assignment warning at BCD.v(19): truncated value with size 32 to match size of target (4) File: D:/Processor/J17/BCD.v Line: 19
+Info (12128): Elaborating entity "lcdlab3" for hierarchy "tela_LCD:LCD|lcdlab3:lcd" File: D:/Processor/J17/tela_LCD.v Line: 36
+Warning (10036): Verilog HDL or VHDL warning at lcdlab3.v(29): object "RST" assigned a value but never read File: D:/Processor/J17/lcdlab3.v Line: 29
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "tela_LCD:LCD|lcdlab3:lcd|Reset_Delay:r0" File: D:/Processor/J17/lcdlab3.v Line: 34
+Info (12128): Elaborating entity "LCD_Display" for hierarchy "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1" File: D:/Processor/J17/lcdlab3.v Line: 67
+Info (12128): Elaborating entity "LCD_display_string" for hierarchy "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|LCD_display_string:u1" File: D:/Processor/J17/LCD_Display.v Line: 81
+Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (38) in the Memory Initialization File "D:/Processor/J17/Quartus/db/J17.ram0_DP_8a5.hdl.mif" -- setting initial value for remaining addresses to 0
 Info (278001): Inferred 3 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DP:DataPath|Div0" File: D:/Processor/J17/DP.v Line: 81
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "DP:DataPath|Mult0" File: D:/Processor/J17/DP.v Line: 80
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DP:DataPath|Mod0" File: D:/Processor/J17/DP.v Line: 82
-Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_divide:Div0" File: D:/Processor/J17/DP.v Line: 81
-Info (12133): Instantiated megafunction "DP:DataPath|lpm_divide:Div0" with the following parameter: File: D:/Processor/J17/DP.v Line: 81
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DP:DataPath|Mod0" File: D:/Processor/J17/DP.v Line: 104
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "DP:DataPath|Mult0" File: D:/Processor/J17/DP.v Line: 102
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DP:DataPath|Div0" File: D:/Processor/J17/DP.v Line: 103
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_divide:Mod0" File: D:/Processor/J17/DP.v Line: 104
+Info (12133): Instantiated megafunction "DP:DataPath|lpm_divide:Mod0" with the following parameter: File: D:/Processor/J17/DP.v Line: 104
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
-    Info (12023): Found entity 1: lpm_divide_hkm File: D:/Processor/J17/Quartus/db/lpm_divide_hkm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
+    Info (12023): Found entity 1: lpm_divide_kcm File: D:/Processor/J17/Quartus/db/lpm_divide_kcm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
     Info (12023): Found entity 1: sign_div_unsign_9nh File: D:/Processor/J17/Quartus/db/sign_div_unsign_9nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
@@ -699,8 +844,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_7pc File: D:/Processor/J17/Quartus/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
     Info (12023): Found entity 1: add_sub_8pc File: D:/Processor/J17/Quartus/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_mult:Mult0" File: D:/Processor/J17/DP.v Line: 80
-Info (12133): Instantiated megafunction "DP:DataPath|lpm_mult:Mult0" with the following parameter: File: D:/Processor/J17/DP.v Line: 80
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_mult:Mult0" File: D:/Processor/J17/DP.v Line: 102
+Info (12133): Instantiated megafunction "DP:DataPath|lpm_mult:Mult0" with the following parameter: File: D:/Processor/J17/DP.v Line: 102
     Info (12134): Parameter "LPM_WIDTHA" = "32"
     Info (12134): Parameter "LPM_WIDTHB" = "32"
     Info (12134): Parameter "LPM_WIDTHP" = "64"
@@ -712,34 +857,50 @@ Info (12133): Instantiated megafunction "DP:DataPath|lpm_mult:Mult0" with the fo
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
     Info (12023): Found entity 1: mult_7dt File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 31
-Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_divide:Mod0" File: D:/Processor/J17/DP.v Line: 82
-Info (12133): Instantiated megafunction "DP:DataPath|lpm_divide:Mod0" with the following parameter: File: D:/Processor/J17/DP.v Line: 82
+Info (12130): Elaborated megafunction instantiation "DP:DataPath|lpm_divide:Div0" File: D:/Processor/J17/DP.v Line: 103
+Info (12133): Instantiated megafunction "DP:DataPath|lpm_divide:Div0" with the following parameter: File: D:/Processor/J17/DP.v Line: 103
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
-    Info (12023): Found entity 1: lpm_divide_kcm File: D:/Processor/J17/Quartus/db/lpm_divide_kcm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
+    Info (12023): Found entity 1: lpm_divide_hkm File: D:/Processor/J17/Quartus/db/lpm_divide_hkm.tdf Line: 25
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following DSP element node(s):
         Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 67
         Warning (14320): Synthesized away node "DP:DataPath|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8" File: D:/Processor/J17/Quartus/db/mult_7dt.tdf Line: 91
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 84 buffer(s)
     Info (13019): Ignored 84 SOFT buffer(s)
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[0]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[1]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[2]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[3]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[4]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[5]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[6]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+    Warning (13010): Node "tela_LCD:LCD|lcdlab3:lcd|LCD_Display:u1|DATA_BUS[7]~synth" File: D:/Processor/J17/LCD_Display.v Line: 45
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: D:/Processor/J17/J17.v Line: 7
+    Warning (13410): Pin "LEDG[8]" is stuck at GND File: D:/Processor/J17/J17.v Line: 7
+    Warning (13410): Pin "LCD_ON" is stuck at VCC File: D:/Processor/J17/J17.v Line: 9
+    Warning (13410): Pin "LCD_BLON" is stuck at VCC File: D:/Processor/J17/J17.v Line: 10
+    Warning (13410): Pin "LCD_RW" is stuck at GND File: D:/Processor/J17/J17.v Line: 11
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 22 registers lost all their fanouts during netlist optimizations.
+Info (17049): 55 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4034 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 71 output pins
-    Info (21061): Implemented 3955 logic cells
+Info (21057): Implemented 4375 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 20 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 4309 logic cells
     Info (21062): Implemented 6 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 665 megabytes
-    Info: Processing ended: Wed Jun 07 00:02:04 2017
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:41
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 689 megabytes
+    Info: Processing ended: Wed Jun 28 16:58:01 2017
+    Info: Elapsed time: 00:00:35
+    Info: Total CPU time (on all processors): 00:00:47
 
 

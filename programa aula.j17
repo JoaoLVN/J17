@@ -1,0 +1,17 @@
+MOVI r0,4
+MOVI r1,0
+MOVI r3,3
+MOVI r4,0
+MOVI r5,1
+JNE %0,r1,r1 // ENTER
+MOV %4,%3  //LE VALOR 1
+JNE %0,r1,r1 // ENTER
+MOV %5,%3 // LE VALOR 2
+MOVI r2,0
+MOVI r0,2
+.loop:
+ADD %0,%4
+ADDI r2,1
+MOVI r6,.loop
+JNE r2,%5,r6
+HLT

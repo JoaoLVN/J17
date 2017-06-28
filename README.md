@@ -2,7 +2,5 @@
 
 #TODO  <br />
 
-- STACK SYSTEM <br />
-- VGA DISPLAY  <br />
-- EXTENDER  <br />
-- TESTS  <br />
+- IN/OUT <br />
+

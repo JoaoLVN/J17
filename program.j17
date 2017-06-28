@@ -1,7 +1,0 @@
-MOVI r0,66
-PUSH r0
-MOVI r0,3
-MOVI r3,10
-MOV r1,%3
-ADD r0,r1
-HLT

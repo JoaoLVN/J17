@@ -25,7 +25,7 @@
 // Small Footprint Button Debouncer
 
 `timescale 1 ns / 100 ps
-module  debounce 
+module  debounce
 	(
 	input 			clk, n_reset, button_in,				// inputs
 	output reg 	DB_out													// output
