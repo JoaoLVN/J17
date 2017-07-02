@@ -9,6 +9,7 @@ JNE %0,r1,r1 // ENTER
 MOV %5,%3 // LE VALOR 2
 MOVI r2,0
 MOVI r0,2
+MOVI %0,0
 .loop:
 ADD %0,%4
 ADDI r2,1
